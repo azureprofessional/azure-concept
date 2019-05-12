@@ -9,12 +9,9 @@ Azure has grown rapidly since its introduction in 2008. This growth required Mic
   | Recommendations for Azure enterprise administration |                                                                                                                                                                              |
   | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
   | Limit the number of administrative users            | Assign a minimum number of users as Subscription Administrators and/or Co-administrators.                                                                                    |
-  | Use Role-Based                                      |
-  | Access                                              | Use Azure Resource Management RBAC whenever possible to control the amount of access that administrators have, and log what changes are made to the environment.             |
+  | Use Role-Based Access                                              | Use Azure Resource Management RBAC whenever possible to control the amount of access that administrators have, and log what changes are made to the environment.             |
   | Use work accounts                                   | You should sign up for Azure as an organization and use a work or school account to manage resources in Azure. Do not allow the use of existing personal Microsoft Accounts. |
-  | Define naming                                       |
-  | conventions                                         | Assign meaningful names to your Azure subscriptions according to defined naming conventions.                                                                                 |
-  | Use Tier 0                                          |
-  | subscription                                        | Use Tier 0 subscription to host shared resources, such as domain controllers and other sensitive roles, and limit the privileges to access it.                               |
+  | Define naming conventions                                         | Assign meaningful names to your Azure subscriptions according to defined naming conventions.                                                                                 |
+  | Use Tier 0 subscription                                        | Use Tier 0 subscription to host shared resources, such as domain controllers and other sensitive roles, and limit the privileges to access it.                               |
   | Use project subscriptions                           | Use decentralized project subscriptions. Delegate management of those subscriptions to the responsible project teams.                                                        |
   | Separate production from QA                         | Separate QA environments into distinct subscriptions to allow separation of access and to allow the QA subscription to scale on its own without impacting production.        |
