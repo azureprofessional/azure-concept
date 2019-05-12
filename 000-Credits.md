@@ -3,7 +3,7 @@
 | Date       | Contributor       | Company            |
 | ---------- | ----------------- | ------------------ |
 | 2019-05-01 | Matthias Gessenay | Corporate Software |
-| Row2       |                   |                    |
+| 2019-05-12 | Stefan Beckmann   | Unico Data AG      |
 | Row3       |                   |                    |
 | Row4       |                   |                    |
 | Row5       |                   |                    |
