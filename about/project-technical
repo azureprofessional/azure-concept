@@ -23,4 +23,7 @@ docs.microsoft.com uses the Markdig flavor - this means, we can use all the auth
 We need a german version. 
 
 ## Numbering scheme
-The idea is to have 
+The idea is to have sections 
+
+## Conversion
+With pandoc, you can convert this document to word.
