@@ -30,7 +30,7 @@ Access to resources can be either internal (within the corporation's network) or
 
   - **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
 
-  - ![](.//media/image27.png)![](.//media/image27.png)![](.//media/image27.png)![](.//media/image27.png)![](.//media/image27.png)**Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
+  - ![](..//media/image27.png)![](..//media/image27.png)![](..//media/image27.png)![](..//media/image27.png)![](..//media/image27.png)**Network security groups** are similar to a firewall and provide rules for how a resource can "talk" over the network. They provide granular control over how/if a subnet (or virtual machine) can connect to the Internet or other subnets in the same virtual network.
 
   - Create virtual networks dedicated to external-facing workloads and internal-facing workloads. This approach reduces the chance of inadvertently placing virtual machines that are intended for internal workloads in an external facing space.
 

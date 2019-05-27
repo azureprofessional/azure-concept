@@ -94,11 +94,11 @@ Throughput Benchmark</th>
 
 ### Site-to-Site
 
-![](.//media/image16.png)A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. S2S connections can be used for cross-premises and hybrid configurations. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT.
+![](..//media/image16.png)A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. S2S connections can be used for cross-premises and hybrid configurations. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT.
 
 ### Multi-Site
 
-![](.//media/image17.png)This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
+![](..//media/image17.png)This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
 
 ## Point-to-Site
 
@@ -106,9 +106,9 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Unlike S2S connections, P2S connections do not require an on-premises public-facing IP address or a VPN device. P2S connections can be used with S2S connections through the same VPN gateway, as long as all the configuration requirements for both connections are compatible.
 
-![](.//media/image18.png)
+![](..//media/image18.png)
 
-## ![](.//media/image19.png)VNet-to-VNet
+## ![](..//media/image19.png)VNet-to-VNet
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can even combine VNet-to-VNet communication with multi-site connection configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
@@ -201,7 +201,7 @@ A network security group (NSG) contains a list of security rules that allow or d
 
 NSGs contain two sets of rules: Inbound and outbound. The priority for a rule must be unique within each set.
 
-![NSG rule processing](.//media/image20.png)
+![NSG rule processing](..//media/image20.png)
 
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 

@@ -8,7 +8,7 @@ For example, you can apply policies to a management group that limits the region
 
 ## Hierarchy of management groups and subscriptions
 
-![](.//media/image13.png)You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management. The diagram shows an example of creating a hierarchy for governance using management groups.
+![](..//media/image13.png)You can build a flexible structure of management groups and subscriptions to organize your resources into a hierarchy for unified policy and access management. The diagram shows an example of creating a hierarchy for governance using management groups.
 
 By creating a hierarchy like this example you can apply a policy, for example, VM locations limited to US West Region on the group "Infrastructure Team management group" to enable internal compliance and security policies. This policy will inherit onto both EA subscriptions under that management group and will apply to all VMs under those subscriptions. As this policy inherits from the management group to the subscriptions, this security policy cannot be altered by the resource or subscription owner allowing for improved governance.
 
