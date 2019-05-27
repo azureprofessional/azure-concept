@@ -13,6 +13,7 @@ Organizations that do not enforce data access control by leveraging capabilities
 ## Security Principal
 
 ![](..//media/image28.png)
+
 A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
 
   - **User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
@@ -43,6 +44,7 @@ If the built-in roles don’t meet the specific needs of the organization, there
 ## Scope
 
 ![](..//media/image30.png)
+
 Scope is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group.
 
 In Azure, you can specify a scope at multiple levels: subscription, resource group, or resource. Scopes are structured in a parent-child relationship where every child will have only one parent.
@@ -57,6 +59,7 @@ Azure also includes a scope above subscriptions called management groups (See 6 
 
 ## Assignment
 ![](..//media/image31.png)
+
 A role assignment is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
 The diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the Contributor role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.

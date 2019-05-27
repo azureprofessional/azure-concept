@@ -19,13 +19,16 @@ Every enterprise is different and the hierarchy in the previous image allows for
 The three common patterns for Azure enrolments are:
 
   - Functional pattern
+
 ![](..//media/image5.png)
 
   - Business unit pattern
+
 ![](..//media/image6.png)
 
   - Geographic pattern
-    ![](..//media/image7.png)
+
+![](..//media/image7.png)
 
 The following roles will be defined:
 

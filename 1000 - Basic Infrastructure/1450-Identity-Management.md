@@ -5,6 +5,7 @@
 Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD. This topic will guide you through the planning, deployment, and operation steps. It is a collection of links to the topics related to this area.
 
 ![](..//media/image21.png)
+
 We recommend using Azure AD Connect. If Azure Active Directory Sync is in use, we recommend as well to upgrade to AD Connect, as DirSync is deprecated.
 
   - Synchronizing users to Azure AD is a free feature and doesn’t require customers to have any paid subscription.
@@ -14,6 +15,7 @@ We recommend using Azure AD Connect. If Azure Active Directory Sync is in use, w
   - Microsoft’s recommendation is for IT admins to synchronize all their users. This not only unblocks the users to access any Azure AD integrated resource but also gives a much broader view for IT admins to see what applications are being accessed by their users.
 
 ![](..//media/image22.png)
+
 Azure Active Directory Connect is made up of three primary components: the synchronization services, the optional Active Directory Federation Services component, and the monitoring component named Azure AD Connect Health.
 
   - Synchronization - This component is responsible for creating users, groups, and other objects. It is also responsible for making sure identity information for your on-premises users and groups is matching the cloud.
@@ -45,7 +47,9 @@ Azure Active Directory (Azure AD) Connect allows your users to sign in to both c
 
 ### Password hash synchronization
 
-![](..//media/image23.png)With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
+![](..//media/image23.png)
+
+With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
 
 In addition, you can enable Seamless SSO for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
 
@@ -54,6 +58,7 @@ In addition, you can enable Seamless SSO for users on domain-joined machines tha
 With pass-through authentication, the user’s password is validated against the on-premises Active Directory controller. The password doesn't need to be present in Azure AD in any form. This allows for on-premises policies, such as sign-in hour restrictions, to be evaluated during authentication to cloud services.
 
 ![](..//media/image24.png)
+
 Pass-through authentication uses a simple agent on a Windows Server 2012 R2 domain-joined machine in the on-premises environment. This agent listens for password validation requests. It doesn't require any inbound ports to be open to the Internet.
 
 In addition, you can also enable single sign-on for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
@@ -61,6 +66,7 @@ In addition, you can also enable single sign-on for users on domain-joined machi
 ### Federation with a new or existing farm with AD FS
 
 ![](..//media/image25.png)
+
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.
 
 ## Best practices
