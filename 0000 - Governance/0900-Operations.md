@@ -18,7 +18,7 @@ Today traditional IT is usually using multiple different tools for platform and 
 
 Core monitoring provides fundamental, required monitoring across Azure resources. These services require minimal configuration and collect core telemetry that the premium monitoring services use.
 
-Azure Monitor
+#### Azure Monitor
 
 Azure Monitor enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. For example, the activity log tells you when new resources are created or modified.
 
@@ -26,15 +26,15 @@ Metrics are available that provide performance statistics for different resource
 
 You can also send these metrics and logs Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.
 
-Azure Advisor
+#### Azure Advisor
 
 Azure Advisor constantly monitors your resource configuration and usage telemetry. It then gives you personalized recommendations based on best practices. Following these recommendations helps you improve the performance, security, and availability of the resources that support your applications.
 
-Service Health
+#### Service Health
 
 The health of your application relies on the Azure services that it depends on. Azure Service Health identifies any issues with Azure services that might affect your application. Service Health also helps you plan for scheduled maintenance.
 
-Activity Log
+#### Activity Log
 
 Activity Log provides data about the operation of an Azure resource. This information includes:
 
@@ -154,7 +154,9 @@ Microsoft’s **best practices** while configuring backups for virtual machines:
 
 ### Files and Folders
 
-![](..//media/image26.png)This backup option is designed to back up files and folders from any Windows machine. The machine can run in Azure, on-premises, or in any other cloud; it can be physical or virtual. You cannot use this option to back up the system state, or to create a Bare-Metal-Restore (BMR) backup. The Recovery Services Vault could be the one that is mentioned in the previous section, or it could be any other Recovery Services Vault.
+![](..//media/image26.png)
+
+This backup option is designed to back up files and folders from any Windows machine. The machine can run in Azure, on-premises, or in any other cloud; it can be physical or virtual. You cannot use this option to back up the system state, or to create a Bare-Metal-Restore (BMR) backup. The Recovery Services Vault could be the one that is mentioned in the previous section, or it could be any other Recovery Services Vault.
 
 Azure Backup for files and folders requires the installation of an Azure Backup Agent on the server, which can be downloaded from the Azure Recovery Services Vault. After installing the agent, it is necessary to connect the server to the Recovery Services Vault by downloading the vault credential files from the Recovery Services Vault. The vault credentials file is used only during the registration workflow and expires after 48 hours. Ensure that the vault credential file is available in a location that can be accessed by the setup application.
 

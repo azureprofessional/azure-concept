@@ -42,7 +42,8 @@ An availability set is composed of two additional groupings that protect against
 
 ***Fault domains***
 
-![](..//media/image14.png)A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
+![](..//media/image14.png)
+A fault domain is a logical group of underlying hardware that share a common power source and network switch, similar to a rack within an on-premises datacenter. As you create VMs within an availability set, the Azure platform automatically distributes your VMs across these fault domains. This approach limits the impact of potential physical hardware failures, network outages, or power interruptions.
 
 ***Update domains***
 
@@ -62,7 +63,8 @@ Build high-availability into your application architecture by co-locating your c
 
   - Zone-redundant services – platform replicates automatically across zones (for example, zone-redundant storage, SQL Database).
 
-![](..//media/image15.png)To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection.
+![](..//media/image15.png)
+To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection.
 
 ### Support of Availability Zones
 

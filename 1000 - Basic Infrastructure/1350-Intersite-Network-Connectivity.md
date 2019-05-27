@@ -32,9 +32,8 @@ The available values for -GatewayType are:
 
 ### Planning 
 
-|                              |                                                                                              |                                                                                                         |                                                                                                                                      |
-| ---------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 |                              | **Point-to-Site**                                                                            | **Site-to-Site**                                                                                        | **ExpressRoute**                                                                                                                     |
+| ---------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | **Azure Supported Services** | Cloud Services and Virtual Machines                                                          | Cloud Services and Virtual Machines                                                                     | [Services list](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#supported-services)                            |
 | **Typical Bandwidths**       | Typically \< 100 Mbps aggregate                                                              | Typically \< 1 Gbps aggregate                                                                           | 50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps                                                               |
 | **Protocols Supported**      | Secure Sockets Tunneling Protocol (SSTP)                                                     | IPsec                                                                                                   | Direct connection over VLANs, NSP's VPN technologies (MPLS, VPLS,...)                                                                |
@@ -94,11 +93,13 @@ Throughput Benchmark</th>
 
 ### Site-to-Site
 
-![](..//media/image16.png)A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. S2S connections can be used for cross-premises and hybrid configurations. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT.
+![](..//media/image16.png)
+A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv1 or IKEv2) VPN tunnel. S2S connections can be used for cross-premises and hybrid configurations. A S2S connection requires a VPN device located on-premises that has a public IP address assigned to it and is not located behind a NAT.
 
 ### Multi-Site
 
-![](..//media/image17.png)This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
+![](..//media/image17.png)
+This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
 
 ## Point-to-Site
 
@@ -108,7 +109,8 @@ Unlike S2S connections, P2S connections do not require an on-premises public-fac
 
 ![](..//media/image18.png)
 
-## ![](..//media/image19.png)VNet-to-VNet
+## VNet-to-VNet
+![](..//media/image19.png) 
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can even combine VNet-to-VNet communication with multi-site connection configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
 
