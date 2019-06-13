@@ -12,7 +12,9 @@ Organizations that do not enforce data access control by leveraging capabilities
 
 ## Security Principal
 
-![](.//media/image28.png)A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
+![](..//media/image28.png)
+
+A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
 
   - **User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
 
@@ -20,7 +22,8 @@ Organizations that do not enforce data access control by leveraging capabilities
 
   - **Service principal** - A security identity used by applications or services to access specific Azure resources. You can think of it as a user identity (username and password or certificate) for an application.
 
-## ![](.//media/image29.png)Role definition
+## Role definition
+![](..//media/image29.png)
 
 A role definition is a collection of permissions. It's sometimes just called a role. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader.
 
@@ -40,7 +43,9 @@ If the built-in roles don’t meet the specific needs of the organization, there
 
 ## Scope
 
-![](.//media/image30.png)Scope is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group.
+![](..//media/image30.png)
+
+Scope is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group.
 
 In Azure, you can specify a scope at multiple levels: subscription, resource group, or resource. Scopes are structured in a parent-child relationship where every child will have only one parent.
 
@@ -52,7 +57,8 @@ Access that you assign at a parent scope is inherited at the child scope. For ex
 
 Azure also includes a scope above subscriptions called management groups (See 6 Management Groups). When you specify scope for RBAC, you can either specify a management group or specify a subscription, resource group, or resource hierarchy.
 
-## ![](.//media/image31.png)Assignment
+## Assignment
+![](..//media/image31.png)
 
 A role assignment is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 

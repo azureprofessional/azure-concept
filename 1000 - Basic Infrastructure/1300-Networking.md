@@ -49,11 +49,11 @@ The benefits of using virtual network peering, whether local or global, include:
   - **You can peer virtual networks in the same region, or different regions**. The following constraints do **not** apply when both virtual networks are in the same region, but do apply when the virtual networks are globally peered:
     
       - The virtual networks can exist in any Azure public cloud region, but not in Azure national clouds.
-    
+      
       - Resources in one virtual network cannot communicate with the IP address of an Azure internal load balancer in the peered virtual network. The load balancer and the resources that communicate with it must be in the same virtual network.
-    
+      
       - **You cannot use remote gateways or allow gateway transit**. To use remote gateways or allow gateway transit, both virtual networks in the peering must exist in the same region.
-    
+      
       - Communication across globally peered virtual networks through the following VM types is not supported: **High performance compute and GPU**. This includes H, NC, NV, NCv2, NCv3, and ND series VMs.
 
   - The virtual networks can be in **the same, or different subscriptions**. When you peer virtual networks in different subscriptions, **both subscriptions must be associated to the same Azure Active Directory tenant**. If you don't already have an AD tenant, you can quickly create one. You can use a VPN Gateway to connect two virtual networks that exist in different subscriptions that are associated to different Active Directory tenants.
@@ -67,7 +67,7 @@ The benefits of using virtual network peering, whether local or global, include:
   - When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering. You see one of the following types for peering status:
     
       - Initiated: When you create the peering to the second virtual network from the first virtual network, the peering status is Initiated.
-    
+      
       - Connected: When you create the peering from the second virtual network to the first virtual network, its peering status is Connected. If you view the peering status for the first virtual network, you see its status changed from Initiated to Connected. The peering is not successfully established until the peering status for both virtual network peerings is connected.
 
   - When peering a virtual network created through Resource Manager with a virtual network created through the classic deployment model, you only configure a peering for the virtual network deployed through Resource Manager. You cannot configure peering for a virtual network (classic), or between two virtual networks deployed through the classic deployment model. When you create the peering from the virtual network (Resource Manager) to the virtual network (Classic), the peering status is Updating, then shortly changes to Connected.
@@ -75,11 +75,11 @@ The benefits of using virtual network peering, whether local or global, include:
   - A peering is established between two virtual networks. **Peerings are not transitive.** If you create peerings between:
     
       - VirtualNetwork1 & VirtualNetwork2
-    
+      
       - VirtualNetwork2 & VirtualNetwork3
-
-**There is no peering between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2.** If you want to create a virtual network peering between VirtualNetwork1 and VirtualNetwork3, you have to create a peering between VirtualNetwork1 and VirtualNetwork3.
-
+      
+      **There is no peering between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2.** If you want to create a virtual network peering between VirtualNetwork1 and VirtualNetwork3, you have to create a peering between VirtualNetwork1 and VirtualNetwork3.
+      
   - You **can't resolve names in peered virtual networks** using default Azure name resolution. To resolve names in other virtual networks, you **must use Azure DNS** for private domains or a custom DNS server.
 
   - Resources in peered virtual networks in the same region can communicate with each other with the same bandwidth and latency as if they were in the same virtual network. Each virtual machine size has its own maximum network bandwidth however.
