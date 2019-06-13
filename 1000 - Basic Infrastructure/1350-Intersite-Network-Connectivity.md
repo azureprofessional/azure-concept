@@ -50,45 +50,19 @@ For SLA, Pricing and technical documentation see: <https://docs.microsoft.com/en
 
 ### Gateway SKUs
 
-<table>
-<thead>
-<tr class="header">
-<th>SKU</th>
-<th>S2S/VNet-to-VNet<br />
-Tunnels</th>
-<th>P2S<br />
-Connections</th>
-<th>Aggregate<br />
-Throughput Benchmark</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>VpnGw1</td>
-<td>Max. 30</td>
-<td>Max. 128</td>
-<td>650 Mbps</td>
-</tr>
-<tr class="even">
-<td>VpnGw2</td>
-<td>Max. 30</td>
-<td>Max. 128</td>
-<td>1 Gbps</td>
-</tr>
-<tr class="odd">
-<td>VpnGw3</td>
-<td>Max. 30</td>
-<td>Max. 128</td>
-<td>1.25 Gbps</td>
-</tr>
-<tr class="even">
-<td>Basic</td>
-<td>Max. 10</td>
-<td>Max. 128</td>
-<td>100 Mbps</td>
-</tr>
-</tbody>
-</table>
+The new VPN gateway SKUs streamline the feature sets offered on the gateways:
+
+**SKU	Features**
+*Basic*
+Route-based VPN: 10 tunnels for S2S/connections; no RADIUS authentication for P2S; no IKEv2 for P2S
+Policy-based VPN: (IKEv1): 1 S2S/connection tunnel; no P2S
+
+*VpnGw1, VpnGw2, and VpnGw3*
+Route-based VPN: up to 30 tunnels (*), P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN coexistence
+
+The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. You can't resize a gateway that uses a Basic SKU to one of the new gateway SKUs, you must instead change to a new SKU, which involves deleting and recreating your VPN gateway.
+
+(Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)
 
 ## Site-to-Site and Multi-Site
 
@@ -114,11 +88,11 @@ Connecting a virtual network to another virtual network (VNet-to-VNet) is simila
 
 The VNets you connect can be:
 
-  - in the same or different regions
+- in the same or different regions
 
-  - in the same or different subscriptions
+- in the same or different subscriptions
 
-  - in the same or different deployment models
+- in the same or different deployment models
 
 ## Express Route
 
@@ -134,62 +108,54 @@ To connect your on-premise location with your Hub-VNet in Azure, we recommend se
 
 <https://docs.microsoft.com/en-us/azure/security/azure-security-network-security-best-practices>
 
-<table>
-<thead>
-<tr class="header">
-<th>Recommendations for cloud connectivity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Optimize intranet connectivity to your edge network</td>
-<td>Over the years, many organizations have optimized intranet connectivity and performance to applications running in on-premises datacenters. With productivity and IT workloads running in the Microsoft cloud, additional investment must ensure high-connectivity availability and that traffic performance between your edge network and your intranet users is optimal.</td>
-</tr>
-<tr class="even">
-<td>Optimize throughput at your edge network</td>
-<td>As more of your day-to-day productivity traffic travels to the cloud, you should closely examine the set of systems at your edge network to ensure that they are current, provide high availability, and have sufficient capacity to meet peak loads.</td>
-</tr>
-<tr class="odd">
-<td>For a high SLA use ExpressRoute</td>
-<td>Although you can utilize your current Internet connection from your edge network, traffic to and from Microsoft cloud services must share the pipe with other intranet traffic going to the Internet. In addition, your traffic to Microsoft cloud services is subject to Internet traffic congestion. For a high SLA and the best performance, use ExpressRoute, a dedicated WAN connection between your network and Azure. ExpressRoute can leverage your existing network provider for a dedicated connection. Resources connected by ExpressRoute appear as if they are on your WAN, even for geographically distributed organizations</td>
-</tr>
-<tr class="even">
-<td>Analyze your current network</td>
-<td><ul>
-<li><p>Analyze your client computers and optimize for network hardware, software drivers, protocol settings, and Internet browsers.</p></li>
-<li><p>Analyze your on-premises network for traffic latency and optimal routing to the Internet edge device.</p></li>
-<li><p>Analyze the capacity and performance of your Internet edge device and optimize for higher levels of traffic.</p></li>
-<li><p>Analyze the latency between your Internet edge device (such as your external firewall) and the regional locations of the Microsoft cloud service to which you are connecting.</p></li>
-<li><p>Analyze the capacity and utilization of your current Internet connection and add capacity if needed. Alternately, add an ExpressRoute connection.</p></li>
-</ul></td>
-</tr>
-<tr class="odd">
-<td>Plan and design networking for Azure</td>
-<td><ul>
-<li><p>Prepare your intranet for Microsoft cloud services.</p></li>
-<li><p>Optimize your Internet bandwidth.</p></li>
-<li><p>Determine the type of VNet (cloud-only or cross-premises).</p></li>
-<li><p>Determine the address space of the VNet.</p></li>
-<li><p>Determine the subnets within the VNet and the address spaces assigned to each.</p></li>
-<li><p>Determine the DNS server configuration and the addresses of the DNS servers to assign to VMs in the VNet.</p></li>
-<li><p>Determine the load balancing configuration (Internet-facing or internal).</p></li>
-<li><p>Determine the use of virtual appliances and user-defined routes.</p></li>
-<li><p>Determine how computers from the Internet will connect to virtual machines.</p></li>
-<li><p>For multiple VNets, determine the VNet-to-VNet connection topology.</p></li>
-<li><p>Determine the on-premises connection to the VNet (S2S VPN or ExpressRoute).</p></li>
-<li><p>Determine the on-premises VPN device or router.</p></li>
-<li><p>Add routes to make the address space of the VNet reachable.</p></li>
-</ul>
-<ul>
-<li><p>For ExpressRoute, plan for the new connection with your provider.</p></li>
-<li><p>Determine the Local Network address space for the Azure gateway.</p></li>
-<li><p>Configure on-premises DNS servers for DNS replication with DNS servers hosted in Azure.</p></li>
-<li><p>Determine the use of forced tunneling and user-defined routes.</p></li>
-</ul></td>
-</tr>
-</tbody>
-</table>
+| Recommendations for cloud connectivity              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Optimize intranet connectivity to your edge network | Over the years, many organizations have optimized intranet connectivity and performance to applications running in on-premises datacenters. With productivity and IT workloads running in the Microsoft cloud, additional investment must ensure high-connectivity availability and that traffic performance between your edge network and your intranet users is optimal.                                                                                                                                                                                                                                                                 |
+| Optimize throughput at your edge network            | As more of your day-to-day productivity traffic travels to the cloud, you should closely examine the set of systems at your edge network to ensure that they are current, provide high availability, and have sufficient capacity to meet peak loads.                                                                                                                                                                                                                                                                                                                                                                                      |
+| For a high SLA use ExpressRoute                     | Although you can utilize your current Internet connection from your edge network, traffic to and from Microsoft cloud services must share the pipe with other intranet traffic going to the Internet. In addition, your traffic to Microsoft cloud services is subject to Internet traffic congestion. For a high SLA and the best performance, use ExpressRoute, a dedicated WAN connection between your network and Azure. ExpressRoute can leverage your existing network provider for a dedicated connection. Resources connected by ExpressRoute appear as if they are on your WAN, even for geographically distributed organizations |
+| Analyze your current network                        | Analyze your client computers and optimize for network hardware, software drivers, protocol settings, and Internet browsers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+Analyze your on-premises network for traffic latency and optimal routing to the Internet edge device.
+Analyze the capacity and performance of your Internet edge device and optimize for higher levels of traffic.
+Analyze the latency between your Internet edge device (such as your external firewall) and the regional locations of the Microsoft cloud service to which you are connecting.
+Analyze the capacity and utilization of your current Internet connection and add capacity if needed. Alternately, add an ExpressRoute connection.|
+|Plan and design networking for Azure|Prepare your intranet for Microsoft cloud services.
+Optimize your Internet bandwidth.
+Determine the type of VNet (cloud-only or cross-premises).
+Determine the address space of the VNet.
+Determine the subnets within the VNet and the address spaces assigned to each.
+Determine the DNS server configuration and the addresses of the DNS servers to assign to VMs in the VNet.
+Determine the load balancing configuration (Internet-facing or internal).
+Determine the use of virtual appliances and user-defined routes.
+Determine how computers from the Internet will connect to virtual machines.
+For multiple VNets, determine the VNet-to-VNet connection topology.
+Determine the on-premises connection to the VNet (S2S VPN or ExpressRoute).
+Determine the on-premises VPN device or router.
+Add routes to make the address space of the VNet reachable.
+
+For ExpressRoute, plan for the new connection with your provider.
+Determine the Local Network address space for the Azure gateway.
+Configure on-premises DNS servers for DNS replication with DNS servers hosted in Azure.
+Determine the use of forced tunneling and user-defined routes.|
+
+## Azure Network Peering
+
+### Connectivity
+
+After virtual networks are peered, resources in either virtual network can directly connect with resources in the peered virtual network.
+
+The network latency between virtual machines in peered virtual networks in the same region is the same as the latency within a single virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any additional restriction on bandwidth within the peering.
+
+The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
+
+### Hub and Spoke Networks
+
+You can deploy hub-and-spoke networks, where the hub virtual network can host infrastructure components such as a network virtual appliance or VPN gateway. All the spoke virtual networks can then peer with the hub virtual network. Traffic can flow through network virtual appliances or VPN gateways in the hub virtual network.
+
+If you select Hub and Spoke as your subscription architecture, you should use peering for the interconnectivity between the subscription VNETs. This can look like in this example:
+
+![](https://docs.microsoft.com/de-de/azure/virtual-network/media/virtual-networks-peering-overview/figure04.png)
+
+(Reference: https://docs.microsoft.com/de-de/azure/virtual-network/virtual-network-peering-overview)
 
 ## Protecting virtual networks
 
@@ -200,8 +166,6 @@ We recommend locking all Network resources to “CanNotDelete” (see section 16
 A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet. Traffic can further be restricted by also associating an NSG to a VM or NIC.
 
 NSGs contain two sets of rules: Inbound and outbound. The priority for a rule must be unique within each set.
-
-![NSG rule processing](.//media/image20.png)
 
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 
@@ -242,3 +206,4 @@ Azure network security appliances can deliver significantly enhanced levels of s
   - If you require a higher level of network security than you can obtain with network level access controls, then we recommend that you investigate and deploy Azure virtual network security appliances.
 
 Sources: <https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams>, <https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings>
+
