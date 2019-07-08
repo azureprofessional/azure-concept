@@ -2,9 +2,7 @@
 
 ## Infrastructure Security
 
-### VM Security
-
-#### VM Authentication and access control
+### VM Security	
 
 The first step in protecting your VM is to ensure that only authorized users are able to set up new VMs. You can use Azure policies to establish conventions for resources in your organization, create customized policies, and apply these policies to resources, such as resource groups.
 
@@ -31,13 +29,15 @@ Access to resources can be either internal (within the corporation's network) or
 - Create virtual networks dedicated to external-facing workloads and internal-facing workloads. This approach reduces the chance of inadvertently placing virtual machines that are intended for internal workloads in an external facing space.
 - Configure network security groups to limit access. At a minimum, block access to the internet from internal virtual networks, and block access to the corporate network from external virtual networks.
 
+![image27](../media/image27.png)
+
 Microsoft Azure enables you to connect virtual machines and appliances to other networked devices by placing them on Azure Virtual Networks. An Azure Virtual Network is a construct that allows you to connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network enabled devices. Azure Virtual Machines connected to an Azure Virtual Network are able to connect to devices on the same Azure Virtual Network, different Azure Virtual Networks, on the Internet or even on your own on-premises networks.
 
 Azure Virtual Networks are similar to a LAN on your on-premises network. The idea behind an Azure Virtual Network is that you create a single private IP address space-based network on which you can place all your Azure Virtual Machines. The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12), and Class C (192.168.0.0/16) ranges.
 
 ## Role-based Access Control
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. We recommend going with the [least privilege security principles](https://en.wikipedia.org/wiki/Principle_of_least_privilege). 
+Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs. We recommend going with the least privilege security principles. 
 
 Within each subscription, you can grant up to 2000 role assignments.
 
@@ -51,11 +51,15 @@ Organizations that do not enforce data access control by leveraging capabilities
 
 A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
 
+![image28](../media/image28.png)
+
 - **User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
 - **Group** - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role.
 - **Service principal** - A security identity used by applications or services to access specific Azure resources. You can think of it as a user identity (username and password or certificate) for an application.
 
 ### Role Definition
+
+![image29](../media/image29.png)
 
 A role definition is a collection of permissions. It's sometimes just called a role. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader. 
 
@@ -73,6 +77,8 @@ created custom roles. Just like built-in roles, custom roles can be assigned to 
 
 ### Scope
 
+![image30](../media/image30.png)
+
 Scope is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group.
 
 In Azure, you can specify a scope at multiple levels: subscription, resource group, or resource. Scopes are structured in a parent-child relationship where every child will have only one parent.
@@ -85,6 +91,8 @@ Access that you assign at a parent scope is inherited at the child scope. For ex
 Azure also includes a scope above subscriptions called management groups. When you specify scope for RBAC, you can either specify a management group or specify a subscription, resource group, or resource hierarchy.
 
 ### Assignment
+
+![image31](../media/image31.png)
 
 A role assignment is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
