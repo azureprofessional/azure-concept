@@ -49,11 +49,11 @@ Organizations that do not enforce data access control by leveraging capabilities
 
 ### Security Principal
 
-A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
-
 ![image28](../media/image28.png)
 
-- **User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
+A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
+
+- User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
 - **Group** - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role.
 - **Service principal** - A security identity used by applications or services to access specific Azure resources. You can think of it as a user identity (username and password or certificate) for an application.
 
@@ -126,10 +126,10 @@ There are a few key differences between policy and role-based access control (RB
 
 To use policies, you must be authenticated through RBAC. Specifically, your account needs the:
 
-- Microsoft.Authorization/policydefinitions/write permission to define a policy.
-- Microsoft.Authorization/policyassignments/write permission to assign a policy.
-- Microsoft.Authorization/policySetDefinitions/write permission to define an initiative.
-- Microsoft.Authorization/policyassignments/write permission to assign an initiative.
+- 'Microsoft.Authorization/policydefinitions/write' permission to define a policy.
+- 'Microsoft.Authorization/policyassignments/write' permission to assign a policy.
+- 'Microsoft.Authorization/policySetDefinitions/write' permission to define an initiative.
+- 'Microsoft.Authorization/policyassignments/write' permission to assign an initiative.
 
 These permissions are not included in the Contributor role.
 
@@ -139,15 +139,24 @@ Every policy definition has conditions under which it is enforced. Additionally,
 
 Azure Policy offers some built-in policies that are available to you by default. For example:
 
-- Require SQL Server 12.0: This policy definition has conditions/rules to ensure that all SQL servers use version 12.0. Its action is to deny all servers that do not meet these criteria.
-- Allowed Storage Account SKUs: This policy definition has a set of conditions/rules that determine if a storage account that is being deployed is within a set of SKU sizes. Its action is to deny all servers that do not adhere to the set of defined SKU sizes.
-- Allowed Resource Type: This policy definition has a set of conditions/rules to specify the resource types that your organization can deploy. Its action is to deny all resources that are not part of this defined list.
-- Allowed Locations: This policy enables you to restrict the locations that your organization can specify when deploying resources. Its action is used to enforce your geo-compliance requirements.
-- Allowed Virtual Machine SKUs: This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
-- Apply tag and its default value: This policy applies a required tag and its default value, if it is not specified by the user.
-- Enforce tag and its value: This policy enforces a required tag and its value to a resource.
-- Not allowed resource types: This policy enables you to specify the resource types that your organization cannot deploy.
-- You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+- Require SQL Server 12.0
+  This policy definition has conditions/rules to ensure that all SQL servers use version 12.0. Its action is to deny all servers that do not meet these criteria.
+- Allowed Storage Account SKUs
+  This policy definition has a set of conditions/rules that determine if a storage account that is being deployed is within a set of SKU sizes. Its action is to deny all servers that do not adhere to the set of defined SKU sizes.
+- Allowed Resource Type
+  This policy definition has a set of conditions/rules to specify the resource types that your organization can deploy. Its action is to deny all resources that are not part of this defined list.
+- Allowed Locations
+  This policy enables you to restrict the locations that your organization can specify when deploying resources. Its action is used to enforce your geo-compliance requirements.
+- Allowed Virtual Machine SKUs
+  This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
+- Apply tag and its default value
+  This policy applies a required tag and its default value, if it is not specified by the user.
+- Enforce tag and its value
+  This policy enforces a required tag and its value to a resource.
+- Not allowed resource types
+  This policy enables you to specify the resource types that your organization cannot deploy.
+
+You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
 
 ## Sources
 
