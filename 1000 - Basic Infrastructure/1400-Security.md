@@ -53,7 +53,7 @@ Organizations that do not enforce data access control by leveraging capabilities
 
 A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
 
-- User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
+- **User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
 - **Group** - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role.
 - **Service principal** - A security identity used by applications or services to access specific Azure resources. You can think of it as a user identity (username and password or certificate) for an application.
 
