@@ -167,14 +167,7 @@ We recommend locking all Network resources to “CanNotDelete” (see section 16
 
 A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet. Traffic can further be restricted by also associating an NSG to a VM or NIC.
 
-NSGs contain two sets of rules: Inbound and outbound. The priority for a rule must be unique within each set.
-
-<<<<<<< HEAD
-=======
-![NSG rule processing](..//media/image20.png)
-
->>>>>>> d54d8fa16992035c553ec2eeaf425f3478f4b071
-All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
+NSGs contain two sets of rules: Inbound and outbound. The priority for a rule must be unique within each set. All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 
 The default rules allow and disallow traffic as follows:
 
