@@ -107,6 +107,3 @@ You can use the Azure CLI command `az acr show-usage` to display the current siz
 
 Source: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-best-practices
 
-
-
-## Azure Kubernetes Service
