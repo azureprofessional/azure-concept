@@ -58,7 +58,7 @@ This approach is resumed in the CSP Model – whereas the customer doesn’t hav
 
 ![](..//media/image12.png)
 
-If Azure Services are provided by a Cloud Service Provider as Corporate Software, all the administrative elements above the subscription are eliminated. Within the CSP, the different defined subscriptions are bound directly to an Azure Active Directory (Azure AD).
+If Azure Services are provided by a Cloud Service Provider, all the administrative elements above the subscription are eliminated. Within the CSP, the different defined subscriptions are bound directly to an Azure Active Directory (Azure AD).
 
 CSP provided Azure subscriptions can only be managed over the ARM (Azure Resource Manager) Portal. There are no service or co-administrators. To control access, Azure provides roles (see chapter 16.3 Role based access control (RBAC)).
 
