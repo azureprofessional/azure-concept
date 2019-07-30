@@ -58,11 +58,37 @@ This approach is resumed in the CSP Model – whereas the customer doesn’t hav
 
 ![](..//media/image12.png)
 
-If Azure Services are provided by a Cloud Service Provider as Corporate Software, all the administrative elements above the subscription are eliminated. Within the CSP, the different defined subscriptions are bound directly to an Azure Active Directory (Azure AD).
+If Azure Services are provided by a Cloud Service Provider, all the administrative elements above the subscription are eliminated. Within the CSP, the different defined subscriptions are bound directly to an Azure Active Directory (Azure AD).
 
 CSP provided Azure subscriptions can only be managed over the ARM (Azure Resource Manager) Portal. There are no service or co-administrators. To control access, Azure provides roles (see chapter 16.3 Role based access control (RBAC)).
 
 The CSP licence provider is always the owner over all of the ordered subscriptions and defines who else is owner of a subscription. This definition is modelled on the Azure AD tenant of the CSP.
 
+The rights on the Subscription come over a Foreign Principal from the CSP Tenant. You can only choose between the following roles:
+- Admin Agent
+- Helpdesk Agent
+- Sales Agent
+
+The problem is, that this authorization will be applied overall tenants at the same time. And currently, it is not possible to use Privileged Identity Management for clients, from CSP Tenant.
+
+## Lighthouse
+
+Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale, and enhanced governance. With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
+
+This helps to fill the gap from the CSP right delegation. With Azure Lighthouse it's possible to delegate a lot of services, granularly per customer. The following are the actual supported services:
+- Azure Automation
+- Azure Backup
+- Azure Monitor
+- Azure Policy
+- Azure Resource Graph
+- Azure Security Center
+- Azure Service Health
+- Azure Site Recovery
+- Azure Virtual Machines
+- Azure Virtual Network
+
 Source: <https://docs.microsoft.com/en-us/azure/security/governance-in-azure>
 Source: <https://www.credera.com/blog/credera-site/azure-governance-part-2-using-subscriptions-resource-groups-building-blocks/>
+Source: <https://docs.microsoft.com/en-us/azure/cloud-solution-provider/customer-management/administration-delegation>
+Source: <https://docs.microsoft.com/de-de/azure/lighthouse/overview>
+Source: <https://docs.microsoft.com/de-de/azure/lighthouse/concepts/cross-tenant-management-experience>

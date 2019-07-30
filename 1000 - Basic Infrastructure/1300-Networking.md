@@ -22,6 +22,11 @@ Each service is placed in a separate subnet.
 
 For isolation and traffic control, each Subnet is assigned with a network security group, where in- and outbound network connectivity can be controlled. For more specific control, NSG’s can be assigned to the network interface card (NIC) of a VM. As services are very separated between subnets, this is only recommended in special cases.
 
+## Application security group (ASG)
+
+Instead of NSG on the network interface card, ASG can be used. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
+With ASG, you can control the traffic without the need to assign an NSG to a NIC, with the full isolation of a NIC.
+
 ## VNet Peering
 
 Virtual network peering enables you to seamlessly connect two Azure virtual networks. Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through private IP addresses only. Azure supports:
@@ -110,4 +115,4 @@ The architecture consists of the following components.
 
 We recommend defining a logical structure of the private address spaces, that can be used in Azure. It is important to keep in mind, that each address space must be flexible for other resources but not overlap with other private address spaces of other VNets or locally used private address spaces. Adress Spaces cannot be changed in peered VNets – the Virtual Networks must be unpeered to add or remove additional address spaces, and then again be peered.
 
-Source: <https://docs.microsoft.com/en-us/office365/enterprise/designing-networking-for-microsoft-azure-iaas>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>, <http://www.itprotoday.com/microsoft-azure/understand-virtual-network-sharing-across-subscriptions>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints>
+Source: <https://docs.microsoft.com/en-us/office365/enterprise/designing-networking-for-microsoft-azure-iaas>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>, <http://www.itprotoday.com/microsoft-azure/understand-virtual-network-sharing-across-subscriptions>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints>,<https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#application-security-groups>
