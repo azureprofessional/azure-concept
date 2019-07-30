@@ -14,6 +14,8 @@ Azure virtual machines can be used in various ways. Some examples are:
 
 The number of VMs that your application uses can scale up and out to whatever is required to meet your needs.
 
+Source: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview
+
 ## Azure Virtual Machines
 ### Types and Sizes
 
@@ -31,6 +33,8 @@ The following table sorts the available VM-sizes in six categories and provides 
 | [GPU](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-gpu)                      | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3 (Preview) | Specialized virtual machines targeted for heavy graphic rendering and video editing, as well as model training and inferencing (ND) with deep learning. Available with single or multiple GPUs. |
 | [High performance compute](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-hpc) | HB, HC, H                                              | Our fastest and most powerful CPU virtual machines with optional high-throughput network interfaces (RDMA).                                                                                     |
 
+Source: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes
+
 ### Operating Systems
 
 Azure provides a variety of OS images that you can install into the VM, including several versions of Windows and Linux. The choice of OS will influence your hourly compute pricing as Azure bundles the cost of the OS license into the price.
@@ -42,6 +46,9 @@ Finally, if you can't find a suitable OS image, you can create your disk image w
 #### Azure Hybrid Benefit
 
 For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. 
+
+Source: Microsoft AZ-100.3, Deploying and
+Managing Virtual Machines
 
 ## VM Scale Sets
 
@@ -77,6 +84,8 @@ Scale sets are built from virtual machines. With scale sets, the management and 
 
 There is no additional cost to scale sets. You only pay for the underlying compute resources such as the VM instances, load balancer, or Managed Disk storage. The management and automation features, such as autoscale and redundancy, incur no additional charges over the use of VMs.
 
+Source: https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+
 ## Extensions
 
 Azure virtual machine extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or a configuration script inside, a VM extension can be used. Extensions are all about managing your virtual machines.
@@ -90,13 +99,5 @@ Azure VM extensions can be:
 
 To handle the extension on the VM, you need the Azure Windows Agent installed. The Azure VM agent manages interactions between an Azure VM and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure VMs, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images, and can be installed manually on supported operating systems.
 
-## Sources
-
-[Azure Virtual Machines Documentation](<https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview>)
-
-[Azure Virtual Machine Scale Sets Documentation](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/overview)
-
-[Azure VM Extensions Documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/overview)
-
-[Limitations for VMs in Azure](<https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#virtual-machines-limits>)
+Source: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/overview
 

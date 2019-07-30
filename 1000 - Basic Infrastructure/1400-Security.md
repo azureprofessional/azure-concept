@@ -47,6 +47,8 @@ You can leverage built in RBAC roles in Azure to assign privileges to users. Con
 
 Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary to their users. This can lead to data compromise by allow users access to certain types of types of data (e.g., high business impact) that they shouldn’t have in the first place.
 
+Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview
+
 ### Security Principal
 
 ![image28](../media/image28.png)
@@ -56,6 +58,8 @@ A security principal is an object that represents a user, group, or service prin
 - **User** - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see Azure Active Directory B2B.
 - **Group** - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role.
 - **Service principal** - A security identity used by applications or services to access specific Azure resources. You can think of it as a user identity (username and password or certificate) for an application.
+
+Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#security-principal
 
 ### Role Definition
 
@@ -75,6 +79,8 @@ A role definition is a collection of permissions. It's sometimes just called a r
 If the built-in roles don’t meet the specific needs of the organization, there can be
 created custom roles. Just like built-in roles, custom roles can be assigned to users, groups, and service principals at subscription, resource group, and resource scopes. Custom roles are stored in an Azure Active Directory (Azure AD) tenant and can be shared across subscriptions. Each tenant can have up to 2000 custom roles. Custom roles can be created using Azure PowerShell, Azure CLI, or the REST API.
 
+Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#security-principal
+
 ### Scope
 
 ![image30](../media/image30.png)
@@ -90,6 +96,8 @@ Access that you assign at a parent scope is inherited at the child scope. For ex
 
 Azure also includes a scope above subscriptions called management groups. When you specify scope for RBAC, you can either specify a management group or specify a subscription, resource group, or resource hierarchy.
 
+Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#scope
+
 ### Assignment
 
 ![image31](../media/image31.png)
@@ -97,6 +105,8 @@ Azure also includes a scope above subscriptions called management groups. When y
 A role assignment is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
 The diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the Contributor role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment. 
+
+Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#role-assignments
 
 ## Resource Locks
 
@@ -114,11 +124,15 @@ We recomment to protect core network options with locks. Accidental deletion of 
 
 Policies are also crucial to the maintenance of appropriate controls. We recommend that you apply a CanNotDelete lock to polices that are in use.
 
+Source: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance#azure-resource-locks
+
 ## Azure Policy
 
 IT governance creates clarity between business goals and IT projects. Good IT governance involves planning your initiatives and setting priorities on a strategic level. Does your company experience a significant number of IT issues that never seem to get resolved? Implementing policies helps you better manage and prevent them. Implementing policies is where Azure Policy comes in.
 
 Azure Policy is a service in Azure that you use to create, assign and, manage policy definitions. Policy definitions enforce different rules and actions over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for those not compliant with the policy definitions you have. For example, you can have a policy to allow only certain type of virtual machines. **Another requires that all resources have a particular tag**. These policies are then evaluated when creating and updating resources.
+
+Source: https://docs.microsoft.com/en-au/azure/governance/policy/overview
 
 ### How is it different from RBAC?
 
@@ -132,6 +146,8 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 - 'Microsoft.Authorization/policyassignments/write' permission to assign an initiative.
 
 These permissions are not included in the Contributor role.
+
+Source: https://docs.microsoft.com/en-au/azure/governance/policy/overview#how-is-it-different-from-rbac
 
 ### Policy Definition
 
@@ -158,8 +174,4 @@ Azure Policy offers some built-in policies that are available to you by default.
 
 You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
 
-## Sources
-
-[Azure Resource Locks](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance#azure-resource-locks)
-
-[Azure Policy Introduction](https://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction)
+Source: https://docs.microsoft.com/en-au/azure/governance/policy/overview#policy-definition

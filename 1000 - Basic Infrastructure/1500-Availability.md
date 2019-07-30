@@ -20,6 +20,8 @@ The goal in having two windows is to give you enough time to start maintenance a
 
 You can use the Azure portal, PowerShell, REST API, and CLI to query for the maintenance windows for your VMs and start self-service maintenance.
 
+Source: https://docs.microsoft.com/en-gb/azure/virtual-machines/windows/maintenance-and-updates
+
 ## Understand VM Reboots – maintenance vs. downtime
 
 There are three scenarios that can lead to virtual machine in Azure being impacted: unplanned hardware maintenance, unexpected downtime, and planned maintenance.
@@ -31,6 +33,8 @@ There are three scenarios that can lead to virtual machine in Azure being impact
 Virtual machines can also experience downtime in the unlikely event of an outage or disaster that affects an entire datacenter, or even an entire region. For these scenarios, Azure provides protection options including availability zones and paired regions.
 
   - **Planned Maintenance events** are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on. Most of these updates are performed without any impact upon your Virtual Machines or Cloud Services. While the Azure platform attempts to use VM Preserving Maintenance in all possible occasions, there are rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. In this case, you can perform Azure Planned Maintenance with Maintenance-Redeploy operation by initiating the maintenance for their VMs in the suitable time window.
+
+Source: https://docs.microsoft.com/en-gb/azure/virtual-machines/linux/manage-availability#understand-vm-reboots---maintenance-vs-downtime
 
 ## Availability Sets
 
@@ -67,6 +71,8 @@ Build high-availability into your application architecture by co-locating your c
 ![](..//media/image15.png)
 
 To achieve comprehensive business continuity on Azure, build your application architecture using the combination of Availability Zones with Azure region pairs. You can synchronously replicate your applications and data using Availability Zones within an Azure region for high-availability and asynchronously replicate across Azure regions for disaster recovery protection.
+
+Source: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview
 
 ### Support of Availability Zones
 
@@ -112,6 +118,10 @@ Services:
 
   - ExpressRoute
 
+Source: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#pricing
+
 ### Pricing
 
 There is no additional cost for virtual machines deployed in an Availability Zone. 99.99% VM uptime SLA is offered when two or more VMs are deployed across two or more Availability Zones within an Azure region. There will be additional inter-Availability Zone VM-to-VM data transfer charges.
+
+Source: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#pricing

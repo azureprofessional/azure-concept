@@ -1,5 +1,4 @@
 # Storage
-# Storage
 
 ## General Purpose v2
 
@@ -46,6 +45,8 @@ When you create a storage account, you can select one of the following replicati
 | Designed to provide \_ durability of objects over a given year                                           | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
 | Supported storage account types                                                                          | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
+Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy
+
 ### Locally redundant storage
 
 Locally redundant storage (LRS) is designed to provide at least 99.999999999% (11 9's) durability of objects over a given year by replicating your data within a storage scale unit, which is hosted in a datacenter in the region in which you created your storage account. A write request returns successfully only once it has been written to all replicas. These replicas each reside in separate fault domains and update domains within one storage scale unit.
@@ -57,10 +58,10 @@ LRS is the lowest cost option and offers least durability compared to other opti
 Locally redundant storage may still be desirable in certain scenarios:
 
   - Provides highest maximum bandwidth of Azure Storage replication options.
-
   - If your application stores data that can be easily reconstructed, you may opt for LRS.
-
   - Some applications are restricted to replicating data only within a country due to data governance requirements. A paired region could be in another country. For more information on region pairs, see Azure regions.
+
+Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-lrs
 
 ### Zone redundant storage
 
@@ -71,20 +72,15 @@ ZRS enables customers to read and write data even if a single zone is unavailabl
 ZRS is generally available in the following regions:
 
   - US East
-
   - US East 2
-
   - US West 2
-
   - US Central
-
   - North Europe
-
   - West Europe
-
   - France Central
-
   - Southeast Asia
+
+Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs
 
 ### Geo-redundant storage
 
@@ -106,6 +102,8 @@ When you create a storage account, you select the primary region for the account
 
 For North Europe the secondary region is West Europe and vice versa.
 
+Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs
+
 ### Read-access geo-redundant storage
 
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account. RA-GRS provides read-only access to the data in the secondary location, in addition to geo-replication across two regions.
@@ -115,12 +113,11 @@ When you enable read-only access to your data in the secondary region, your data
 Some considerations to keep in mind when using RA-GRS:
 
   - Your application has to manage which endpoint it is interacting with when using RA-GRS.
-
   - Since asynchronous replication involves a delay, changes that have not yet been replicated to the secondary region may be lost if data cannot be recovered from the primary region, for example in the event of a regional disaster.
-
   - If Microsoft initiates failover to the secondary region, you will have read and write access to that data after the failover has completed.
-
   - RA-GRS is intended for high-availability purposes.
+
+Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 
 ## VM Disk Storage
 
@@ -182,6 +179,8 @@ Azure Standard Solid State Drives (SSD) Managed Disks are a **cost-effective sto
 
 **Snapshots:** Like all Managed Disks, Standard SSDs also support creation of Snapshots. Snapshot type can be either Standard (HDD) or Premium (SSD). For cost saving, we recommend Snapshot type of Standard (HDD) for all Azure disk types. This is because when you create a managed disk from a snapshot, you're always able to choose a higher tier such as Standard SSD or Premium SSD.
 
+Source: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/standard-storage
+
 ### Premium storage (SSD)
 
 Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs.
@@ -193,6 +192,8 @@ In Azure, you can attach several premium storage disks to a VM. Using multiple d
 With Premium Storage, Azure offers the ability to truly lift-and-shift demanding enterprise applications like Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite, and SharePoint farms to the cloud. You can run performance-intensive database workloads in applications like SQL Server, Oracle, MongoDB, MySQL, and Redis, which require consistent high performance and low latency.
 
 For the best performance for your application, we recommend that you migrate any VM disk that requires high IOPS to Premium Storage. If your disk does not require high IOPS, you can help limit costs by keeping it in standard Azure Storage. In standard storage, VM disk data is stored on hard disk drives (HDDs) instead of on SSDs.
+
+Source: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage
 
 ### Unmanaged disks
 
@@ -298,8 +299,11 @@ Virtual Machine Disk traffic (including mount and unmount operations, and disk I
 
 **Backup and Restore of Virtual Machines using unmanaged disks in storage accounts with network rules applied is not currently supported.**
 
+Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security
+
 ### Exceptions
 
 While network rules can enable a secure network configuration for most scenarios, there are some cases where exceptions must be granted to enable full functionality. Storage accounts can be configured with exceptions for Trusted Microsoft services, and for access to Storage analytics data.
 
-Sources: <https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json>, <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/about-disks-and-vhds>, <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/standard-storage>, <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage>, <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview>
+Source:
+https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions

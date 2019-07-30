@@ -24,6 +24,8 @@ Azure Active Directory Connect is made up of three primary components: the synch
 
   - Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. For additional information, see Azure Active Directory Connect Health.
 
+Source: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect
+
 ## User Sign-in options
 
 Azure Active Directory (Azure AD) Connect allows your users to sign in to both cloud and on-premises resources by using the same passwords. This article describes key concepts for each identity model to help you choose the identity that you want to use for signing in to Azure AD.
@@ -45,6 +47,8 @@ Azure Active Directory (Azure AD) Connect allows your users to sign in to both c
 
 \*Through a lightweight agent.
 
+Source: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-user-signin#choosing-the-user-sign-in-method-for-your-organization
+
 ### Password hash synchronization
 
 ![](..//media/image23.png)
@@ -52,6 +56,8 @@ Azure Active Directory (Azure AD) Connect allows your users to sign in to both c
 With password hash synchronization, hashes of user passwords are synchronized from on-premises Active Directory to Azure AD. When passwords are changed or reset on-premises, the new password hashes are synchronized to Azure AD immediately so that your users can always use the same password for cloud resources and on-premises resources. The passwords are never sent to Azure AD or stored in Azure AD in clear text. You can use password hash synchronization together with password write-back to enable self-service password reset in Azure AD.
 
 In addition, you can enable Seamless SSO for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
+
+Source: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-user-signin#password-hash-synchronization
 
 ### Pass-through authentication
 
@@ -63,11 +69,15 @@ Pass-through authentication uses a simple agent on a Windows Server 2012 R2 doma
 
 In addition, you can also enable single sign-on for users on domain-joined machines that are on the corporate network. With single sign-on, enabled users only need to enter a username to help them securely access cloud resources.
 
+Source: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-user-signin#pass-through-authentication
+
 ### Federation with a new or existing farm with AD FS
 
 ![](..//media/image25.png)
 
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.
+
+Source: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-user-signin#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2
 
 ## Best practices
 
