@@ -12,6 +12,8 @@ You can connect virtual networks to each other by using:
 
   - **An Azure VPN Gateway:** The virtual networks can exist in the same, or different Azure regions. Bandwidth between resources in virtual networks connected through a VPN Gateway is limited by the bandwidth of the VPN Gateway.
 
+Source: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview>
+
 ## Subnets
 
 Each VNet can contain different subnets.
@@ -27,6 +29,8 @@ For isolation and traffic control, each Subnet is assigned with a network securi
 Instead of NSG on the network interface card, ASG can be used. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
 With ASG, you can control the traffic without the need to assign an NSG to a NIC, with the full isolation of a NIC.
 
+Source: <https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#application-security-groups>
+
 ## VNet Peering
 
 Virtual network peering enables you to seamlessly connect two Azure virtual networks. Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through private IP addresses only. Azure supports:
@@ -38,16 +42,13 @@ Virtual network peering enables you to seamlessly connect two Azure virtual netw
 The benefits of using virtual network peering, whether local or global, include:
 
   - Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
-
   - A low-latency, high-bandwidth connection between resources in different virtual networks.
-
   - The ability for resources in one virtual network to communicate with resources in a different virtual network, once the virtual networks are peered.
-
   - The ability to transfer data across Azure subscriptions, deployment models, and across Azure regions.
-
   - The ability to peer virtual networks created through the Azure Resource Manager or to peer one virtual network created through Resource Manager to a virtual network created through the classic deployment model. To learn more about Azure deployment models, see Understand Azure deployment models.
-
   - No downtime to resources in either virtual network when creating the peering, or after the peering is created.
+
+Source: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>, <http://www.itprotoday.com/microsoft-azure/understand-virtual-network-sharing-across-subscriptions>
 
 ### Requirements and Constraints
 
@@ -93,6 +94,8 @@ The benefits of using virtual network peering, whether local or global, include:
 
   - There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering.
 
+Source: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints>
+
 ## Hub-Spoke Architecture
 
 The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.
@@ -115,4 +118,4 @@ The architecture consists of the following components.
 
 We recommend defining a logical structure of the private address spaces, that can be used in Azure. It is important to keep in mind, that each address space must be flexible for other resources but not overlap with other private address spaces of other VNets or locally used private address spaces. Adress Spaces cannot be changed in peered VNets – the Virtual Networks must be unpeered to add or remove additional address spaces, and then again be peered.
 
-Source: <https://docs.microsoft.com/en-us/office365/enterprise/designing-networking-for-microsoft-azure-iaas>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>, <http://www.itprotoday.com/microsoft-azure/understand-virtual-network-sharing-across-subscriptions>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview>, <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints>,<https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#application-security-groups>
+Source: <https://docs.microsoft.com/en-us/office365/enterprise/designing-networking-for-microsoft-azure-iaas>
