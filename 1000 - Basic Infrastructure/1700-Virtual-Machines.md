@@ -100,4 +100,3 @@ Azure VM extensions can be:
 To handle the extension on the VM, you need the Azure Windows Agent installed. The Azure VM agent manages interactions between an Azure VM and the Azure fabric controller. The VM agent is responsible for many functional aspects of deploying and managing Azure VMs, including running VM extensions. The Azure VM agent is preinstalled on Azure Marketplace images, and can be installed manually on supported operating systems.
 
 Source: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/overview
-
