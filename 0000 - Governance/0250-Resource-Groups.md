@@ -2,7 +2,8 @@
 
 After the subscriptions are created, the resource groups should be planned.
 
-**In general, all the resources in your group should share the same lifecycle**. You deploy, update, and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
+**In general, all the resources in your group should share the same lifecycle, are the same type (e.g. Storage Accounts, Network) or be used for the same service**. You deploy, update, and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group. A reason for resource groups per type is security, a network admin should manage all networks, but nothing else. Same for a storage admin. And sometimes you build a service with different components, and you change in the lifetime of the service some components. But for you, it is more important to you to have the service components together and therefore use a resource group for the service.
+In many cases, it would be useful to combine these types of resource groups, one for network and one for storage, another for a service and others for different products with the same lifecycle.
 
 General information about resource groups:
 
