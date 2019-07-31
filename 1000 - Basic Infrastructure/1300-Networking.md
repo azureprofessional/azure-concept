@@ -29,6 +29,8 @@ For isolation and traffic control, each Subnet is assigned with a network securi
 Instead of NSG on the network interface card, ASG can be used. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
 With ASG, you can control the traffic without the need to assign an NSG to a NIC, with the full isolation of a NIC.
 
+At the moment it's not possible to use ASG in different VNet to create a NSG rule. It's something that ar in planning (Uservoice).
+
 Source: <https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#application-security-groups>
 
 ## VNet Peering
