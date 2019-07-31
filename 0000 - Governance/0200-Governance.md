@@ -54,6 +54,9 @@ When the account is created, a subscription can be assigned:
 
 This approach is resumed in the CSP Model – whereas the customer doesn’t have an Enterprise portal, but multiple subscriptions that are bound to his Active Directory.
 
+Source: <https://docs.microsoft.com/en-us/azure/security/governance-in-azure>
+Source: <https://www.credera.com/blog/credera-site/azure-governance-part-2-using-subscriptions-resource-groups-building-blocks/>
+
 ## CSP Hierarchy
 
 ![](..//media/image12.png)
@@ -71,11 +74,13 @@ The rights on the Subscription come over a Foreign Principal from the CSP Tenant
 
 The problem is, that this authorization will be applied overall tenants at the same time. And currently, it is not possible to use Privileged Identity Management for clients, from CSP Tenant.
 
+Source: <https://docs.microsoft.com/en-us/azure/cloud-solution-provider/customer-management/administration-delegation>
+
 ## Lighthouse
 
 Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale, and enhanced governance. With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. This offering can also benefit enterprise IT organizations managing resources across multiple tenants.
 
-This helps to fill the gap from the CSP right delegation. With Azure Lighthouse it's possible to delegate a lot of services, granularly per customer. The following are the actual supported services:
+This helps to fill the gap from the CSP right delegation. With Azure Lighthouse it's possible to delegate a lot of services, granularly per customer. The following are to the beginning supported services:
 - Azure Automation
 - Azure Backup
 - Azure Monitor
@@ -87,8 +92,8 @@ This helps to fill the gap from the CSP right delegation. With Azure Lighthouse 
 - Azure Virtual Machines
 - Azure Virtual Network
 
-Source: <https://docs.microsoft.com/en-us/azure/security/governance-in-azure>
-Source: <https://www.credera.com/blog/credera-site/azure-governance-part-2-using-subscriptions-resource-groups-building-blocks/>
-Source: <https://docs.microsoft.com/en-us/azure/cloud-solution-provider/customer-management/administration-delegation>
-Source: <https://docs.microsoft.com/de-de/azure/lighthouse/overview>
-Source: <https://docs.microsoft.com/de-de/azure/lighthouse/concepts/cross-tenant-management-experience>
+Under the following link you can find the actual list:
+https://docs.microsoft.com/en-us/azure/lighthouse/concepts/cross-tenant-management-experience#supported-services-and-scenarios
+
+Source: <https://docs.microsoft.com/en-us/azure/lighthouse/overview>
+Source: <https://docs.microsoft.com/en-us/azure/lighthouse/concepts/cross-tenant-management-experience>
