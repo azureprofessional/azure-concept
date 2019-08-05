@@ -86,33 +86,66 @@ Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn
 
 ![](..//media/image18.png)
 
-[comment]: # (remove this chapter)
-## VNet-to-VNet
-![](..//media/image19.png) 
-
-Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a VNet to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE. You can even combine VNet-to-VNet communication with multi-site connection configurations. This lets you establish network topologies that combine cross-premises connectivity with inter-virtual network connectivity.
-
-The VNets you connect can be:
-
-- in the same or different regions
-- in the same or different subscriptions
-- in the same or different deployment models
-
-Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V
-
 ## Express Route
 
-[comment]: # (For Robin: Add note that ExpressRoute traffic isn't encrypted)
-
-Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
+Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online.
 
 ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
 
 An ExpressRoute connection does not use a VPN gateway, although it does use a virtual network gateway as part of its required configuration. In an ExpressRoute connection, the virtual network gateway is configured with the gateway type 'ExpressRoute', rather than 'Vpn'.
 
-Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#ExpressRoute
+### What is Azure ExpressRoute?
 
-[Recommendations]: # (start)
+When talking about ExpressRoute, in most cases an ExpressRoute circuit is referenced. An ExpressRoute circuit represents the logical connection between your on-premises infrastructure and Microsoft cloud services through a connectivity provider. So when thinking about using Azure ExpressRoute, it is important to be aware that there is always a connectivity provider involved. You need to consider this when it comes to overall costs of ExpressRoute.
+
+It is possible to order multiple ExpressRoute circuits. Each circuit can be in the same or different regions, and can be connected to on premises through different connectivity providers. A circuit has a fixed bandwidth and is mapped to exactly one connectivity provider and one peering location (e.g. West Europe).
+
+#### Common scenarios
+
+There obviously exist a variety of reasons to implement ExpressRoute. The following scenarios are probably the most common ones:
+
+- Storage, backup and recovery
+- BI and big data (working with big amounts of data in the cloud)
+- Hybrid apps (e.g. app in the cloud and database on premise)
+
+Unlike Site-to-Site VPN which only works for IaaS, Azure ExpressRoute can be used with various other public services (e.g. Websites, IoT, Backup, database services).
+
+#### Encryption of traffic
+
+Although ExpressRoute is a private connection, traffic flowing over the network is **not encrypted**. Encryption in transit can be achieved by encrypting traffic flowing over the connection.
+
+If you wish to encrypt your traffic over ExpressRoute, you have three options:
+
+- Application level encryption
+- IPsec Site-to-Site VPN over ExpressRoute using Azure VPN Gateways. Check out ExpressRoute documentation for guidance about how to configure a site-to-site VPN over ExpressRoute Microsoft peering: https://docs.microsoft.com/en-gb/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+- Third-party appliance that performs encryption of traffic flowing over ExpressRoute. For example by deploying physical and/or virtual encryption devices on both sides (e.g. Fortinet, F5, Steelhead, etc)
+
+Source: Stefan Johner: https://blog.jhnr.ch/2018/05/29/azure-expressroute-overview/ , 2018
+
+### Connectivity Models
+
+![](..//media/expressroute-connectivity-models-diagram.png) 
+
+#### Co-located at a cloud exchange
+
+If you are co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.
+
+#### Point-to-point Ethernet connections
+You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.
+
+####  Any-to-any (IPVPN) networks
+You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed Layer 3 connectivity. ExpressRoute capabilities and features are all identical across all of the above connectivity models.
+
+Source: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-connectivity-models
+
+### ExpressRoute Providers
+
+If you're looking for an ExpressRoute service-provider, we recommend visiting the following site, for an up-to-date list of each provider broken down by location: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-locations-providers
+
+### Bandwidth Options
+You can an up-to-date list of the currently available bandwith options under the folowing site: https://docs.microsoft.com/en-gb/azure/expressroute/expressroute-introduction#bandwidth-options
+
+[Recommendations]: # "start"
 
 ## Recommendations
 
@@ -128,7 +161,7 @@ To connect your on-premise location with your Hub-VNet in Azure, we recommend se
 | Analyse your   current network                        | <ul><li> Analyse your client   computers and optimize for network hardware, software drivers, protocol   settings, and Internet browsers. Analyse your on-premises   network for traffic latency and optimal routing to the Internet edge device. </li> <li> Analyse the capacity and   performance of your Internet edge device and optimize for higher levels of   traffic. </li> <li> Analyse the latency   between your Internet edge device (such as your external firewall) and the   regional locations of the Microsoft cloud service to which you are   connecting. </li> <li> Analyse the capacity and   utilization of your current Internet connection and add capacity if needed.   Alternately, add an ExpressRoute connection. </li> </ul> |
 | Plan and design   networking for Azure                | <ul><li>Prepare your intranet for   Microsoft cloud services. </li> <li>Optimize your Internet   bandwidth. </li> <li>Determine the type of   VNet (cloud-only or cross-premises). </li> <li>Determine the address   space of the VNet. </li> <li>Determine the subnets   within the VNet and the address spaces assigned to each. </li> <li>Determine the DNS server   configuration and the addresses of the DNS servers to assign to VMs in the   VNet. </li> <li>Determine the load   balancing configuration (Internet-facing or internal). </li> <li>Determine the use of   virtual appliances and user-defined routes. </li> <li>Determine how computers   from the Internet will connect to virtual machines. </li> <li>For multiple VNets,   determine the VNet-to-VNet connection topology. </li> <li>Determine the on-premises   connection to the VNet (S2S VPN or ExpressRoute). </li> <li>Determine the on-premises   VPN device or router. </li> <li>Add routes to make the   address space of the VNet reachable. </li> <li>For ExpressRoute, plan for the new connection with   your provider. </li> <li>Determine the Local Network address space for the   Azure gateway. </li> <li> Configure on-premises DNS servers for DNS   replication with DNS servers hosted in Azure. </li> <li>Determine the use of forced tunneling and   user-defined routes.</li> </ul> |
 
-[Recommendations]: # (end)
+[Recommendations]: # "end"
 
 ## Azure Network Peering
 
