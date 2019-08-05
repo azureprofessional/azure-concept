@@ -50,7 +50,7 @@ The benefits of using virtual network peering, whether local or global, include:
   - The ability to peer virtual networks created through the Azure Resource Manager or to peer one virtual network created through Resource Manager to a virtual network created through the classic deployment model. To learn more about Azure deployment models, see Understand Azure deployment models.
   - No downtime to resources in either virtual network when creating the peering, or after the peering is created.
 
-Source: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>, <http://www.itprotoday.com/microsoft-azure/understand-virtual-network-sharing-across-subscriptions>
+Sources: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>, <http://www.itprotoday.com/microsoft-azure/understand-virtual-network-sharing-across-subscriptions>
 
 ### Requirements and Constraints
 

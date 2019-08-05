@@ -2,6 +2,8 @@
 
 ## General Purpose v2
 
+[comment]: # (Add small explanation regarding GPv1 and Blob Storage, why it's not generally used anymore and where it might still be applicable today.)
+
 General-purpose v2 (GPv2) accounts are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
 
 For block blobs in a GPv2 storage account, you can choose between hot and cool storage tiers at the account level, or hot, cool, and archive tiers at the blob level based on access patterns. Store frequently, infrequently, and rarely accessed data in the hot, cool, and archive storage tiers respectively to optimize costs.
@@ -69,17 +71,6 @@ Zone redundant storage (ZRS) is designed to simplify the development of highly a
 
 ZRS enables customers to read and write data even if a single zone is unavailable or unrecoverable. Inserts and updates to data are made synchronously and are strongly consistent.
 
-ZRS is generally available in the following regions:
-
-  - US East
-  - US East 2
-  - US West 2
-  - US Central
-  - North Europe
-  - West Europe
-  - France Central
-  - Southeast Asia
-
 Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs
 
 ### Geo-redundant storage
@@ -98,9 +89,8 @@ Considerations:
 
   - If an application wants to read from the secondary region, the user should enable RA-GRS.
 
-When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region and cannot be changed. The following table shows the primary and secondary region pairings.
-
-For North Europe the secondary region is West Europe and vice versa.
+When you create a storage account, you select the primary region for the account. The secondary region is determined based on the primary region and cannot be changed.
+You can find all region pairings, as well as more information regarding paired regions in the following Microsoft Article: https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions
 
 Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs
 
@@ -223,65 +213,17 @@ We recommend that you use Azure Managed Disks for new VMs, and that you convert 
 
 ### Comparison
 
-[comment]: # (Remove Table and add link)
-
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th>Azure Premium Disk</th>
-<th>Azure Standard Disk</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Disk Type</td>
-<td>Solid State Drives (SSD)</td>
-<td>Hard Disk Drives (HDD)</td>
-</tr>
-<tr class="even">
-<td>Overview</td>
-<td>SSD-based high-performance, low-latency disk support for VMs running IO-intensive workloads or hosting mission critical production environment</td>
-<td>HDD-based cost effective disk support for Dev/Test VM scenarios</td>
-</tr>
-<tr class="odd">
-<td>Scenario</td>
-<td>Production and performance sensitive workloads</td>
-<td>Dev/Test, non-critical, <br />
-Infrequent access</td>
-</tr>
-<tr class="even">
-<td>Max Throughput per Disk</td>
-<td>250 MB/s</td>
-<td>60 MB/s</td>
-</tr>
-<tr class="odd">
-<td>Max IOPS per Disk</td>
-<td>7500 IOPS</td>
-<td>500 IOPS</td>
-</tr>
-</tbody>
-</table>
+You can find an up-to-date comparison between the available storage disks in Azure under the following link: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types
 
 ### Available disk sizes
 
-Available disk sizes for a Premium SSD managed disk:
+You can find more information for all available managed disks in Azure, as well as tables listing the available disk sizes under the following links:
 
-|           | P4     | P6     | P10     | P15     | P20     | P30               | P40               | P50               | P60               | P70                 | P80              |
-| --------- | ------ | ------ | ------- | ------- | ------- | ----------------- | ----------------- | ----------------- | ----------------- | ------------------- | ---------------- |
-| Disk Size | 32 GiB | 64 GiB | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
+Premium SSD: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#premium-ssd
 
-Available disk sizes for a standard SSD managed disk:
+Standard SSD: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#standard-ssd
 
-|           | E10     | E15     | E20     | E30               | E40               | E50               | E60               | E70                 | E80              |
-| --------- | ------- | ------- | ------- | ----------------- | ----------------- | ----------------- | ----------------- | ------------------- | ---------------- |
-| Disk Size | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
-
-Available disk sizes for a Standard HDD managed disk:
-
-|           | S4     | S6     | S10     | S15     | S20     | S30               | S40               | S50               | S60               | S70                 | S80              |
-| --------- | ------ | ------ | ------- | ------- | ------- | ----------------- | ----------------- | ----------------- | ----------------- | ------------------- | ---------------- |
-| Disk Size | 32 GiB | 64 GiB | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
+Standard HDD: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#standard-hdd
 
 ## Storage Firewalls and Virtual Networks
 

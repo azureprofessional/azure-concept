@@ -121,7 +121,7 @@ By enabling Azure MFA for your users, you are adding a second layer of security 
 
 ### User role based access control (RBAC)
 
-See [Role based access control (RBAC)]("../1455-Role-Based-Access-Control.md")
+See [Role based access control (RBAC)](./1455-Role-Based-Access-Control.md)
 
 ### Control locations where resources are created using resource manager
 
@@ -129,7 +129,7 @@ Enabling cloud operators to perform tasks while preventing them from breaking co
 
 To achieve this, organizations can create security policies that have definitions that describe the actions or resources that are specifically denied. You assign those policy definitions at the desired scope, such as the subscription, resource group, or an individual resource.
 
-See section 16.5 Azure Policy.
+You can find more Information regarding Azure Policy in our Chapter on [Security](./1400-Security.md#azure-policy)
 
 ### Actively monitor for suspicious activities
 

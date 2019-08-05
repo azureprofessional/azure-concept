@@ -112,7 +112,7 @@ An ExpressRoute connection does not use a VPN gateway, although it does use a vi
 
 Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#ExpressRoute
 
-[//]: # (Recommendations start)
+[Recommendations]: # (start)
 
 ## Recommendations
 
@@ -128,7 +128,7 @@ To connect your on-premise location with your Hub-VNet in Azure, we recommend se
 | Analyse your   current network                        | <ul><li> Analyse your client   computers and optimize for network hardware, software drivers, protocol   settings, and Internet browsers. Analyse your on-premises   network for traffic latency and optimal routing to the Internet edge device. </li> <li> Analyse the capacity and   performance of your Internet edge device and optimize for higher levels of   traffic. </li> <li> Analyse the latency   between your Internet edge device (such as your external firewall) and the   regional locations of the Microsoft cloud service to which you are   connecting. </li> <li> Analyse the capacity and   utilization of your current Internet connection and add capacity if needed.   Alternately, add an ExpressRoute connection. </li> </ul> |
 | Plan and design   networking for Azure                | <ul><li>Prepare your intranet for   Microsoft cloud services. </li> <li>Optimize your Internet   bandwidth. </li> <li>Determine the type of   VNet (cloud-only or cross-premises). </li> <li>Determine the address   space of the VNet. </li> <li>Determine the subnets   within the VNet and the address spaces assigned to each. </li> <li>Determine the DNS server   configuration and the addresses of the DNS servers to assign to VMs in the   VNet. </li> <li>Determine the load   balancing configuration (Internet-facing or internal). </li> <li>Determine the use of   virtual appliances and user-defined routes. </li> <li>Determine how computers   from the Internet will connect to virtual machines. </li> <li>For multiple VNets,   determine the VNet-to-VNet connection topology. </li> <li>Determine the on-premises   connection to the VNet (S2S VPN or ExpressRoute). </li> <li>Determine the on-premises   VPN device or router. </li> <li>Add routes to make the   address space of the VNet reachable. </li> <li>For ExpressRoute, plan for the new connection with   your provider. </li> <li>Determine the Local Network address space for the   Azure gateway. </li> <li> Configure on-premises DNS servers for DNS   replication with DNS servers hosted in Azure. </li> <li>Determine the use of forced tunneling and   user-defined routes.</li> </ul> |
 
-[//]: # (Recommendations end)
+[Recommendations]: # (end)
 
 ## Azure Network Peering
 

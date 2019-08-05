@@ -76,47 +76,7 @@ Source: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview
 
 ### Support of Availability Zones
 
-Regions:
-
-  - Central US
-
-  - East US 2 (Preview)
-
-  - France Central
-
-  - North Europe
-
-  - Southeast Asia (Preview)
-
-  - West Europe
-
-  - West US 2
-
-Services:
-
-  - Linux Virtual Machines
-
-  - Windows Virtual Machines
-
-  - Virtual Machine Scale Sets
-
-  - Managed Disks
-
-  - Load Balancer
-
-  - Public IP address
-
-  - Zone-redundant storage
-
-  - SQL Database
-
-  - Event Hubs
-
-  - Service Bus
-
-  - VPN Gateway
-
-  - ExpressRoute
+You can find an up-to-date table with all Services and Regions supporting Availability Zones under the following link: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#services-support-by-region
 
 Source: https://docs.microsoft.com/en-us/azure/availability-zones/az-overview#pricing
 
