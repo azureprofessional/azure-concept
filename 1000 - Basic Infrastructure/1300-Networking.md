@@ -70,15 +70,11 @@ Source: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-
 
   - You **can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network**. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering. To add address ranges to, or remove address ranges from virtual networks, see Manage virtual networks.
 
-  - You can peer two virtual networks deployed through Resource Manager or a virtual network deployed through Resource Manager with a virtual network deployed through the classic deployment model. You cannot peer two virtual networks created through the classic deployment model. If you're not familiar with Azure deployment models, read the Understand Azure deployment models article. You can use a VPN Gateway to connect two virtual networks created through the classic deployment model.
-
   - When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering. You see one of the following types for peering status:
     
       - Initiated: When you create the peering to the second virtual network from the first virtual network, the peering status is Initiated.
       
       - Connected: When you create the peering from the second virtual network to the first virtual network, its peering status is Connected. If you view the peering status for the first virtual network, you see its status changed from Initiated to Connected. The peering is not successfully established until the peering status for both virtual network peerings is connected.
-
-  - When peering a virtual network created through Resource Manager with a virtual network created through the classic deployment model, you only configure a peering for the virtual network deployed through Resource Manager. You cannot configure peering for a virtual network (classic), or between two virtual networks deployed through the classic deployment model. When you create the peering from the virtual network (Resource Manager) to the virtual network (Classic), the peering status is Updating, then shortly changes to Connected.
 
   - A peering is established between two virtual networks. **Peerings are not transitive.** If you create peerings between:
     

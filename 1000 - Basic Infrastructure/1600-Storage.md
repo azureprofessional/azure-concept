@@ -135,7 +135,7 @@ The temporary disk is labeled as the D: drive by default and it used for storing
 
 ### Data disk
 
-A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4095 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. Otherwise, you add data disks after you create the virtual machine.
 
@@ -155,7 +155,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 
 Don’t delete a source .vhd file from storage or the storage account itself – Microsoft can’t recover that data for you.
 
-## Premium vs. standard storage
+## Premium vs. Standard storage
 
 **Azure Disks are designed for 99.999% availability**. Azure Disks have consistently delivered enterprise-grade durability, with an industry-leading ZERO% Annualized Failure Rate.
 
@@ -222,6 +222,8 @@ Use Azure Backup service with Managed Disks to create a backup job with time-bas
 We recommend that you use Azure Managed Disks for new VMs, and that you convert your previous unmanaged disks to managed disks, to take advantage of the many features available in Managed Disks.
 
 ### Comparison
+
+[comment]: # (Remove Table and add link)
 
 <table>
 <thead>
@@ -305,5 +307,4 @@ Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-network-se
 
 While network rules can enable a secure network configuration for most scenarios, there are some cases where exceptions must be granted to enable full functionality. Storage accounts can be configured with exceptions for Trusted Microsoft services, and for access to Storage analytics data.
 
-Source:
-https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions
+Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security#exceptions

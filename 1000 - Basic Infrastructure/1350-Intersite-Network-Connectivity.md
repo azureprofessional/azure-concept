@@ -86,6 +86,7 @@ Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn
 
 ![](..//media/image18.png)
 
+[comment]: # (remove this chapter)
 ## VNet-to-VNet
 ![](..//media/image19.png) 
 
@@ -101,6 +102,8 @@ Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn
 
 ## Express Route
 
+[comment]: # (For Robin: Add note that ExpressRoute traffic isn't encrypted)
+
 Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and CRM Online. Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility.
 
 ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet.
@@ -109,19 +112,23 @@ An ExpressRoute connection does not use a VPN gateway, although it does use a vi
 
 Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#ExpressRoute
 
+[//]: # (Recommendations start)
+
 ## Recommendations
 
 To connect your on-premise location with your Hub-VNet in Azure, we recommend setting one VPN Connection (Site-2-Site) to Azure in main VNet “Company-VNet”, peer all VNets of the subscriptions with the main VNet, so all resources can communicate with each other. Secure traffic with NSGs. Keep the maximum available bandwidth in mind (1.25 GB with the VPN Gateway 3).
 
 <https://docs.microsoft.com/en-us/azure/security/azure-security-network-security-best-practices>
 
-| Recommendations   for cloud connectivity              |                                                              |
+| Recommendations   for cloud connectivity              ||
 | ----------------------------------------------------- | ------------------------------------------------------------ |
 | Optimize intranet   connectivity to your edge network | Over   the years, many organizations have optimized intranet connectivity and   performance to applications running in on-premises datacenters. With   productivity and IT workloads running in the Microsoft cloud, additional   investment must ensure high-connectivity availability and that traffic   performance between your edge network and your intranet users is optimal. |
 | Optimize   throughput at your edge network            | As   more of your day-to-day productivity traffic travels to the cloud, you should   closely examine the set of systems at your edge network to ensure that they   are current, provide high availability, and have sufficient capacity to meet   peak loads. |
 | For a high SLA use   ExpressRoute                     | Although   you can utilize your current Internet connection from your edge network,   traffic to and from Microsoft cloud services must share the pipe with other   intranet traffic going to the Internet. In addition, your traffic to   Microsoft cloud services is subject to Internet traffic congestion. For a   high SLA and the best performance, use ExpressRoute, a dedicated WAN   connection between your network and Azure. ExpressRoute can leverage your   existing network provider for a dedicated connection. Resources connected by   ExpressRoute appear as if they are on your WAN, even for geographically   distributed organizations |
 | Analyse your   current network                        | <ul><li> Analyse your client   computers and optimize for network hardware, software drivers, protocol   settings, and Internet browsers. Analyse your on-premises   network for traffic latency and optimal routing to the Internet edge device. </li> <li> Analyse the capacity and   performance of your Internet edge device and optimize for higher levels of   traffic. </li> <li> Analyse the latency   between your Internet edge device (such as your external firewall) and the   regional locations of the Microsoft cloud service to which you are   connecting. </li> <li> Analyse the capacity and   utilization of your current Internet connection and add capacity if needed.   Alternately, add an ExpressRoute connection. </li> </ul> |
 | Plan and design   networking for Azure                | <ul><li>Prepare your intranet for   Microsoft cloud services. </li> <li>Optimize your Internet   bandwidth. </li> <li>Determine the type of   VNet (cloud-only or cross-premises). </li> <li>Determine the address   space of the VNet. </li> <li>Determine the subnets   within the VNet and the address spaces assigned to each. </li> <li>Determine the DNS server   configuration and the addresses of the DNS servers to assign to VMs in the   VNet. </li> <li>Determine the load   balancing configuration (Internet-facing or internal). </li> <li>Determine the use of   virtual appliances and user-defined routes. </li> <li>Determine how computers   from the Internet will connect to virtual machines. </li> <li>For multiple VNets,   determine the VNet-to-VNet connection topology. </li> <li>Determine the on-premises   connection to the VNet (S2S VPN or ExpressRoute). </li> <li>Determine the on-premises   VPN device or router. </li> <li>Add routes to make the   address space of the VNet reachable. </li> <li>For ExpressRoute, plan for the new connection with   your provider. </li> <li>Determine the Local Network address space for the   Azure gateway. </li> <li> Configure on-premises DNS servers for DNS   replication with DNS servers hosted in Azure. </li> <li>Determine the use of forced tunneling and   user-defined routes.</li> </ul> |
+
+[//]: # (Recommendations end)
 
 ## Azure Network Peering
 

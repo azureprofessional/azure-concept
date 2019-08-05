@@ -79,11 +79,13 @@ With federated sign-in, your users can sign in to Azure AD-based services with t
 
 Source: https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-user-signin#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2
 
-## Best practices
+## Good practices
 
 ### Centralize identity management
 
 One important step towards securing your identity is to ensure that IT can manage accounts from one single location regarding where this account was created. While the majority of the enterprises IT organizations will have their primary account directory on-premises, hybrid cloud deployments are on the rise and it is important that you understand how to integrate on-premises and cloud directories and provide a seamless experience to the end user.
+
+[comment]: # (Add reasoning what scenario is recommended for which situations)
 
 To accomplish this hybrid identity scenario we recommend three options:
 
@@ -119,7 +121,7 @@ By enabling Azure MFA for your users, you are adding a second layer of security 
 
 ### User role based access control (RBAC)
 
-See [Role based access control (RBAC)]("../850 Role Based Access Control.md")
+See [Role based access control (RBAC)]("../1455-Role-Based-Access-Control.md")
 
 ### Control locations where resources are created using resource manager
 
