@@ -1,3 +1,5 @@
+
+
 # Backup and Recovery
 
 Backing up and restoring data are key for any production and most nonproduction workloads. The relevant scenarios are:
@@ -56,3 +58,41 @@ Microsoft’s best practices while configuring backups for virtual machines:
 This backup option is designed to back up files and folders from any Windows machine. The machine can run in Azure, on-premises, or in any other cloud; it can be physical or virtual. You cannot use this option to back up the system state, or to create a Bare-Metal-Restore (BMR) backup. The Recovery Services Vault could be the one that is mentioned in the previous section, or it could be any other Recovery Services Vault.
 
 Azure Backup for files and folders requires the installation of an Azure Backup Agent on the server, which can be downloaded from the Azure Recovery Services Vault. After installing the agent, it is necessary to connect the server to the Recovery Services Vault by downloading the vault credential files from the Recovery Services Vault. The vault credentials file is used only during the registration workflow and expires after 48 hours. Ensure that the vault credential file is available in a location that can be accessed by the setup application.
+
+## Azure Site Recovery
+
+### What is Azure Site Recovery
+
+Azure Site Recovery (ASR) is a service, that orchestrates and automates replication and failover of your Azure VMs between different Regions, of your on-premises VMs and physical servers to Azure and of your on-premises machines to a secondary datacenter. It's processes assist you in providing meaningful contributions to your business-continuity and disaster recovery strategy.
+Additionally, Azure Site Recovery allows you to move your IaaS-Solutions to other Regions or into Availability Zones.	
+
+### How does it work?
+
+To explain how ASR works, We'll be employing a Demo Environment, that looks like the following picture:
+
+![Enviroment_Before_Replication_Enabled](../media/enable-replication-step-1.png)
+
+We have our Source Environment, containing our Resources, in this case the two VMs, that we would like to secure with Azure Site Recovery. On the other side, we have our Target Environment, where the copy of our Source Environment will be deployed into. To ensure that everything will run smoothly during a Failover, we need to make sure that the Target Environment mirrors our Source Environment. 
+
+Now, when we enable replication for our Azure VMs, the following will happen:
+
+1. The Site Recovery Mobility service extension is automatically installed on the VMs.
+2. The extension registers the VMs with Site Recovery.
+3. Continuous replication begins for the VMs. Disk writes are immediately transferred to the cache storage account in the source location.
+4. Site Recovery processes the data in the cache, and sends it to the target storage account, or to the replica managed disks.
+5. After the data is processed, crash-consistent recovery points are generated every five minutes. App-consistent recovery points are generated according to the setting specified in the replication policy.
+
+![Enviroment_After_Replication_Enabled](../media/enable-replication-step-2.png)
+
+After these steps have been completed, our demo environment should look like this. As you can see, so far only our Data is being transferred over to the Target Environment. Only when the Failover process is initiated, the VMs will be created. Speaking of...
+
+### Failover Process
+
+After you've first created the Replication Policy, it is highly recommended that you test the Failover Process, to ensure that everything is running smoothly. During the Failover, our Environment will look like this:
+
+![Failover_Process](../media/failover.png)
+
+Our Source Environment is not available, be it for either an planned or an unplanned interruption in service. For this reason, a Failover has been initiated. Azure has created two identical VMs, mirroring those usually available in our Source Environment. If everything has been set up correctly, our customers will have experienced only a minor downtime during the moments that the failover was initiated, and now they're continuing their activities on the Target Environment.
+
+Once our Source Environment has been re-established, we can failback to it and then clean up the Target Environment.
+
