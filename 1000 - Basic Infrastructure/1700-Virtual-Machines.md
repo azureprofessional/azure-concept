@@ -56,7 +56,7 @@ Managing Virtual Machines
 
 Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true auto-scaling and as such makes it easier to build large-scale services targeting big compute, big data, and containerized workloads. So, as demand goes up more virtual machine instances can be added, and as demand goes down virtual machines instances can be removed. The process can be manual or automated or a combination of both.
 
-![VM_Scale_Sets](../media/VM_Scale_Sets.png)
+![](../media/VM_Scale_Sets.png)
 
 Scale sets works in a way that provides many benefits.
 

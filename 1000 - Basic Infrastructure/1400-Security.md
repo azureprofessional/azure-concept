@@ -29,7 +29,7 @@ Access to resources can be either internal (within the corporation's network) or
 - Create virtual networks dedicated to external-facing workloads and internal-facing workloads. This approach reduces the chance of inadvertently placing virtual machines that are intended for internal workloads in an external facing space.
 - Configure network security groups to limit access. At a minimum, block access to the internet from internal virtual networks, and block access to the corporate network from external virtual networks.
 
-![image27](../media/image27.png)
+![](../media/image27.png)
 
 Microsoft Azure enables you to connect virtual machines and appliances to other networked devices by placing them on Azure Virtual Networks. An Azure Virtual Network is a construct that allows you to connect virtual network interface cards to a virtual network to allow TCP/IP-based communications between network enabled devices. Azure Virtual Machines connected to an Azure Virtual Network are able to connect to devices on the same Azure Virtual Network, different Azure Virtual Networks, on the Internet or even on your own on-premises networks.
 
@@ -51,7 +51,7 @@ Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overvie
 
 ### Security Principal
 
-![image28](../media/image28.png)
+![](../media/image28.png)
 
 A security principal is an object that represents a user, group, or service principal that is requesting access to Azure resources.
 
@@ -63,7 +63,7 @@ Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overvie
 
 ### Role Definition
 
-![image29](../media/image29.png)
+![](../media/image29.png)
 
 A role definition is a collection of permissions. It's sometimes just called a role. A role definition lists the operations that can be performed, such as read, write, and delete. Roles can be high-level, like owner, or specific, like virtual machine reader. 
 
@@ -83,7 +83,7 @@ Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overvie
 
 ### Scope
 
-![image30](../media/image30.png)
+![](../media/image30.png)
 
 Scope is the boundary that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a Website Contributor, but only for one resource group.
 
@@ -100,7 +100,7 @@ Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overvie
 
 ### Assignment
 
-![image31](../media/image31.png)
+![](../media/image31.png)
 
 A role assignment is the process of binding a role definition to a user, group, or service principal at a particular scope for the purpose of granting access. Access is granted by creating a role assignment, and access is revoked by removing a role assignment.
 
