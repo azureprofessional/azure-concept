@@ -43,7 +43,7 @@ Within each subscription, you can grant up to 2000 role assignments.
 
 Restricting access based on the **least privilege security principles** is imperative for organizations that want to enforce security policies for data access. Azure Role-Based Access Control (RBAC) can be used to assign permissions to users, groups, and applications at a certain scope. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
-You can leverage built in RBAC roles in Azure to assign privileges to users. Consider using Storage Account Contributor for cloud operators that need to manage storage accounts and Classic Storage Account Contributor role to manage classic storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to Virtual Machine Contributor role.
+You can leverage built in RBAC roles in Azure to assign privileges to users. Consider using Storage Account Contributor for cloud operators that need to manage storage accounts. For cloud operators that needs to manage VMs and storage account, consider adding them to Virtual Machine Contributor role.
 
 Organizations that do not enforce data access control by leveraging capabilities such as RBAC may be giving more privileges than necessary to their users. This can lead to data compromise by allow users access to certain types of types of data (e.g., high business impact) that they shouldn’t have in the first place.
 
@@ -79,7 +79,7 @@ A role definition is a collection of permissions. It's sometimes just called a r
 If the built-in roles don’t meet the specific needs of the organization, there can be
 created custom roles. Just like built-in roles, custom roles can be assigned to users, groups, and service principals at subscription, resource group, and resource scopes. Custom roles are stored in an Azure Active Directory (Azure AD) tenant and can be shared across subscriptions. Each tenant can have up to 2000 custom roles. Custom roles can be created using Azure PowerShell, Azure CLI, or the REST API.
 
-Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#security-principal
+Source: <https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#security-principal>
 
 ### Scope
 
@@ -108,33 +108,29 @@ The diagram shows an example of a role assignment. In this example, the Marketin
 
 Source: https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#role-assignments
 
-## Resource Locks
+### How RBAC determines if a user has access to a resource
 
-As organizations add core services to the subscription, it becomes increasingly important to ensure that those services are available to avoid business disruption. Resource locks enable to restrict operations on high-value resources where modifying or deleting them would have a significant impact on your applications or cloud infrastructure. You can apply locks on a subscription-, resource group-, or resource-level. Typically, you apply locks to foundational resources such as **virtual networks, gateways, and storage accounts.**
+The following are the high-level steps that RBAC uses to determine if you have access to a resource on the management plane. This is helpful to understand if you are trying to troubleshoot an access issue.
 
-Resource locks currently support two values: **CanNotDelete** and **ReadOnly**. **CanNotDelete** means that users (with the appropriate rights) can still read or modify a resource but cannot delete it. **ReadOnly** means that authorized users can't delete or modify a resource.
+1. A user (or service principal) acquires a token for Azure Resource Manager.
 
-To create or delete management locks, you must have access to Microsoft.Authorization/* or Microsoft.Authorization/locks/* actions. Of the built-in roles, only Owner and User Access Administrator are granted those actions.
+2. The token includes the user's group memberships (including transitive group memberships).
 
-We recommend to protect core network options with locks. Accidental deletion of a gateway, site-to-site VPN would be disastrous to an Azure subscription. Azure doesn't allow you to delete a virtual network that is in use, but applying more restrictions is a helpful precaution.
+3. The user makes a REST API call to Azure Resource Manager with the token attached.
 
-- Virtual Network: CanNotDelete
-- Network Security Group: CanNotDelete
-- Policies: CanNotDelete
+4. Azure Resource Manager retrieves all the role assignments and deny assignments that apply to the resource upon which the action is being taken.
 
-Policies are also crucial to the maintenance of appropriate controls. We recommend that you apply a CanNotDelete lock to polices that are in use.
+5. Azure Resource Manager narrows the role assignments that apply to this user or their group and determines what roles the user has for this resource.
 
-Source: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance#azure-resource-locks
+6. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource.
 
-## Azure Policy
+7. If the user doesn’t have a role with the action at the requested scope, access is not granted. Otherwise, Azure Resource Manager checks if a deny assignment applies.
 
-IT governance creates clarity between business goals and IT projects. Good IT governance involves planning your initiatives and setting priorities on a strategic level. Does your company experience a significant number of IT issues that never seem to get resolved? Implementing policies helps you better manage and prevent them. Implementing policies is where Azure Policy comes in.
+8. If a deny assignment applies, access is blocked. Otherwise access is granted.
 
-Azure Policy is a service in Azure that you use to create, assign and, manage policy definitions. Policy definitions enforce different rules and actions over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for those not compliant with the policy definitions you have. For example, you can have a policy to allow only certain type of virtual machines. **Another requires that all resources have a particular tag**. These policies are then evaluated when creating and updating resources.
+Source: <https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#security-principal>
 
-Source: https://docs.microsoft.com/en-au/azure/governance/policy/overview
-
-### How is it different from RBAC?
+### How is Azure Policy different from RBAC?
 
 There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on user actions at different scopes. For example, you might be added to the contributor role for a resource group at the desired scope. The role allows you to make changes to that resource group. Policy focuses on resource properties during deployment and for already existing resources. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system.
 

@@ -33,67 +33,6 @@ At the moment it's not possible to use ASG in different VNet to create a NSG rul
 
 Source: <https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#application-security-groups>
 
-## VNet Peering
-
-Virtual network peering enables you to seamlessly connect two Azure virtual networks. Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through private IP addresses only. Azure supports:
-
-  - VNet peering - connecting VNets within the same Azure region
-
-  - Global VNet peering - connecting VNets across Azure regions
-
-The benefits of using virtual network peering, whether local or global, include:
-
-  - Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
-  - A low-latency, high-bandwidth connection between resources in different virtual networks.
-  - The ability for resources in one virtual network to communicate with resources in a different virtual network, once the virtual networks are peered.
-  - The ability to transfer data across Azure subscriptions, deployment models, and across Azure regions.
-  - The ability to peer virtual networks created through the Azure Resource Manager or to peer one virtual network created through Resource Manager to a virtual network created through the classic deployment model. To learn more about Azure deployment models, see Understand Azure deployment models.
-  - No downtime to resources in either virtual network when creating the peering, or after the peering is created.
-
-Sources: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm>, <http://www.itprotoday.com/microsoft-azure/understand-virtual-network-sharing-across-subscriptions>
-
-### Requirements and Constraints
-
-  - **You can peer virtual networks in the same region, or different regions**. The following constraints do **not** apply when both virtual networks are in the same region, but do apply when the virtual networks are globally peered:
-    
-      - The virtual networks can exist in any Azure public cloud region, but not in Azure national clouds.
-      
-      - Resources in one virtual network cannot communicate with the IP address of an Azure internal load balancer in the peered virtual network. The load balancer and the resources that communicate with it must be in the same virtual network.
-      
-      - **You cannot use remote gateways or allow gateway transit**. To use remote gateways or allow gateway transit, both virtual networks in the peering must exist in the same region.
-      
-      - Communication across globally peered virtual networks through the following VM types is not supported: **High performance compute and GPU**. This includes H, NC, NV, NCv2, NCv3, and ND series VMs.
-
-  - The virtual networks can be in **the same, or different subscriptions**. When you peer virtual networks in different subscriptions, **both subscriptions must be associated to the same Azure Active Directory tenant**. If you don't already have an AD tenant, you can quickly create one. You can use a VPN Gateway to connect two virtual networks that exist in different subscriptions that are associated to different Active Directory tenants.
-
-  - The virtual networks you peer must have **non-overlapping IP address spaces**.
-
-  - You **can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network**. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering. To add address ranges to, or remove address ranges from virtual networks, see Manage virtual networks.
-
-  - When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering. You see one of the following types for peering status:
-    
-      - Initiated: When you create the peering to the second virtual network from the first virtual network, the peering status is Initiated.
-      
-      - Connected: When you create the peering from the second virtual network to the first virtual network, its peering status is Connected. If you view the peering status for the first virtual network, you see its status changed from Initiated to Connected. The peering is not successfully established until the peering status for both virtual network peerings is connected.
-
-  - A peering is established between two virtual networks. **Peerings are not transitive.** If you create peerings between:
-    
-      - VirtualNetwork1 & VirtualNetwork2
-      
-      - VirtualNetwork2 & VirtualNetwork3
-      
-      **There is no peering between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2.** If you want to create a virtual network peering between VirtualNetwork1 and VirtualNetwork3, you have to create a peering between VirtualNetwork1 and VirtualNetwork3.
-      
-  - You **can't resolve names in peered virtual networks** using default Azure name resolution. To resolve names in other virtual networks, you **must use Azure DNS** for private domains or a custom DNS server.
-
-  - Resources in peered virtual networks in the same region can communicate with each other with the same bandwidth and latency as if they were in the same virtual network. Each virtual machine size has its own maximum network bandwidth however.
-
-  - A virtual network can be peered to another virtual network, and also be connected to another virtual network with an Azure virtual network gateway. When virtual networks are connected through both peering and a gateway, traffic between the virtual networks flows through the peering configuration, rather than the gateway.
-
-  - There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering.
-
-Source: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints>
-
 ## Hub-Spoke Architecture
 
 The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub and can be used to isolate workloads. Traffic flows between the on-premises datacenter and the hub through an ExpressRoute or VPN gateway connection.

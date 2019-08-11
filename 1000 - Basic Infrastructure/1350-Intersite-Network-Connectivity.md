@@ -72,7 +72,7 @@ A Site-to-Site (S2S) VPN gateway connection is a connection over IPsec/IKE (IKEv
 ### Multi-Site
 
 ![](..//media/image17.png)
-This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type (known as a dynamic gateway when working with classic VNets). Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
+This type of connection is a variation of the Site-to-Site connection. You create more than one VPN connection from your virtual network gateway, typically connecting to multiple on-premises sites. When working with multiple connections, you must use a RouteBased VPN type . Because each virtual network can only have one VPN gateway, all connections through the gateway share the available bandwidth. This is often called a "multi-site" connection.
 
 Source: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways#s2smulti
 
@@ -165,6 +165,63 @@ To connect your on-premise location with your Hub-VNet in Azure, we recommend se
 
 ## Azure Network Peering
 
+### Overview
+Virtual network peering enables you to seamlessly connect Azure virtual networks. Once peered, the virtual networks appear as one, for connectivity purposes. The traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure, much like traffic is routed between virtual machines in the same virtual network, through private IP addresses only. Azure supports:
+
+  - VNet peering - connecting VNets within the same Azure region
+  - Global VNet peering - connecting VNets across Azure regions
+
+The benefits of using virtual network peering, whether local or global, include:
+
+  - Network traffic between peered virtual networks is private. Traffic between the virtual networks is kept on the Microsoft backbone network. No public Internet, gateways, or encryption is required in the communication between the virtual networks.
+  - A low-latency, high-bandwidth connection between resources in different virtual networks.
+  - The ability for resources in one virtual network to communicate with resources in a different virtual network, once the virtual networks are peered.
+  - The ability to transfer data across Azure subscriptions, deployment models, and across Azure regions.
+  - The ability to peer virtual networks created through the Azure Resource Manager. 
+  - No downtime to resources in either virtual network when creating the peering, or after the peering is created.
+
+### Requirements and Constraints
+
+  - **You can peer virtual networks in the same region, or different regions**. The following constraints do **not** apply when both virtual networks are in the same region, but do apply when the virtual networks are globally peered:
+    
+      - The virtual networks can exist in any Azure public cloud region, but not in Azure national clouds.
+      
+      - Resources in one virtual network cannot communicate with the IP address of an Azure internal load balancer in the peered virtual network. The load balancer and the resources that communicate with it must be in the same virtual network.
+      
+      - **You cannot use remote gateways or allow gateway transit**. To use remote gateways or allow gateway transit, both virtual networks in the peering must exist in the same region.
+      
+      - Communication across globally peered virtual networks through the following VM types is not supported: **High performance compute and GPU**. This includes H, NC, NV, NCv2, NCv3, and ND series VMs.
+
+  - The virtual networks can be in **the same, or different subscriptions**. If you don't already have an AD tenant, you can quickly create one. You can use a VPN Gateway to connect two virtual networks that exist in different subscriptions that are associated to different Active Directory tenants.
+
+  - The virtual networks you peer must have **non-overlapping IP address spaces**.
+
+  - You **can't add address ranges to, or delete address ranges from a virtual network's address space once a virtual network is peered with another virtual network**. To add or remove address ranges, delete the peering, add or remove the address ranges, then re-create the peering. To add address ranges to, or remove address ranges from virtual networks, see Manage virtual networks.
+
+  - When peering two virtual networks created through Resource Manager, a peering must be configured for each virtual network in the peering. You see one of the following types for peering status:
+    
+      - Initiated: When you create the peering to the second virtual network from the first virtual network, the peering status is Initiated.
+      
+      - Connected: When you create the peering from the second virtual network to the first virtual network, its peering status is Connected. If you view the peering status for the first virtual network, you see its status changed from Initiated to Connected. The peering is not successfully established until the peering status for both virtual network peerings is connected.
+
+  - A peering is established between two virtual networks. **Peerings are not transitive.** If you create peerings between:
+    
+      - VirtualNetwork1 & VirtualNetwork2
+      
+      - VirtualNetwork2 & VirtualNetwork3
+      
+      **There is no peering between VirtualNetwork1 and VirtualNetwork3 through VirtualNetwork2.** If you want to create a virtual network peering between VirtualNetwork1 and VirtualNetwork3, you have to create a peering between VirtualNetwork1 and VirtualNetwork3.
+      
+  - You **can't resolve names in peered virtual networks** using default Azure name resolution. To resolve names in other virtual networks, you **must use Azure DNS** for private domains or a custom DNS server.
+
+  - Resources in peered virtual networks in the same region can communicate with each other with the same bandwidth and latency as if they were in the same virtual network. Each virtual machine size has its own maximum network bandwidth however.
+
+  - A virtual network can be peered to another virtual network, and also be connected to another virtual network with an Azure virtual network gateway. When virtual networks are connected through both peering and a gateway, traffic between the virtual networks flows through the peering configuration, rather than the gateway.
+
+  - There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering.
+
+Source: <https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints>
+
 ### Connectivity
 
 After virtual networks are peered, resources in either virtual network can directly connect with resources in the peered virtual network.
@@ -173,37 +230,93 @@ The network latency between virtual machines in peered virtual networks in the s
 
 The traffic between virtual machines in peered virtual networks is routed directly through the Microsoft backbone infrastructure, not through a gateway or over the public Internet.
 
-### Hub and Spoke Networks
+### Service chaining
+You can configure user-defined routes that point to virtual machines in peered virtual networks as the next hop IP address, or to virtual network gateways, to enable service chaining. Service chaining enables you to direct traffic from one virtual network to a virtual appliance, or virtual network gateway, in a peered virtual network, through user-defined routes.
 
 You can deploy hub-and-spoke networks, where the hub virtual network can host infrastructure components such as a network virtual appliance or VPN gateway. All the spoke virtual networks can then peer with the hub virtual network. Traffic can flow through network virtual appliances or VPN gateways in the hub virtual network.
 
-If you select Hub and Spoke as your subscription architecture, you should use peering for the interconnectivity between the subscription VNETs. This can look like in this example:
+Virtual network peering enables the next hop in a user-defined route to be the IP address of a virtual machine in the peered virtual network, or a VPN gateway. You cannot however, route between virtual networks with a user-defined route specifying an ExpressRoute gateway as the next hop type. 
 
-![](https://docs.microsoft.com/de-de/azure/virtual-network/media/virtual-networks-peering-overview/figure04.png)
+### Pricing
+There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering connection.
 
-(Reference: https://docs.microsoft.com/de-de/azure/virtual-network/virtual-network-peering-overview)
+Gateway transit is a peering property that enables a virtual network to utilize a VPN/ExpressRoute gateway in a peered virtual network for cross premises or VNet-to-VNet connectivity. Traffic passing through a remote gateway in this scenario is subject to VPN gateway charges or ExpressRoute gateway charges and does not incur VNet peering charges. For example, If VNetA has a VPN gateway for on-premises connectivity and VNetB is peered to VNetA with appropriate properties configured, traffic from VNetB to on-premises is only charged egress per VPN gateway pricing or ExpressRoute pricing. VNet peering charges do not apply.
+
+The price for 100 GB in and/or out is currently (August 2019) $1 within the same region and $3.5 between regions.
 
 ## Protecting virtual networks
 
-We recommend locking all Network resources to “CanNotDelete” (see section 16.4).
+We recommend locking all Network resources to “CanNotDelete”.
 
-### Network Security Groups
+## Network Security Groups
 
-A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets, individual VMs (classic), or individual network interfaces (NIC) attached to VMs (Resource Manager). When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet. Traffic can further be restricted by also associating an NSG to a VM or NIC.
+A network security group (NSG) contains a list of security rules that allow or deny network traffic to resources connected to Azure Virtual Networks (VNet). NSGs can be associated to subnets or individual network interfaces (NIC) attached to VMs (Resource Manager). When an NSG is associated to a subnet, the rules apply to all resources connected to the subnet. Traffic can further be restricted by also associating an NSG to a VM or NIC.
 
 NSGs contain two sets of rules: Inbound and outbound. The priority for a rule must be unique within each set. All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create.
 
 The default rules allow and disallow traffic as follows:
 
-  - **Virtual network:** Traffic originating and ending in a virtual network is allowed both in inbound and outbound directions.
+- **Virtual network:** Traffic originating and ending in a virtual network is allowed both in inbound and outbound directions.
 
-  - **Internet:** Outbound traffic is allowed, but inbound traffic is blocked.
+- **Internet:** Outbound traffic is allowed, but inbound traffic is blocked.
 
-  - **Load balancer:** Allow Azure Load Balancer to probe the health of your VMs and role instances. If you override this rule, Azure Load Balancer health probes will fail which could cause impact to your service.
+- **Load balancer:** Allow Azure Load Balancer to probe the health of your VMs and role instances. If you override this rule, Azure Load Balancer health probes will fail which could cause impact to your service.
 
 ### Forced tunneling
 
 Recommended to enable for point-to-site connections.
+
+## Application Security Groups (ASG)
+
+### Network security micro segmentation
+
+ASGs enable you to define fine-grained network security policies based on workloads, centralized on applications, instead of explicit IP addresses. Provides the capability to group VMs with monikers and secure applications by filtering traffic from trusted segments of your network.
+
+Implementing granular security traffic controls improves isolation of workloads and protects them individually. If a breach occurs, this technique limits the potential impact of lateral exploration of your networks from hackers.
+
+### Security definition simplified
+
+With ASGs, filtering traffic based on applications patterns is simplified, using the following steps:
+
+- Define your application groups, provide a moniker descriptive name that fits your architecture. You can use it for applications, workload types, systems, tiers, environments or any role.
+- Define a single collection of rules using ASGs and Network Security Groups (NSG), you can apply a single NSG to your entire virtual network on all subnets. A single NSG gives you full visibility on your traffic policies, and a single place for management.
+- Scale at your own pace. When you deploy VMs, make them members of the appropriate ASGs. If your VM is running multiple workloads, just assign multiple ASGs. Access is granted based on your workloads. No need to worry about security definition again. More importantly, you can implement a zero-trust model, limiting access to the application flows that are explicitly permitted.
+
+### Single network security policy
+
+ASGs introduce the ability to deploy multiple applications within the same subnet, and isolate traffic based on ASGs. With ASGs you can reduce the number of NSGs in your subscription. In some cases, you can use a single NSG for multiple subnets of your virtual network. ASGs enable you to centralize your configuration, providing the following benefits in dynamic environments:
+
+- **Centralized NSG view:** All traffic policies in a single place. It’s easy to operate and manage changes. If you need to allow a new port to or from a group of VMs, you can make a change to a single rule.
+- **Centralized logging:** In combination with NSG flow logs, a single configuration for logs has multiple advantages for traffic analysis.
+- **Enforce policies:** If you need to deny specific traffic, you can add a security rule with high priority and enforce administrative rules.
+
+### Filtering east-west traffic
+
+With ASGs, you can isolate multiple workloads and provide additional levels of protection for your virtual network.
+
+In the following illustration, multiple applications are deployed into the same virtual network. Based on the security rules described, workloads are isolated from each other. If a VM from one of the applications is compromised, lateral exploration is limited, minimizing the potential impact of an attacker.
+
+In this example, let’s assume one of the web server VMs from application1 is compromised, the rest of the application will continue to be protected, even access to critical workloads like database servers will still be unreachable. This implementation provides multiple extra layers of security to your network, making this intrusion less harmful and easy to react on such events.
+
+![EastWest Traffic Example](<../media/EastWest.png>)
+
+### Filtering north-south traffic
+
+In combination with additional features on NSG, you can also isolate your workloads from on premises and azure services in different scenarios.
+
+In the following illustration, a relatively complex environment is configured for multiple workload types within a virtual network. By describing their security rules, applications have the correct set of policies applied on each VM. Similar to the previous example, if one of your branches is compromised, exploration within the virtual network is limited therefore minimizing the potential impact of an intruder.
+
+In this example, let’s assume someone on one of your branches connected using VPN, compromise a workstation and has access to your network. Normally only a subset of your network is required for this branch, by isolating the rest of your network; all other applications will continue to be protected and unreachable. ASGs another layers of security to your entire network.
+
+Another interesting scenario, assuming you have detected a breach on one of your web servers, a good idea would be to isolate the VM for investigation. With ASGs, you can easily assign a special group predefined for quarantine VMs on your first security policy. These VMs lose access providing an additional benefit to help you react and mitigate this treats.
+
+![NorthSouth Traffic Example](<../media/NorthSouth.png>)
+
+### Summary
+
+Application Security Groups along with the latest improvements in NSGs, have brought multiple benefits on the network security area, such as a single management experience, increased limits on multiple dimensions, a great level of simplification, and a natural integration with your architecture, begin today and experience these capabilities on your virtual networks.
+
+Source: <https://azure.microsoft.com/en-in/blog/applicationsecuritygroups/>
 
 ### Virtual network appliances
 
