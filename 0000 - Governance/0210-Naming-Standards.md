@@ -152,7 +152,8 @@ Affixes can refer to different aspects that describe the particular resources. S
 **Name Pattern**: `<Prefix>_[TenantShort]_<Scope>_<Level>` \
 **ID Pattern**: `<Prefix>_<ManagementGroupID>_<Level>`
 
-**Examples**:\
+**Examples**:
+
 | ID | Name |
 |----|------|
 | MAG_0001_00 | MAG_CORP_00 |
@@ -166,6 +167,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | MAG_0009_01 | MAG_MYTC_Standard_01 |
 
 **Description**:
+
 | Identifiers | Range | Values/Meaning | Comments |
 |-------------|-------|----------------|----------|
 | Prefix | 3 | MAG = Management Group | |
@@ -189,7 +191,8 @@ SUB_MYTC_DE_1003_BusinesServices_01\
 SUB_MYTC_PR_1004_VDIServices_01\
 SUB_MYTC_SP_2001_ExternalCorpA_01
 
-**Description**:\
+**Description**:
+
 | Identifiers | Range | Values/Meaning | Comments |
 |-------------|-------|----------------|----------|
 | Prefix | 3 | SUB = Subscription | |
@@ -206,6 +209,7 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 
 
 **Description**:
+
 | Identifiers | Range | Values/Meaning | Comments |
 |-------------|-------|----------------|----------|
 | Prefix | 3 | RSG = Ressource Group | |
@@ -224,6 +228,7 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 
 
 **Description**:
+
 | Identifiers | Range | Values/Meaning | Comments |
 |-------------|-------|----------------|----------|
 | Prefix | 3 | SUB = Subscription | |
