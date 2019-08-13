@@ -145,7 +145,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | App Service |	App Services | aps | |
 
 ## Naming Conventions
-### Management Groups
+### Management Group
 
 **Corp Pattern**: `<Prefix>_<CORP|TenantShort>_<Level>` \
 **Corp ID Pattern**: `<Prefix>_<ManagementGroupID>_<Level>`
@@ -181,7 +181,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Level | 2 | 00 = Top Level <br> 01 = Level under Top Level <br> 02 = Level under Level 01 | |
 
 
-### Subscriptions
+### Subscription
 **Pattern**:
 `<Prefix>_<TenantShort>_<Environment>_<SubscriptionID>_<Product|Service|Team>_<VersionNr>`
 
@@ -207,7 +207,19 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 | Product\|Service\|Team | 5..20 | CentralAutomation <br> CentralServices <br> BusinesServices <br> VDIServices <br> ExternalCorpA| |
 | VersionNr | 2 | 01..99 | |
 
-### Ressource Groups
+
+
+
+
+### Tag
+
+
+
+
+
+
+
+### Ressource Group
 **Pattern**: `<Prefix>_<TenantShort>_<Environment>_<Region>_<Service|System>_<VersionNr>`
 
 **Examples**:
@@ -321,14 +333,22 @@ SNE_EUWE_PR_1001_CSTB_AppServer-BE
 
 
 
-
-
-
-
-
-
-
-
+[//]: # (This section Stefan Beckmann will create the chapters, he had some examples, that we can discuss then.)
+### Route Table
+### Network Security Group
+### Network Security Group Rule
+### Application Security Group
+### Availability Set
+### VPN Gateway
+### Local Network Gateway
+### Internal Load Balancer
+### External Load Balancer
+### Load Balancing Rules Config
+### Blueprints
+### Automation Account
+### Recovery Service Vault
+#### Azure Backup Policy
+### Log Analytics Workspace
 
 ### Template
 **Pattern**: `<Prefix>_<TenantShort>_<Environment>_<VersionNr>`
