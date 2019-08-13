@@ -152,7 +152,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 **Name Pattern**: `<Prefix>_[TenantShort]_<Scope>_<Level>` \
 **ID Pattern**: `<Prefix>_<ManagementGroupID>_<Level>`
 
-**Examples**:
+**Examples**:\
 | ID | Name |
 |----|------|
 | MAG_0001_00 | MAG_CORP_00 |
@@ -176,7 +176,8 @@ Affixes can refer to different aspects that describe the particular resources. S
 
 
 ### Subscriptions
-**Pattern**: `<Prefix>_<TenantShort>_<Environment>_<SubscriptionID>_<Product|Service|Team>_<VersionNr>`
+**Pattern**:
+`<Prefix>_<TenantShort>_<Environment>_<SubscriptionID>_<Product|Service|Team>_<VersionNr>`
 
 **Examples**:\
 SUB_MYTC_AU_0001_CentralAutomation_01\
@@ -188,7 +189,7 @@ SUB_MYTC_DE_1003_BusinesServices_01\
 SUB_MYTC_PR_1004_VDIServices_01\
 SUB_MYTC_SP_2001_ExternalCorpA_01
 
-**Description**:
+**Description**:\
 | Identifiers | Range | Values/Meaning | Comments |
 |-------------|-------|----------------|----------|
 | Prefix | 3 | SUB = Subscription | |
