@@ -182,6 +182,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 `<Prefix>_<TenantShort>_<Environment>_<SubscriptionID>_<Product|Service|Team>_<VersionNr>`
 
 **Examples**:
+
 SUB_MYTC_AU_0001_CentralAutomation_01\
 SUB_MYTC_CO_0001_CentralServices_01\
 SUB_MYTC_SB_0001_CentralSandbox_01\
