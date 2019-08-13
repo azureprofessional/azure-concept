@@ -71,6 +71,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 ### Region
 | Region | Location | Code |
 |--------|----------|------|
+|Region Neutral|Location Neutral|**AAAA**|
 |South Africa North|Johannesburg|SANO|
 |South Africa West|Cape Town|SAWE|
 |Central India|Pune|INCE|
@@ -105,7 +106,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 |Switzerland West|Geneva|SCWE|
 |UK South|London|UKSO|
 |UK West|Cardiff|UKWE|
-|West Europe|Netherlands|EUWE|
+|West Europe|Netherlands|**EUWE**|
 |Canada Central|Toronto|CACE|
 |Canada East|Quebec City|CAEA|
 |Central US|Iowa|USCE|
@@ -162,6 +163,9 @@ Affixes can refer to different aspects that describe the particular resources. S
 | MAG_0004_01 | MAG_Special_01 |
 | MAG_0005_02 | MAG_SuplierA_02 |
 | MAG_0006_02 | MAG_SuplierB_02 |
+
+| ID | Name |
+|----|------|
 | MAG_0007_00 | MAG_MYTC_00 |
 | MAG_0008_01 | MAG_MYTC_Infra_01 |
 | MAG_0009_01 | MAG_MYTC_Standard_01 |
@@ -199,15 +203,30 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 | Prefix | 3 | SUB = Subscription | |
 | TenantShort | 4 | MYTC = My Top Company | |
 | Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Ongoing numbering per environment | |
+| SubscriptionID | 4 | Ongoing numbering per environment, the first position of the number stands for: <br> 0 = Infrastructure <br> 1 = Standard <br> 2 = Special. | |
 | Product\|Service\|Team | 5..20 | CentralAutomation <br> CentralServices <br> BusinesServices <br> VDIServices <br> ExternalCorpA| |
 | VersionNr | 2 | 01..99 | |
 
 ### Ressource Groups
-**Pattern**: `<Präfix>_<TenantShort>_[Environment]_<Region>_<Service|System>_<VersionNr>`
+**Pattern**: `<Prefix>_<TenantShort>_<Environment>_<Region>_<Service|System>_<VersionNr>`
 
 **Examples**:
 
+RSG_MYTC_AU_EUWE_Automation_01\
+RSG_MYTC_CO_AAAA_Core_01\
+RSG_MYTC_CO_AAAA_Network_01\
+RSG_MYTC_CO_AAAA_Security_01\
+RSG_MYTC_CO_AAAA_Storage_01\
+RSG_MYTC_CO_AAAA_Backup_01
+RSG_MYTC_CO_EUWE_DomainServices_01
+RSG_MYTC_PR_AAAA_Network_01\
+RSG_MYTC_PR_AAAA_Security_01\
+RSG_MYTC_PR_AAAA_Storage_01\
+RSG_MYTC_PR_EUWE_ApplicationA_01\
+RSG_MYTC_TE_AAAA_Network_01\
+RSG_MYTC_TE_AAAA_Security_01\
+RSG_MYTC_TE_AAAA_Storage_01\
+RSG_MYTC_TE_EUWE_ApplicationA_01
 
 **Description**:
 
@@ -217,8 +236,97 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 | TenantShort | 4 | MYTC = My Top Company | |
 | Environment | 2 | Described in the chapter Affixes, Environment | |
 | Region | 4 | Described in the chapter Affixes, Region | |
-| Service\|System | 5..25 | | |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used. | |
 | VersionNr | 2 | 01..99 | |
+
+**Declaration**:
+
+Resources that are managed from the same team, and where all resources planned to be member of the same resource group, are the best examples for the AAAA Region code.
+
+### Virtual Network (VNet)
+**Pattern**: `<Prefix>_<Region>_<Environment>_<SubscriptionID>_<VersionNr>`
+
+**Examples**:
+
+VNE_EUWE_CO_0001_01\
+VNE_EUWE_PR_1001_01\
+VNE_EUWE_TE_1002_01\
+VNE_EUWE_DE_1003_01
+
+**Description**:
+
+| Identifiers | Range | Values/Meaning | Comments |
+|-------------|-------|----------------|----------|
+| Prefix | 3 | VNE = Virtual Network | |
+| Region | 4 | Described in the chapter Affixes, Region | |
+| Environment | 2 | Described in the chapter Affixes, Environment | |
+| SubscriptionID | 4 | Same SubscriptionID in which subscription the resource will be published. | |
+| VersionNr | 2 | 01..99 | |
+
+
+### VNet Peering
+**Pattern**: `<Prefix>_<SourceRegion>_<SourceEnvironment>_<SourceSubscriptionID>_<SourceVersionNr>-<TargetRegion>_<TargetEnvironment>_<TargetSubscriptionID>_<TargetVersionNr>`
+
+**Examples**:
+
+VNP_EUWE_CO_0001_01-EUWE_PR_1001_01\
+VNP_EUWE_PR_1001_01-EUWE_CO_0001_01\
+VNP_EUWE_CO_0001_01-EUWE_TE_1002_01\
+VNP_EUWE_TE_1002_01-EUWE_CO_0001_01\
+VNP_EUWE_CO_0001_01-EUWE_DE_1003_01\
+VNP_EUWE_DE_1003_01-EUWE_CO_0001_01
+
+**Description**:
+
+| Identifiers | Range | Values/Meaning | Comments |
+|-------------|-------|----------------|----------|
+| Prefix | 3 | VNP = VNet Peering | |
+| Region | 4 | Described in the chapter Affixes, Region | |
+| Environment | 2 | Described in the chapter Affixes, Environment | |
+| SubscriptionID | 4 | Same SubscriptionID which is also used for the corresponding VNet. | |
+| VersionNr | 2 | 01..99 | |
+
+
+### Subnet
+**Pattern**: `<Prefix>_<Region>_<Environment>_<SubscriptionID>_[CustomerShort]_<Service|System>_<ShortArea>`
+
+**Examples**:
+
+SNE_EUWE_CO_0001_Frontend-FE\
+SNE_EUWE_CO_0001_Backend-BE\
+SNE_EUWE_CO_0001_Management-MG\
+SNE_EUWE_CO_0001_DomainServices-FE\
+SNE_EUWE_PR_1001_Frontend-FE\
+SNE_EUWE_PR_1001_Backend-BE\
+SNE_EUWE_PR_1001_Management-MG\
+SNE_EUWE_PR_1001_CSTA_DMZ-FE\
+SNE_EUWE_PR_1001_CSTA_DMZ-BE\
+SNE_EUWE_PR_1001_CSTA_AppServer-BE\
+SNE_EUWE_PR_1001_CSTB_AppServer-BE
+
+**Description**:
+
+| Identifiers | Range | Values/Meaning | Comments |
+|-------------|-------|----------------|----------|
+| Prefix | 3 | VNP = VNet Peering | |
+| Region | 4 | Described in the chapter Affixes, Region | |
+| Environment | 2 | Described in the chapter Affixes, Environment | |
+| SubscriptionID | 4 | Same SubscriptionID which is also used for the corresponding VNet. | |
+| CustomerShort | 4 | Short name of the customer name, which occurs in different places. | |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used. | |
+| ShortArea | 2 | FE = Frontend <br> BE = Backend <br> MG = Management | |
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -236,6 +344,9 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 | TenantShort | 4 | MYTC = My Top Company | |
 | Environment | 2 | Described in the chapter Affixes, Environment | |
 | VersionNr | 2 | 01..99 | |
+
+
+
 
 
 Sources: <https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions>, <https://blogs.technet.microsoft.com/dsilva/2017/11/10/azure-subscription-governance-resource-group-and-naming-convention-strategies/>
