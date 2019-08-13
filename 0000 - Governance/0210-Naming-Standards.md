@@ -181,7 +181,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 **Pattern**:
 `<Prefix>_<TenantShort>_<Environment>_<SubscriptionID>_<Product|Service|Team>_<VersionNr>`
 
-**Examples**:\
+**Examples**:
 SUB_MYTC_AU_0001_CentralAutomation_01\
 SUB_MYTC_CO_0001_CentralServices_01\
 SUB_MYTC_SB_0001_CentralSandbox_01\
@@ -205,7 +205,7 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 ### Ressource Groups
 **Pattern**: `<Präfix>_<TenantShort>_[Environment]_<Region>_<Service|System>_<VersionNr>`
 
-**Examples**:\
+**Examples**:
 
 
 **Description**:
@@ -224,7 +224,7 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 ### Template
 **Pattern**: `<Prefix>_<TenantShort>_<Environment>_<VersionNr>`
 
-**Examples**:\
+**Examples**:
 
 
 **Description**:
