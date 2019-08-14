@@ -13,6 +13,9 @@ Consistent naming conventions make resources easier to locate. They can also ind
 
 The key to success with naming conventions is establishing and following them across your applications and organizations.
 
+## Technical Background
+Sources: <https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions>, <https://blogs.technet.microsoft.com/dsilva/2017/11/10/azure-subscription-governance-resource-group-and-naming-convention-strategies/>
+
 ### Subscriptions
 
 When naming Azure subscriptions, verbose names make understanding the context and purpose of each subscription clear. When working in an environment with many subscriptions, following a shared naming convention can improve clarity.
@@ -66,9 +69,10 @@ For instance, here are two possible names for a service hosting a calculation en
 
 Affixes can refer to different aspects that describe the particular resources. See in the examples under chapter application.
 
-## Application
-## Affixes
-### Region
+[recommendations]: # ( start )
+## Good Practices: Naming standards
+### Affixes
+#### Region
 | Region | Location | Code |
 |--------|----------|------|
 |Region Neutral|Location Neutral|**AAAA**|
@@ -126,7 +130,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 |Brazil South|Sao Paulo State|BRSO|
 |Azure Stack|Datacenter|AZBE|
 
-### Environment
+#### Environment
 | Code | Description |
 |------|-------------|
 |DE|Development|
@@ -139,13 +143,13 @@ Affixes can refer to different aspects that describe the particular resources. S
 |SP|Special|
 |UN|Undefined|
 
-### Services
+#### Services
 | Name | Category | Prefix | Suffix |
 |------|----------|--------|--------|
 | App Service |	App Services | aps | |
 
-## Naming Conventions
-### Management Group
+### Naming Conventions
+#### Management Group
 
 **Corp Pattern**: `<Prefix>_<CORP|TenantShort>_<Level>` \
 **Corp ID Pattern**: `<Prefix>_<ManagementGroupID>_<Level>`
@@ -181,7 +185,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Level | 2 | 00 = Top Level <br> 01 = Level under Top Level <br> 02 = Level under Level 01 | |
 
 
-### Subscription
+#### Subscription
 **Pattern**:
 `<Prefix>_<TenantShort>_<Environment>_<SubscriptionID>_<Product|Service|Team>_<VersionNr>`
 
@@ -211,7 +215,7 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 
 
 
-### Tag
+#### Tag
 
 
 
@@ -219,7 +223,7 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 
 
 
-### Ressource Group
+#### Ressource Group
 **Pattern**: `<Prefix>_<TenantShort>_<Environment>_<Region>_<Service|System>_<VersionNr>`
 
 **Examples**:
@@ -255,7 +259,7 @@ RSG_MYTC_TE_EUWE_ApplicationA_01
 
 Resources that are managed from the same team, and where all resources planned to be member of the same resource group, are the best examples for the AAAA Region code.
 
-### Virtual Network (VNet)
+#### Virtual Network (VNet)
 **Pattern**: `<Prefix>_<Region>_<Environment>_<SubscriptionID>_<VersionNr>`
 
 **Examples**:
@@ -276,7 +280,7 @@ VNE_EUWE_DE_1003_01
 | VersionNr | 2 | 01..99 | |
 
 
-### VNet Peering
+#### VNet Peering
 **Pattern**: `<Prefix>_<SourceRegion>_<SourceEnvironment>_<SourceSubscriptionID>_<SourceVersionNr>-<TargetRegion>_<TargetEnvironment>_<TargetSubscriptionID>_<TargetVersionNr>`
 
 **Examples**:
@@ -299,7 +303,7 @@ VNP_EUWE_DE_1003_01-EUWE_CO_0001_01
 | VersionNr | 2 | 01..99 | |
 
 
-### Subnet
+#### Subnet
 **Pattern**: `<Prefix>_<Region>_<Environment>_<SubscriptionID>_[CustomerShort]_<Service|System>_<ShortArea>`
 
 **Examples**:
@@ -334,23 +338,23 @@ SNE_EUWE_PR_1001_CSTB_AppServer-BE
 
 
 [//]: # (This section Stefan Beckmann will create the chapters, he had some examples, that we can discuss then.)
-### Route Table
-### Network Security Group
-### Network Security Group Rule
-### Application Security Group
-### Availability Set
-### VPN Gateway
-### Local Network Gateway
-### Internal Load Balancer
-### External Load Balancer
-### Load Balancing Rules Config
-### Blueprints
-### Automation Account
-### Recovery Service Vault
-#### Azure Backup Policy
-### Log Analytics Workspace
+#### Route Table
+#### Network Security Group
+#### Network Security Group Rule
+#### Application Security Group
+#### Availability Set
+#### VPN Gateway
+#### Local Network Gateway
+#### Internal Load Balancer
+#### External Load Balancer
+#### Load Balancing Rules Config
+#### Blueprints
+#### Automation Account
+#### Recovery Service Vault
+##### Azure Backup Policy
+#### Log Analytics Workspace
 
-### Template
+#### Template
 **Pattern**: `<Prefix>_<TenantShort>_<Environment>_<VersionNr>`
 
 **Examples**:
@@ -365,8 +369,5 @@ SNE_EUWE_PR_1001_CSTB_AppServer-BE
 | Environment | 2 | Described in the chapter Affixes, Environment | |
 | VersionNr | 2 | 01..99 | |
 
+[recommendations]: # ( end )
 
-
-
-
-Sources: <https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions>, <https://blogs.technet.microsoft.com/dsilva/2017/11/10/azure-subscription-governance-resource-group-and-naming-convention-strategies/>

@@ -1,4 +1,4 @@
-# Introduction
+# Introduction to this concept
 
 The following document is a recommended concept in order to set up an Azure Environment. As many aspects need to be kept in mind, the concept is about the whole Azure Environment and how it needs to be built, so that future Azure projects/builds doesn’t face foreseeable restrictions.
 
@@ -6,10 +6,10 @@ Azure has grown rapidly since its introduction in 2008. This growth required Mic
 
 [recommendations]: # ( start )
 
-## Best Practice: General recommendations for moving to the cloud
+## Good Practice: General recommendations for moving to the cloud
 
-  | Recommendations for Azure enterprise administration |                                                                                                                                                                                                                                                                                                                    |
-  | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+  | Recommendations for Azure enterprise administration |   |
+  | --------------------------------------------------- | - |
   | Limit the number of administrative users            | Assign a minimum number of users as Subscription Administrators and/or Co-administrators.                                                                                                                                                                                                                          |
   | Use Role-Based Access                               | Use Azure Resource Management RBAC whenever possible to control the amount of access that administrators have, and log what changes are made to the environment.                                                                                                                                                   |
   | Use work accounts                                   | You should sign up for Azure as an organization and use a work or school account to manage resources in Azure. Do not allow the use of existing personal Microsoft Accounts.                                                                                                                                       |

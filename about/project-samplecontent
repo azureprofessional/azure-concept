@@ -1,4 +1,5 @@
 # Title
+The title of this chapter
 
 ## Introduction
 Why is this topic relevant, where is it located in the Azure ecosystem.
@@ -6,11 +7,19 @@ Why is this topic relevant, where is it located in the Azure ecosystem.
 ## Technical Background
 What do I need to know to move on (docs.microsoft.com)
 
-## Good Practices
-Enumerate ...
+## Good Practices: Title
+Give some advice for the praxis, how to implement, good examples or good practices.
 
-## Recommendation / Conclusion
+[recommendations]: # ( start )
+## Title of the Good Practices
+Text or table for good practices must be between these lines so that we can export a good practices guide.
+[recommendations]: # ( end )
 
-## Don't forget
+
+
+## Comments (not as chapter)
+[//]: # (This can be a comment somewhere in the code)
+
+## Don't forget (not as chapter, only to consider)
 -> Security
 -> Operations
