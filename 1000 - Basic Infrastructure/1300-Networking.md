@@ -8,7 +8,7 @@ An Azure Virtual Network is bound within an Azure subscription and region. It is
 
 You can connect virtual networks to each other by using:
 
-  - **Virtual network peering:** The virtual networks must exist in the same Azure region. Bandwidth between resources in peered virtual networks is the same as if the resources were connected to the same virtual network.
+  - **Virtual network peering:** The virtual networks can be both in different tenants and different regions to peer the networks. Bandwidth between resources in peered virtual networks is the same as if the resources were connected to the same virtual network.
 
   - **An Azure VPN Gateway:** The virtual networks can exist in the same, or different Azure regions. Bandwidth between resources in virtual networks connected through a VPN Gateway is limited by the bandwidth of the VPN Gateway.
 
@@ -29,7 +29,7 @@ For isolation and traffic control, each Subnet is assigned with a network securi
 Instead of NSG on the network interface card, ASG can be used. Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. The platform handles the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
 With ASG, you can control the traffic without the need to assign an NSG to a NIC, with the full isolation of a NIC.
 
-At the moment it's not possible to use ASG in different VNet to create a NSG rule. It's something that ar in planning (Uservoice).
+At the moment it's not possible to use ASG in different VNet to create a NSG rule. It's something that is in planning (Uservoice).
 
 Source: <https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#application-security-groups>
 
@@ -51,7 +51,7 @@ The architecture consists of the following components.
 
   - **Spoke VNets.** One or more Azure VNets that are used as spokes in the hub-spoke topology. Spokes can be used to isolate workloads in their own VNets, managed separately from other spokes. Each workload might include multiple tiers, with multiple subnets connected through Azure load balancers. For more information about the application infrastructure, see Running Windows VM workloads and Running Linux VM workloads.
 
-  - **VNet peering.** Two VNets in the same Azure region can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke.
+  - **VNet peering.** Two VNets in the same Azure region, in different regions or even in different tenants can be connected using a peering connection. Peering connections are non-transitive, low latency connections between VNets. Once peered, the VNets exchange traffic by using the Azure backbone, without the need for a router. In a hub-spoke network topology, you use VNet peering to connect the hub to each spoke.
 
 We recommend defining a logical structure of the private address spaces, that can be used in Azure. It is important to keep in mind, that each address space must be flexible for other resources but not overlap with other private address spaces of other VNets or locally used private address spaces. Adress Spaces cannot be changed in peered VNets – the Virtual Networks must be unpeered to add or remove additional address spaces, and then again be peered.
 
