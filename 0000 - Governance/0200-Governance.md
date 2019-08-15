@@ -123,3 +123,45 @@ IT governance creates clarity between business goals and IT projects. Good IT go
 Azure Policy is a service in Azure that you use to create, assign and, manage policy definitions. Policy definitions enforce different rules and actions over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for those not compliant with the policy definitions you have. For example, you can have a policy to allow only certain type of virtual machines. **Another requires that all resources have a particular tag**. These policies are then evaluated when creating and updating resources.
 
 Source: https://docs.microsoft.com/en-au/azure/governance/policy/overview
+
+### How is Azure Policy different from RBAC?
+
+There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on user actions at different scopes. For example, you might be added to the contributor role for a resource group at the desired scope. The role allows you to make changes to that resource group. Policy focuses on resource properties during deployment and for already existing resources. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system.
+
+To use policies, you must be authenticated through RBAC. Specifically, your account needs the:
+
+- 'Microsoft.Authorization/policydefinitions/write' permission to define a policy.
+- 'Microsoft.Authorization/policyassignments/write' permission to assign a policy.
+- 'Microsoft.Authorization/policySetDefinitions/write' permission to define an initiative.
+- 'Microsoft.Authorization/policyassignments/write' permission to assign an initiative.
+
+These permissions are not included in the Contributor role.
+
+Source: https://docs.microsoft.com/en-au/azure/governance/policy/overview#how-is-it-different-from-rbac
+
+### Policy Definition
+
+Every policy definition has conditions under which it is enforced. Additionally, it has an accompanying action that takes place if the conditions are met.
+
+Azure Policy offers some built-in policies that are available to you by default. For example:
+
+- Require SQL Server 12.0
+  This policy definition has conditions/rules to ensure that all SQL servers use version 12.0. Its action is to deny all servers that do not meet these criteria.
+- Allowed Storage Account SKUs
+  This policy definition has a set of conditions/rules that determine if a storage account that is being deployed is within a set of SKU sizes. Its action is to deny all servers that do not adhere to the set of defined SKU sizes.
+- Allowed Resource Type
+  This policy definition has a set of conditions/rules to specify the resource types that your organization can deploy. Its action is to deny all resources that are not part of this defined list.
+- Allowed Locations
+  This policy enables you to restrict the locations that your organization can specify when deploying resources. Its action is used to enforce your geo-compliance requirements.
+- Allowed Virtual Machine SKUs
+  This policy enables you to specify a set of virtual machine SKUs that your organization can deploy.
+- Apply tag and its default value
+  This policy applies a required tag and its default value, if it is not specified by the user.
+- Enforce tag and its value
+  This policy enforces a required tag and its value to a resource.
+- Not allowed resource types
+  This policy enables you to specify the resource types that your organization cannot deploy.
+
+You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+
+Source: https://docs.microsoft.com/en-au/azure/governance/policy/overview#policy-definition

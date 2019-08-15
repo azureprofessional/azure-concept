@@ -65,3 +65,26 @@ A role assignment is the process of binding a role definition to a user, group, 
 The diagram shows an example of a role assignment. In this example, the Marketing group has been assigned the Contributor role for the pharma-sales resource group. This means that users in the Marketing group can create or manage any Azure resource in the pharma-sales resource group. Marketing users do not have access to resources outside the pharma-sales resource group, unless they are part of another role assignment.
 
 Sources: <https://docs.microsoft.com/en-us/azure/role-based-access-control/overview>
+
+### How RBAC determines if a user has access to a resource
+
+The following are the high-level steps that RBAC uses to determine if you have access to a resource on the management plane. This is helpful to understand if you are trying to troubleshoot an access issue.
+
+1. A user (or service principal) acquires a token for Azure Resource Manager.
+
+2. The token includes the user's group memberships (including transitive group memberships).
+
+3. The user makes a REST API call to Azure Resource Manager with the token attached.
+
+4. Azure Resource Manager retrieves all the role assignments and deny assignments that apply to the resource upon which the action is being taken.
+
+5. Azure Resource Manager narrows the role assignments that apply to this user or their group and determines what roles the user has for this resource.
+
+6. Azure Resource Manager determines if the action in the API call is included in the roles the user has for this resource.
+
+7. If the user doesn’t have a role with the action at the requested scope, access is not granted. Otherwise, Azure Resource Manager checks if a deny assignment applies.
+
+8. If a deny assignment applies, access is blocked. Otherwise access is granted.
+
+Source: <https://docs.microsoft.com/en-us/azure/role-based-access-control/overview#security-principal>
+
