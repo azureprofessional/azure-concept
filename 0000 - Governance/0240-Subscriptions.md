@@ -46,6 +46,10 @@ The following criteria must be met for placing a workload into a special Subscri
 - The resource requirements are such that the Azure Subscription Limits and Quotas might be reached, impacting other workload in the Subscription.
 - Subscriptions operated by third parties such as development partners or subsidiaries.
 
+### Limits, quotas and constraints
+
+Find the most current version here: <https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits>
+
 ## Sources
 
 Source:

@@ -1,0 +1,21 @@
+Here is a possible structure shown to place content faster.
+
+0000 - Governance (General, Management + governance)
+1000 - Basic Infrastructure (Idenity, Compute, Networking, Storge, Migrate)
+- Structural and content adjustments
+- Automation
+- Identity
+- Migrate
+- Management + governance
+2000 - Web
+2200 - Containers
+2400 - Databases
+3000 - Analytics
+3200 - AI + machine learning
+4000 - Internet of things
+5000 - Integration
+- Functions
+- Logic Apps
+- Service Bus
+6000 - Security
+7000- DevOps

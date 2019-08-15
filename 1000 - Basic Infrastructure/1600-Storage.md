@@ -10,15 +10,29 @@ For block blobs in a GPv2 storage account, you can choose between hot and cool s
 
 GPv2 storage accounts expose the Access Tier attribute at the account level, which specifies the default storage account tier as Hot or Cool. The default storage account tier is applied to any blob that does not have an explicit tier set at the blob level. If there is a change in the usage pattern of your data, you can also switch between these storage tiers at any time. The archive tier can only be applied at the blob level.
 
+[recommendations]: # ( start )
+
 ### Recommendations
 
 For applications requiring only block or append blob storage, using GPv2 storage accounts is recommended, to take advantage of the differentiated pricing model of tiered storage. However, you may want to use GPv1 in certain scenarios, such as:
 
   - You still need to use the classic deployment model. Blob storage accounts are only available via the Azure Resource Manager deployment model.
-
   - You use high volumes of transactions or geo-replication bandwidth, both of which cost more in GPv2 and Blob storage accounts than in GPv1, and don't have enough storage that benefits from the lower costs of GB storage.
-
   - You use a version of the Storage Services REST API that is earlier than 2014-02-14 or a client library with a version lower than 4.x and cannot upgrade your application.
+  - You can apply the tiering individually to each object in the BLOB storage.
+
+Pricing guides:
+- Hot is up to 80% more expensive than cool storage
+- Hot is nearly free for read, while cool costs more for read
+- Both hot and cool are nearly free to write
+
+General Purpose Storage V1 vs V2:
+
+- General Purpose V2 is up to 40% more expensive than V1 storage.
+- V1 doesn't offer tiering, which can save a lot of money
+- However, General Purpose V1 will be retired in the coming years, so just use V2
+
+[recommendations]: # ( end )
 
 ## Replication
 
@@ -46,6 +60,13 @@ When you create a storage account, you can select one of the following replicati
 | Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | No                                   | Yes                                  |
 | Designed to provide \_ durability of objects over a given year                                           | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
 | Supported storage account types                                                                          | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+
+Storage replication is not intended as backup (deletions will be propagated immediately), but for availability. In this context, GRS ans RA-GRS are defined:
+
+- GRS replicates your data to another data center in a secondary region, but that data is available to be read only if Microsoft initiates a failover from the primary to secondary region.
+- Read-access geo-redundant storage (RA-GRS) is based on GRS. RA-GRS replicates your data to another data center in a secondary region, and also provides you with the option to read from the secondary region. With RA-GRS, you can read from the secondary region regardless of whether Microsoft initiates a failover from the primary to secondary region.
+
+Source: <https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs>
 
 Source: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy
 
@@ -184,6 +205,14 @@ With Premium Storage, Azure offers the ability to truly lift-and-shift demanding
 For the best performance for your application, we recommend that you migrate any VM disk that requires high IOPS to Premium Storage. If your disk does not require high IOPS, you can help limit costs by keeping it in standard Azure Storage. In standard storage, VM disk data is stored on hard disk drives (HDDs) instead of on SSDs.
 
 Source: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/premium-storage
+
+### Azure ultra SSD Storage
+
+Azure ultra solid state drives (SSD) (preview) offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of ultra SSDs is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra SSDs are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+
+Currently, ultra SSDs are in preview and you must enroll in the preview in order to access them.
+
+Source: <https://docs.microsoft.com/de-de/azure/virtual-machines/windows/disks-enable-ultra-ssd>
 
 ### Unmanaged disks
 
