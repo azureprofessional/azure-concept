@@ -172,7 +172,6 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Internal Load Balancer                        | Networking   | LBI    |        |
 | Key Vault                                     | Other        | key    |        |
 | Load Balancer	Networking                      | Networking   | llb    |        |
-| Load Balancing Rules Config                   | Networking   | LBR    |        |
 | Local Network Gateway                         | Networking   | LNG    |        |
 | Log Analytics Workspace                       | Monitoring   | LAW    |        |
 | Log Analytics Workspace	Other                 | Monitoring   | law    |        |
@@ -280,7 +279,7 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 
 
 #### Tag
-
+<br><br><br><br><br><br><br><br>
 
 
 #### Blueprints
@@ -414,20 +413,19 @@ SNE_EUWE_CO_0001_DomainServices_FE\
 SNE_EUWE_PR_1001_Frontend_FE\
 SNE_EUWE_PR_1001_Backend_BE\
 SNE_EUWE_PR_1001_Management_MG\
-SNE_EUWE_PR_1001_CSTA_DMZ_FE\
-SNE_EUWE_PR_1001_CSTA_DMZ_BE\
-SNE_EUWE_PR_1001_CSTA_AppServer_BE\
-SNE_EUWE_PR_1001_CSTB_AppServer_BE
+SNE_MYTC_EUWE_PR_1001_DMZ_FE\
+SNE_MYTC_EUWE_PR_1001_DMZ_BE\
+SNE_MYTC_EUWE_PR_1001_AppServer_BE\
 
 *Description*:
 
 | Identifiers     | Range | Values/Meaning                                                     | Comments |
 | --------------- | ----- | ------------------------------------------------------------------ | -------- |
 | Prefix          | 3     | VNP = VNet Peering                                                 |          |
+| TenantShort     | 4     | MYTC = My Top Company                                              |          |
 | Region          | 4     | Described in the chapter Affixes, Region                           |          |
 | Environment     | 2     | Described in the chapter Affixes, Environment                      |          |
 | SubscriptionID  | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
-| CustomerShort   | 4     | Short name of the customer name, which occurs in different places. |          |
 | Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |          |
 | AreaShort       | 2     | FE = Frontend <br> BE = Backend <br> MG = Management               |          |
 
@@ -497,6 +495,7 @@ NSG_MYTC_EUWE_PR_1001_CSTB_AppServer_BE
 | AreaShort       | 2     | FE = Frontend <br> BE = Backend <br> MG = Management               |          |
 
 *Declaration*:
+
 Network Security Groups inherit the name of the Subnet, they are not using a counter as there can’t be multiple NSG with the same name.
 
 #### Network Security Group Rule
@@ -766,12 +765,12 @@ RSV-MYTC-EUWE-TE-DefaultBackup-01
 ##### Azure Backup Policy
 *Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Purpose>-<BackupSchedule>-<BackupTime>-<TimeZone>-<Instant>-<DailyRetention>-<WeeklyRetention>-[MontlyRetention]-[YearlyRetention]`
 
-ABP-EUWE-AU-AVM-D-22-UTCP01-1-7-SO5
-ABP-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5
-ABP-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
-ABP-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5
-ABP-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
-ABP-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5
+ABP-EUWE-AU-AVM-D-22-UTCP01-1-7-SO5\
+ABP-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5\
+ABP-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10\
+ABP-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5\
+ABP-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10\
+ABP-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5\
 ABP-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
 
 | Identifiers     | Range | Values/Meaning                                                                                                                                                                                        | Comments |
