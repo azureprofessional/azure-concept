@@ -20,7 +20,7 @@ Sources: <https://docs.microsoft.com/en-us/azure/architecture/best-practices/nam
 
 When naming Azure subscriptions, verbose names make understanding the context and purpose of each subscription clear. When working in an environment with many subscriptions, following a shared naming convention can improve clarity.
 
-A recommended pattern for naming subscriptions is:
+A generic recommended pattern for naming subscriptions is:
 
 **\<Company\> \<Department (optional)\> \<Product Line (optional)\> \<Environment\>**
 
@@ -40,11 +40,11 @@ In general, avoid having any special characters (- or \_) as the first or last c
 
 #### General naming restrictions
 
-| Entity           | Scope             | Length                  | Case sensitive           | Valid Characters                                                          | Suggested Pattern                         | Example                     |
-| ---------------- | ----------------- | ----------------------- | ---------------- | ------------------------------------------------------------------------- | ----------------------------------------- | --------------------------- |
-| Resource Group   | Subscription      | 1-90                    | false | Alphanumeric, underscore, parentheses, hyphen, and period (except at end) | \<service short name\>-\<environment\>-rg | profx-prod-rg               |
-| Availability Set | Resource Group    | 1-80                    | false | Alphanumeric, underscore, and hyphen                                      | \<service-short-name\>-\<context\>-as     | profx-sql-as                |
-| Tag              | Associated Entity | 512 (name), 256 (value) | false | Alphanumeric                                                              | "key" : "value"                           | "department" : "Central IT" |
+| Entity           | Scope             | Length                  | Case sensitive | Valid Characters                                                          | Suggested Pattern                         | Example                     |
+| ---------------- | ----------------- | ----------------------- | -------------- | ------------------------------------------------------------------------- | ----------------------------------------- | --------------------------- |
+| Resource Group   | Subscription      | 1-90                    | false          | Alphanumeric, underscore, parentheses, hyphen, and period (except at end) | \<service short name\>-\<environment\>-rg | profx-prod-rg               |
+| Availability Set | Resource Group    | 1-80                    | false          | Alphanumeric, underscore, and hyphen                                      | \<service-short-name\>-\<context\>-as     | profx-sql-as                |
+| Tag              | Associated Entity | 512 (name), 256 (value) | false          | Alphanumeric                                                              | "key" : "value"                           | "department" : "Central IT" |
 
 #### Compute naming restrictions
 
@@ -57,9 +57,9 @@ For all rules and restrictions, please visit [https://docs.microsoft.com/en-us/a
 
 ### Affixes
 
-When developing a specific naming convention for your company or projects, it is importantly to choose a common set of affixes and their position (suffix or prefix).
+When developing a  naming convention for a company or project, it is important to select a common set of affixes and their position (suffix or prefix).
 
-While all the information about type, metadata, context, is available programmatically, applying common affixes simplifies visual identification. When incorporating affixes into your naming convention, it is important to clearly specify whether the affix is at the beginning of the name (prefix) or at the end (suffix).
+While all the information about type, metadata and context is available via API, applying common affixes simplifies visual identification. When incorporating affixes into your naming convention, it is important to clearly specify whether the affix is at the beginning of the name (prefix) or at the end (suffix).
 
 For instance, here are two possible names for a service hosting a calculation engine:
 
@@ -73,80 +73,138 @@ Affixes can refer to different aspects that describe the particular resources. S
 ## Good Practices: Naming standards
 ### Affixes
 #### Region
-| Region | Location | Code |
-|--------|----------|------|
-|Region Neutral|Location Neutral|**AAAA**|
-|South Africa North|Johannesburg|SANO|
-|South Africa West|Cape Town|SAWE|
-|Central India|Pune|INCE|
-|China East|Shanghai|CHEA|
-|China East 2|Shanghai|CHE2|
-|China North|Beijing|CHNO|
-|China North 2|Beijing|CHN2|
-|East Asia|Hong Kong|ASEA|
-|Japan East|Tokyo, Saitama|JAEA|
-|Japan West|Osaka|JAWE|
-|Korea Central|Seoul|KOCE|
-|Korea South|Busan|KOSO|
-|South India|Chennai|INSO|
-|Southeast Asia|Singapore|ASSO|
-|UAE Central|Abu Dhabi|UACE|
-|UAE North|Dubai|UANO|
-|West India|Mumbai|INWE|
-|Australia Central|Canberra|AUCE|
-|Australia Central 2|Canberra|AUC2|
-|Australia East|New South Wales|AUEA|
-|Australia Southeast|Victoria|AUSO|
-|France Central|Paris|FRCE|
-|France South|Marseille|FRSO|
-|Germany Central|Frankfurt|GECE|
-|Germany North|Germany North|GENO|
-|Germany Northeast|Magdeburg|GENE|
-|Germany West Central|Germany West Central|GEWC|
-|North Europe|Ireland|EUNO|
-|Norway East|Norway|NOEA|
-|Norway West|Norway|NOWE|
-|Switzerland North|Zurich|SCNO|
-|Switzerland West|Geneva|SCWE|
-|UK South|London|UKSO|
-|UK West|Cardiff|UKWE|
-|West Europe|Netherlands|**EUWE**|
-|Canada Central|Toronto|CACE|
-|Canada East|Quebec City|CAEA|
-|Central US|Iowa|USCE|
-|East US|Virginia|USEA|
-|East US 2|Virginia|USE2|
-|North Central US|Illinois|USNC|
-|South Central US|Texas|USSC|
-|US DoD Central|Iowa|USGC|
-|US DoD East|Virginia|USGE|
-|US Gov Arizona|Arizona|USGA|
-|US Gov Iowa|Iowa|USGI|
-|US Gov Texas|Texas|USGT|
-|US Gov Virginia|Virginia|USGV|
-|West Central US|Wyoming|UWCE|
-|West US|California|USW2|
-|West US 2|Washington|USWE|
-|Brazil South|Sao Paulo State|BRSO|
-|Azure Stack|Datacenter|AZBE|
+| Region               | Location             | Code     |
+| -------------------- | -------------------- | -------- |
+| Region Neutral       | Location Neutral     | **AAAA** |
+| South Africa North   | Johannesburg         | SANO     |
+| South Africa West    | Cape Town            | SAWE     |
+| Central India        | Pune                 | INCE     |
+| China East           | Shanghai             | CHEA     |
+| China East 2         | Shanghai             | CHE2     |
+| China North          | Beijing              | CHNO     |
+| China North 2        | Beijing              | CHN2     |
+| East Asia            | Hong Kong            | ASEA     |
+| Japan East           | Tokyo, Saitama       | JAEA     |
+| Japan West           | Osaka                | JAWE     |
+| Korea Central        | Seoul                | KOCE     |
+| Korea South          | Busan                | KOSO     |
+| South India          | Chennai              | INSO     |
+| Southeast Asia       | Singapore            | ASSO     |
+| UAE Central          | Abu Dhabi            | UACE     |
+| UAE North            | Dubai                | UANO     |
+| West India           | Mumbai               | INWE     |
+| Australia Central    | Canberra             | AUCE     |
+| Australia Central 2  | Canberra             | AUC2     |
+| Australia East       | New South Wales      | AUEA     |
+| Australia Southeast  | Victoria             | AUSO     |
+| France Central       | Paris                | FRCE     |
+| France South         | Marseille            | FRSO     |
+| Germany Central      | Frankfurt            | GECE     |
+| Germany North        | Germany North        | GENO     |
+| Germany Northeast    | Magdeburg            | GENE     |
+| Germany West Central | Germany West Central | GEWC     |
+| North Europe         | Ireland              | EUNO     |
+| Norway East          | Norway               | NOEA     |
+| Norway West          | Norway               | NOWE     |
+| Switzerland North    | Zurich               | SCNO     |
+| Switzerland West     | Geneva               | SCWE     |
+| UK South             | London               | UKSO     |
+| UK West              | Cardiff              | UKWE     |
+| West Europe          | Netherlands          | **EUWE** |
+| Canada Central       | Toronto              | CACE     |
+| Canada East          | Quebec City          | CAEA     |
+| Central US           | Iowa                 | USCE     |
+| East US              | Virginia             | USEA     |
+| East US 2            | Virginia             | USE2     |
+| North Central US     | Illinois             | USNC     |
+| South Central US     | Texas                | USSC     |
+| US DoD Central       | Iowa                 | USGC     |
+| US DoD East          | Virginia             | USGE     |
+| US Gov Arizona       | Arizona              | USGA     |
+| US Gov Iowa          | Iowa                 | USGI     |
+| US Gov Texas         | Texas                | USGT     |
+| US Gov Virginia      | Virginia             | USGV     |
+| West Central US      | Wyoming              | UWCE     |
+| West US              | California           | USW2     |
+| West US 2            | Washington           | USWE     |
+| Brazil South         | Sao Paulo State      | BRSO     |
+| Azure Stack          | Datacenter           | AZBE     |
 
 #### Environment
-| Code | Description |
-|------|-------------|
-|DE|Development|
-|TE|Test|
-|ST|Staging (UAT)|
-|PR|Production|
-|CO|Core|
-|AU|Automation|
-|SB|Sandbox|
-|SP|Special|
-|UN|Undefined|
+| Code | Description   |
+| ---- | ------------- |
+| DE   | Development   |
+| TE   | Test          |
+| ST   | Staging (UAT) |
+| PR   | Production    |
+| CO   | Core          |
+| AU   | Automation    |
+| SB   | Sandbox       |
+| SP   | Special       |
+| UN   | Undefined     |
 
 #### Services
-| Name | Category | Prefix | Suffix |
-|------|----------|--------|--------|
-| App Service |	App Services | aps | |
+| Name                                          | Category     | Prefix | Suffix |
+| --------------------------------------------- | ------------ | ------ | ------ |
+| App Service                                   | App Services | aps    |        |
+| App Service                                   | App Services | aps    |        |
+| App Service Environment                       | App Services | ase    |        |
+| App Service Plan                              | App Services | asp    |        |
+| Application Insights                          | App Services | AIS    |        |
+| Application Security Group                    |              | ASG    |        |
+| Automation Account                            | Serverless   | AUT    |        |
+| Availability Set                              | Compute      | AVS    |        |
+| Azure Analysis Services                       | Databases    | aas    |        |
+| Azure Application Gateway                     | Security     | AAG    |        |
+| Azure Automation Hybrid Worker                | Hybrid       |        |        |
+| Azure Traffic Manager Profile                 | Networking   | ATM    |        |
+| Blob                                          | Storage      |        |        |
+| Blueprints                                    | Governance   | BLP    |        |
+| Container                                     | Serverless   |        |        |
+| Data Lake Store                               | Storage      |        |        |
+| Event Grid Domains	Event Hub                  | Serverless   | egd    |        |
+| Event Grid Subscriptions	Event Hub            | Serverless   | egs    |        |
+| Event Hubs	Event Hub                          | Serverless   | evh    |        |
+| Event Hubs Topics	Event Hub                   | Serverless   | egt    |        |
+| External Load Balancer                        | Compute      | LBE    |        |
+| File                                          | Storage      |        |        |
+| Function                                      | Serverless   |        |        |
+| Initative                                     | Governance   |        |        |
+| Internal Load Balancer                        | Networking   | LBI    |        |
+| Key Vault                                     | Other        | key    |        |
+| Load Balancer	Networking                      | Networking   | llb    |        |
+| Load Balancing Rules Config                   | Networking   | LBR    |        |
+| Log Analytics Workspace                       | Monitoring   | LAW    |        |
+| Log Analytics Workspace	Other                 | Monitoring   | law    |        |
+| Managed Disk	Storage                          | Storage      |        |        |
+| Management Group                              | Governance   | MAG    |        |
+| Network Interface                             | Networking   | NIC    |        |
+| Network Security Group                        | Networking   | NSG    |        |
+| Network Security Group Rule                   | Networking   |        |        |
+| Policies                                      | Governance   |        |        |
+| Public IP Address                             | Networking   | PIP    |        |
+| Public IP Address	Networking                  | Networking   | pub    |        |
+| Queue                                         | Serverless   |        |        |
+| Recovery Service Vault	Storage                | Backup       | rsv    |        |
+| Recovery Services Vault                       | Backup       | RSV    |        |
+| Recovery Services Vault – Azure Backup Policy | Backup       | ABP    |        |
+| Ressource Group                               | Governance   | RSG    |        |
+| Route Table                                   | Networking   | NRT    |        |
+| SQL Database	Databases                        | Database     | sdb    |        |
+| SQL Datawarehouse	Databases                   | Database     | sdb    |        |
+| SQL Managed Instance	Databases                | Database     | smi    |        |
+| SQL Server	Databases                          | Database     | sdb    |        |
+| Storage Account                               | Storage      |        |        |
+| Storage Account Name (data)                   | Storage      |        |        |
+| Storage Account Name (disk)                   | Storage      |        |        |
+| Subnet                                        | Networking   | SNE    |        |
+| Subscription                                  | Governance   | SUB    |        |
+| Table                                         | Databases    |        |        |
+| Tag                                           | Governance   |        |        |
+| Virtual Machine                               | Compute      |        |        |
+| Virtual Network (VNet)                        | Networking   | VNE    |        |
+| VNet Peering                                  | Networking   | VNP    |        |
+| VPN Gateway                                   | Networking   | VPN    |        |
 
 ### Naming Conventions
 
@@ -162,30 +220,30 @@ If this naming convention used only for a single-tenant, you can omit the **Tena
 
 *Examples*:
 
-| ID | Name |
-|----|------|
-| MAG_0001_00 | MAG_CORP_00 |
-| MAG_0002_01 | MAG_Infra_01 |
+| ID          | Name            |
+| ----------- | --------------- |
+| MAG_0001_00 | MAG_CORP_00     |
+| MAG_0002_01 | MAG_Infra_01    |
 | MAG_0003_01 | MAG_Standard_01 |
-| MAG_0004_01 | MAG_Special_01 |
+| MAG_0004_01 | MAG_Special_01  |
 | MAG_0005_02 | MAG_SuplierA_02 |
 | MAG_0006_02 | MAG_SuplierB_02 |
 
-| ID | Name |
-|----|------|
-| MAG_0007_00 | MAG_MYTC_00 |
-| MAG_0008_01 | MAG_MYTC_Infra_01 |
+| ID          | Name                 |
+| ----------- | -------------------- |
+| MAG_0007_00 | MAG_MYTC_00          |
+| MAG_0008_01 | MAG_MYTC_Infra_01    |
 | MAG_0009_01 | MAG_MYTC_Standard_01 |
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | MAG = Management Group | |
-| ManagementGroupID | 4 | Ongoing numbering | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Scope | 5..30 | Infra <br> Standard <br> Special <br> Others | |
-| Level | 2 | 00 = Top Level <br> 01 = Level under Top Level <br> 02 = Level under Level 01 | |
+| Identifiers       | Range | Values/Meaning                                                                | Comments |
+| ----------------- | ----- | ----------------------------------------------------------------------------- | -------- |
+| Prefix            | 3     | MAG = Management Group                                                        |          |
+| ManagementGroupID | 4     | Ongoing numbering                                                             |          |
+| TenantShort       | 4     | MYTC = My Top Company                                                         |          |
+| Scope             | 5..30 | Infra <br> Standard <br> Special <br> Others                                  |          |
+| Level             | 2     | 00 = Top Level <br> 01 = Level under Top Level <br> 02 = Level under Level 01 |          |
 
 
 #### Subscription
@@ -210,14 +268,14 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | SUB = Subscription | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Ongoing numbering per environment, the first position of the number stands for: <br> 0 = Infrastructure <br> 1 = Standard <br> 2 = Special. | |
-| Product\|Service\|Team | 5..20 | CentralAutomation <br> CentralServices <br> BusinesServices <br> VDIServices <br> ExternalCorpA| |
-| VersionNr | 2 | 01..99 | |
+| Identifiers            | Range | Values/Meaning                                                                                                                              | Comments |
+| ---------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Prefix                 | 3     | SUB = Subscription                                                                                                                          |          |
+| TenantShort            | 4     | MYTC = My Top Company                                                                                                                       |          |
+| Environment            | 2     | Described in the chapter Affixes, Environment                                                                                               |          |
+| SubscriptionID         | 4     | Ongoing numbering per environment, the first position of the number stands for: <br> 0 = Infrastructure <br> 1 = Standard <br> 2 = Special. |          |
+| Product\|Service\|Team | 5..20 | CentralAutomation <br> CentralServices <br> BusinesServices <br> VDIServices <br> ExternalCorpA                                             |          |
+| VersionNr              | 2     | 01..99                                                                                                                                      |          |
 
 
 
@@ -261,14 +319,14 @@ RSG_MYTC_TE_EUWE_ApplicationA_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | RSG = Ressource Group | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| Region | 4 | Described in the chapter Affixes, Region | |
-| Service\|System | 5..25 | Describes a purpose for which the resource should be used. | |
-| VersionNr | 2 | 01..99 | |
+| Identifiers     | Range | Values/Meaning                                             | Comments |
+| --------------- | ----- | ---------------------------------------------------------- | -------- |
+| Prefix          | 3     | RSG = Ressource Group                                      |          |
+| TenantShort     | 4     | MYTC = My Top Company                                      |          |
+| Environment     | 2     | Described in the chapter Affixes, Environment              |          |
+| Region          | 4     | Described in the chapter Affixes, Region                   |          |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used. |          |
+| VersionNr       | 2     | 01..99                                                     |          |
 
 *Declaration*:
 
@@ -291,14 +349,14 @@ VNE_MYTC_EUWE_DE_1003_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | VNE = Virtual Network | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Region | 4 | Described in the chapter Affixes, Region | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Same SubscriptionID in which subscription the resource will be published. | |
-| VersionNr | 2 | 01..99 | |
+| Identifiers    | Range | Values/Meaning                                                            | Comments |
+| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
+| Prefix         | 3     | VNE = Virtual Network                                                     |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
+| VersionNr      | 2     | 01..99                                                                    |          |
 
 
 #### VNet Peering
@@ -322,14 +380,14 @@ VNP_MYTC_EUWE_DE_1003_01-MYTC_EUWE_CO_0001_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | VNP = VNet Peering | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Region | 4 | Described in the chapter Affixes, Region | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Same SubscriptionID which is also used for the corresponding VNet. | |
-| VersionNr | 2 | 01..99 | |
+| Identifiers    | Range | Values/Meaning                                                     | Comments |
+| -------------- | ----- | ------------------------------------------------------------------ | -------- |
+| Prefix         | 3     | VNP = VNet Peering                                                 |          |
+| TenantShort    | 4     | MYTC = My Top Company                                              |          |
+| Region         | 4     | Described in the chapter Affixes, Region                           |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                      |          |
+| SubscriptionID | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
+| VersionNr      | 2     | 01..99                                                             |          |
 
 
 #### Subnet
@@ -351,15 +409,15 @@ SNE_EUWE_PR_1001_CSTB_AppServer_BE
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | VNP = VNet Peering | |
-| Region | 4 | Described in the chapter Affixes, Region | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Same SubscriptionID which is also used for the corresponding VNet. | |
-| CustomerShort | 4 | Short name of the customer name, which occurs in different places. | |
-| Service\|System | 5..25 | Describes a purpose for which the resource should be used. | |
-| AreaShort | 2 | FE = Frontend <br> BE = Backend <br> MG = Management | |
+| Identifiers     | Range | Values/Meaning                                                     | Comments |
+| --------------- | ----- | ------------------------------------------------------------------ | -------- |
+| Prefix          | 3     | VNP = VNet Peering                                                 |          |
+| Region          | 4     | Described in the chapter Affixes, Region                           |          |
+| Environment     | 2     | Described in the chapter Affixes, Environment                      |          |
+| SubscriptionID  | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
+| CustomerShort   | 4     | Short name of the customer name, which occurs in different places. |          |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |          |
+| AreaShort       | 2     | FE = Frontend <br> BE = Backend <br> MG = Management               |          |
 
 #### Route Table
 *Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<VersionNr>`
@@ -379,14 +437,14 @@ NRT_MYTC_EUWE_DE_1003_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | VNE = Virtual Network | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Region | 4 | Described in the chapter Affixes, Region | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Same SubscriptionID which is also used for the corresponding VNet. | |
-| VersionNr | 2 | 01..99 | |
+| Identifiers    | Range | Values/Meaning                                                     | Comments |
+| -------------- | ----- | ------------------------------------------------------------------ | -------- |
+| Prefix         | 3     | VNE = Virtual Network                                              |          |
+| TenantShort    | 4     | MYTC = My Top Company                                              |          |
+| Region         | 4     | Described in the chapter Affixes, Region                           |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                      |          |
+| SubscriptionID | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
+| VersionNr      | 2     | 01..99                                                             |          |
 
 
 #### Network Security Group
@@ -416,15 +474,15 @@ NSG_MYTC_EUWE_PR_1001_CSTB_AppServer_BE
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | NSG = Network Security Group | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Region | 4 | Described in the chapter Affixes, Region | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Same SubscriptionID which is also used for the corresponding VNet. | |
-| Service\|System | 5..25 | Describes a purpose for which the resource should be used. | |
-| AreaShort | 2 | FE = Frontend <br> BE = Backend <br> MG = Management | |
+| Identifiers     | Range | Values/Meaning                                                     | Comments |
+| --------------- | ----- | ------------------------------------------------------------------ | -------- |
+| Prefix          | 3     | NSG = Network Security Group                                       |          |
+| TenantShort     | 4     | MYTC = My Top Company                                              |          |
+| Region          | 4     | Described in the chapter Affixes, Region                           |          |
+| Environment     | 2     | Described in the chapter Affixes, Environment                      |          |
+| SubscriptionID  | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |          |
+| AreaShort       | 2     | FE = Frontend <br> BE = Backend <br> MG = Management               |          |
 
 *Declaration*:
 Network Security Groups inherit the name of the Subnet, they are not using a counter as there can’t be multiple NSG with the same name.
@@ -445,14 +503,14 @@ NSR_out_ANY_allow_WAPtoWAP-ANY
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | NSR = Network Security Group Rule | |
-| Direction | 2..3 | in <br> out | |
-| Protocol | 3 | ANY <br> TCP <br> UDP | |
-| Action | 4..5 | allow <br> deny | |
-| FromToWhere\|Service\|System | 5..20 | JUMPtoVNET <br> CXCCtoVDAIP <br> ONPREMtoJUMP <br> WAPtoWAP | As a rule, an abbreviation of 4 characters per service is attempted here. But this is not a hard value at the moment. |
-| ShortPortDescription | 2..8 | RDP <br> HTTP <br> HTTPS <br> ICA <br> DNS <br> WEB <br> DOMAIN | |
+| Identifiers                  | Range | Values/Meaning                                                  | Comments                                                                                                              |
+| ---------------------------- | ----- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| Prefix                       | 3     | NSR = Network Security Group Rule                               |                                                                                                                       |
+| Direction                    | 2..3  | in <br> out                                                     |                                                                                                                       |
+| Protocol                     | 3     | ANY <br> TCP <br> UDP                                           |                                                                                                                       |
+| Action                       | 4..5  | allow <br> deny                                                 |                                                                                                                       |
+| FromToWhere\|Service\|System | 5..20 | JUMPtoVNET <br> CXCCtoVDAIP <br> ONPREMtoJUMP <br> WAPtoWAP     | As a rule, an abbreviation of 4 characters per service is attempted here. But this is not a hard value at the moment. |
+| ShortPortDescription         | 2..8  | RDP <br> HTTP <br> HTTPS <br> ICA <br> DNS <br> WEB <br> DOMAIN |                                                                                                                       |
 
 
 #### Application Security Group
@@ -473,15 +531,15 @@ ASG_MYTC_EUWE_CO_0001_AADC_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | SUB = Subscription | |
-| TenantShort | 4 | MYTC = My Top Company | |
-| Region | 4 | Described in the chapter Affixes, Region | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| SubscriptionID | 4 | Same SubscriptionID which is also used for the corresponding VNet. | |
-| Service\|System | 5..25 | Describes a purpose for which the resource should be used. | |
-| VersionNr | 2 | 01..99 | |
+| Identifiers     | Range | Values/Meaning                                                     | Comments |
+| --------------- | ----- | ------------------------------------------------------------------ | -------- |
+| Prefix          | 3     | SUB = Subscription                                                 |          |
+| TenantShort     | 4     | MYTC = My Top Company                                              |          |
+| Region          | 4     | Described in the chapter Affixes, Region                           |          |
+| Environment     | 2     | Described in the chapter Affixes, Environment                      |          |
+| SubscriptionID  | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |          |
+| VersionNr       | 2     | 01..99                                                             |          |
 
 
 
@@ -507,12 +565,12 @@ ASG_MYTC_EUWE_CO_0001_AADC_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning | Comments |
-|-------------|-------|----------------|----------|
-| Prefix | 3 | SUB = Subscription | |
-| Region | 4 | Described in the chapter Affixes, Region | | |
-| Environment | 2 | Described in the chapter Affixes, Environment | |
-| VersionNr | 2 | 01..99 | |
+| Identifiers | Range | Values/Meaning                                | Comments |
+| ----------- | ----- | --------------------------------------------- | -------- |
+| Prefix      | 3     | SUB = Subscription                            |          |
+| Region      | 4     | Described in the chapter Affixes, Region      |          |  |
+| Environment | 2     | Described in the chapter Affixes, Environment |          |
+| VersionNr   | 2     | 01..99                                        |          |
 
 [recommendations]: # ( end )
 
