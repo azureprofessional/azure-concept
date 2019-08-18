@@ -7,7 +7,7 @@
 | 2019-05-27 | Robin Berberat    | Corporate Software |
 | 2019-07-31 | Stefan Beckmann   | Unico Data AG      |
 | 2019-08-06 | Stefan Beckmann   | Unico Data AG      |
-| Row6       |                   |                    |
+| 2019-08-19 | Stefan Beckmann   | Unico Data AG      |
 | Row7       |                   |                    |
 | Row8       |                   |                    |
 | Row9       |                   |                    |
