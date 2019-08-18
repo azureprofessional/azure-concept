@@ -146,10 +146,9 @@ Affixes can refer to different aspects that describe the particular resources. S
 #### Services
 | Name                                          | Category     | Prefix | Suffix |
 | --------------------------------------------- | ------------ | ------ | ------ |
-| App Service                                   | App Services | aps    |        |
-| App Service                                   | App Services | aps    |        |
-| App Service Environment                       | App Services | ase    |        |
-| App Service Plan                              | App Services | asp    |        |
+| App Service                                   | App Services | apps    |        |
+| App Service Environment                       | App Services | apse    |        |
+| App Service Plan                              | App Services | aspl    |        |
 | Application Insights                          | App Services | AIS    |        |
 | Application Security Group                    |              | ASG    |        |
 | Automation Account                            | Serverless   | AUT    |        |
