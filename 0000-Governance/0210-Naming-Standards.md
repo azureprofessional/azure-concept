@@ -162,9 +162,9 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Blueprints                                    | Governance   | BLP    |        |
 | Container                                     | Serverless   |        |        |
 | Data Lake Store                               | Storage      |        |        |
-| Event Grid Domains	Event Hub                  | Serverless   | egd    |        |
-| Event Grid Subscriptions	Event Hub            | Serverless   | egs    |        |
-| Event Hubs	Event Hub                          | Serverless   | evh    |        |
+| Event Grid Domains	Event Hub                 | Serverless   | egd    |        |
+| Event Grid Subscriptions	Event Hub           | Serverless   | egs    |        |
+| Event Hubs	Event Hub                         | Serverless   | evh    |        |
 | Event Hubs Topics	Event Hub                   | Serverless   | egt    |        |
 | External Load Balancer                        | Compute      | LBE    |        |
 | File                                          | Storage      |        |        |
@@ -176,24 +176,24 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Load Balancing Rules Config                   | Networking   | LBR    |        |
 | Log Analytics Workspace                       | Monitoring   | LAW    |        |
 | Log Analytics Workspace	Other                 | Monitoring   | law    |        |
-| Managed Disk	Storage                          | Storage      |        |        |
+| Managed Disk	Storage                         | Storage      |        |        |
 | Management Group                              | Governance   | MAG    |        |
-| Network Interface                             | Networking   | NIC    |        |
+| Network Interface                             | Networking   |        | NIC    |
 | Network Security Group                        | Networking   | NSG    |        |
 | Network Security Group Rule                   | Networking   |        |        |
 | Policies                                      | Governance   |        |        |
-| Public IP Address                             | Networking   | PIP    |        |
+| Public IP Address                             | Networking   |        | PIP    |
 | Public IP Address	Networking                  | Networking   | pub    |        |
 | Queue                                         | Serverless   |        |        |
-| Recovery Service Vault	Storage                | Backup       | rsv    |        |
+| Recovery Service Vault Storage                | Backup       | rsv    |        |
 | Recovery Services Vault                       | Backup       | RSV    |        |
 | Recovery Services Vault – Azure Backup Policy | Backup       | ABP    |        |
 | Ressource Group                               | Governance   | RSG    |        |
 | Route Table                                   | Networking   | NRT    |        |
-| SQL Database	Databases                        | Database     | sdb    |        |
+| SQL Database	Databases                       | Database     | sdb    |        |
 | SQL Datawarehouse	Databases                   | Database     | sdb    |        |
-| SQL Managed Instance	Databases                | Database     | smi    |        |
-| SQL Server	Databases                          | Database     | sdb    |        |
+| SQL Managed Instance	Databases               | Database     | smi    |        |
+| SQL Server	Databases                         | Database     | sdb    |        |
 | Storage Account                               | Storage      |        |        |
 | Storage Account Name (data)                   | Storage      |        |        |
 | Storage Account Name (disk)                   | Storage      |        |        |
@@ -279,14 +279,26 @@ SUB_MYTC_SP_2001_ExternalCorpA_01
 
 
 
-
-
 #### Tag
 
 
 
+#### Blueprints
+*Pattern*: `<Prefix>_<Description>_<VersionNr>`
+
+*Examples*:
+BLP_Automation_01
+BLP_Backup_01
+BLP_BasicConfig_01
 
 
+*Description*:
+
+| Identifiers | Range | Values/Meaning                                | Comments |
+| ----------- | ----- | --------------------------------------------- | -------- |
+| Prefix      | 3     | BLP = Blueprints                              |          |
+| Description | 4     | A description that best describes the purpose or content.      |          |
+| VersionNr   | 2     | 01..99                                        |          |
 
 
 #### Ressource Group
@@ -545,13 +557,13 @@ ASG_MYTC_EUWE_CO_0001_AADC_01
 
 [//]: # (This section Stefan Beckmann will create the chapters, he had some examples, that we can discuss then.)
 
-#### Availability Set*
 #### VPN Gateway*
 #### Local Network Gateway*
 #### Internal Load Balancer*
 #### External Load Balancer*
 #### Load Balancing Rules Config
-#### Blueprints
+#### Availability Set*
+
 #### Automation Account*
 #### Recovery Service Vault*
 ##### Azure Backup Policy
