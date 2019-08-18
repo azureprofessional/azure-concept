@@ -174,6 +174,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Key Vault                                     | Other        | key    |        |
 | Load Balancer	Networking                      | Networking   | llb    |        |
 | Load Balancing Rules Config                   | Networking   | LBR    |        |
+| Local Network Gateway                         | Networking   | LNG    |        |
 | Log Analytics Workspace                       | Monitoring   | LAW    |        |
 | Log Analytics Workspace	Other                 | Monitoring   | law    |        |
 | Managed Disk	Storage                         | Storage      |        |        |
@@ -553,22 +554,268 @@ ASG_MYTC_EUWE_CO_0001_AADC_01
 | Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |          |
 | VersionNr       | 2     | 01..99                                                             |          |
 
+#### VPN Gateway
+*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>`
+
+*Examples*:
+
+VPN_EUWE_CO_0001
+
+VPN_MYTC_EUWE_CO_0001
 
 
-[//]: # (This section Stefan Beckmann will create the chapters, he had some examples, that we can discuss then.)
+*Description*:
 
-#### VPN Gateway*
-#### Local Network Gateway*
-#### Internal Load Balancer*
-#### External Load Balancer*
-#### Load Balancing Rules Config
-#### Availability Set*
+| Identifiers    | Range | Values/Meaning                                                            | Comments |
+| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
+| Prefix         | 3     | VPN = VPN Gateway                                                         |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
 
-#### Automation Account*
-#### Recovery Service Vault*
+#### Local Network Gateway
+*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>`
+
+*Examples*:
+
+LNG_EUWE_CO_0001
+
+LNG_MYTC_EUWE_CO_0001
+
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                                            | Comments |
+| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
+| Prefix         | 3     | LNG = Local Network Gateway                                               |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
+
+##### Connection
+*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<SiteName>`
+
+*Examples*:
+
+LNG_EUWE_CO_0001_HQ
+
+LNG_MYTC_EUWE_CO_0001_HQ
+
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                                            | Comments |
+| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
+| Prefix         | 3     | LNG = Local Network Gateway                                               |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
+| SiteName       | 2..20 | A descriptive name of the remote site.                                    |          |
+
+
+#### Internal Load Balancer
+*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<LBFunction><Nr>_<VersionNr>`
+
+*Examples*:
+
+LBI_EUWE_CO_GENP01_01\
+LBI_EUWE_CO_CXSF01_01
+
+LBI_MYTC_EUWE_CO_GENP01_01\
+LBI_MYTC_EUWE_CO_CXSF01_01
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                                                      | Comments |
+| -------------- | ----- | ----------------------------------------------------------------------------------- | -------- |
+| Prefix         | 3     | LBI = Internal Load Balancer                                                        |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                               |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                            |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                                       |          |
+| LBFunction     | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
+| Nr             | 2     | 01..99, a number that is oriented towards the target service.                       |          |
+| VersionNr      | 2     | 01..99                                                                              |          |
+
+#### Public Load Balancer
+*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<LB-Function><Nr>_<VersionNr>`
+
+*Examples*:
+
+LBP_EUWE_CO_GENP01_01\
+LBP_EUWE_CO_WAP001_01
+
+LBP_MYTC_EUWE_CO_GENP01_01\
+LBP_MYTC_EUWE_CO_WAP001_01
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                                                      | Comments |
+| -------------- | ----- | ----------------------------------------------------------------------------------- | -------- |
+| Prefix         | 3     | LBP = Public Load Balancer                                                          |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                               |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                            |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                                       |          |
+| LBFunction     | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
+| Nr             | 2     | 01..99, a number that is oriented towards the target service.                       |          |
+| VersionNr      | 2     | 01..99                                                                              |          |
+
+#### Load Balancing Rules
+*Pattern*: `<Prefix>_<HostnamePart>_<Type>_<Protocol>_<VersionNr>`
+
+*Examples*:
+
+LBP_WAP00001_FE_01\
+LBP_WAP00001_BE_01\
+LBP_WAP00001_HP-HTTPS_01\
+LBP_WAP00001_LB-HTTPS_01\
+LBP_WAP00001_IN-HTTPS_01
+
+LBP_WAP00001_FE_01\
+LBP_WAP00001_BE_01\
+LBP_WAP00001_HP-HTTPS_01\
+LBP_WAP00001_LB-HTTPS_01\
+LBP_WAP00001_IN-HTTPS_01
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                                                                                                        | Comments |
+| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Prefix         | 3     | Same as the Loadbalancer <br> LBI = Internal Load Balancer <br> LBP = Public Load Balancer                                            |          |
+| HostnamePart   | 6 + 2 | The descriptive part of the hostname, and the number of the first host.                                                               |          |
+| Type           | 2     | FE = Frontend IP configuration <br> BE = Backend pool <br> HP = Health probe <br> LB = Load balancing rule <br> IN = Inbound NAT rule |          |
+| Protocol       | 2..8  | HTTP <br> HTTPS <br> DNS                                                                                                              |          |
+| VersionNr      | 2     | 01..99                                                                                                                                |          |
+
+
+#### Automation Account
+*Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Name>-<VersionNr>`
+
+*Examples*:
+
+AAA-EUWE-CO-CentalAutomation-01
+
+AAA-MYTC-EUWE-CO-CentalAutomation-01
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                                            | Comments |
+| -------------- | ----- | --------------------------------------------------------------------------| -------- |
+| Prefix         | 3     | AAA = Azure Automation Account                                            |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
+| Name           | 5..20 | A descriptive name of the automation account.                             |          |
+| VersionNr      | 2     | 01..99                                                                    |          |
+
+
+
+#### Log Analytics Workspace
+*Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<SecurityLevel>-<Name>-<VersionNr>`
+
+*Examples*:
+
+LAW-EUWE-AU-N-Automation-01\
+LAW-EUWE-CO-N-ShortRetention-01\
+LAW-EUWE-CO-H-LongRetention-01
+
+LAW-MYTC-EUWE-AU-N-Automation-01\
+LAW-MYTC-EUWE-CO-N-ShortRetention-01\
+LAW-MYTC-EUWE-CO-H-LongRetention-01
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                 | Comments |
+| -------------- | ----- | -----------------------------------------------| -------- |
+| Prefix         | 3     | LAW = Log Analytics Workspace                  |          |
+| TenantShort    | 4     | MYTC = My Top Company                          |          |
+| Region         | 4     | Described in the chapter Affixes, Region       |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment  |          |
+| SecurityLevel  | 1     | N = Normal Security <br> H = High Security     |          |
+| Name           | 5..20 | A descriptive name of the workspace.           |          |
+| VersionNr      | 2     | 01..99                                         |          |
+
+
+#### Recovery Service Vault
+*Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Name>-<VersionNr>`
+
+*Examples*:
+
+RSV-EUWE-AU-DefaultBackup-01\
+RSV-EUWE-CO-DefaultBackup-01\
+RSV-EUWE-PR-DefaultBackup-01\
+RSV-EUWE-TE-DefaultBackup-01
+
+RSV-MYTC-EUWE-AU-DefaultBackup-01\
+RSV-MYTC-EUWE-CO-DefaultBackup-01\
+RSV-MYTC-EUWE-PR-DefaultBackup-01\
+RSV-MYTC-EUWE-TE-DefaultBackup-01
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                 | Comments |
+| -------------- | ----- | -----------------------------------------------| -------- |
+| Prefix         | 3     | RSV = Recovery Service Vault                   |          |
+| TenantShort    | 4     | MYTC = My Top Company                          |          |
+| Region         | 4     | Described in the chapter Affixes, Region       |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment  |          |
+| Name           | 5..20 | A descriptive name of the service vault.       |          |
+| VersionNr      | 2     | 01..99                                         |          |
+
 ##### Azure Backup Policy
-#### Log Analytics Workspace*
+*Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Purpose>-<BackupSchedule>-<BackupTime>-<TimeZone>-<Instant>-<DailyRetention>-<WeeklyRetention>-[MontlyRetention]-[YearlyRetention]`
 
+ABP-EUWE-AU-AVM-D-22-UTCP01-1-7-SO5
+ABP-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5
+ABP-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
+ABP-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5
+ABP-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
+ABP-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5
+ABP-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
+
+| Identifiers     | Range | Values/Meaning                                                                                                                                                                                        | Comments |
+| --------------  | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -------- |
+| Prefix          | 3     | ABP = Azure Backup Policy                                                                                                                                                                             |          |
+| TenantShort     | 4     | MYTC = My Top Company                                                                                                                                                                                 |          |
+| Region          | 4     | Described in the chapter Affixes, Region                                                                                                                                                              |          |
+| Environment     | 2     | Described in the chapter Affixes, Environment                                                                                                                                                         |          |
+| Purpose         | 3     | AVM = Azure Virtual Machines <br> AFS = Azure File Share <br> SQL = SQL Server in Azure VM                                                                                                            |          |
+| BackupSchedule  | 1     | D = Daily <br> W = Weekly                                                                                                                                                                             |          |
+| BackupTime      | 2     | Time, only hour                                                                                                                                                                                       |          |
+| TimeZone        | 6     | UTCP01 = UTC + 1h <br> UTCM01 = UTC - 1h                                                                                                                                                              |          |
+| Instant         | 1     | Day: 1..5                                                                                                                                                                                             | Retain instant recovery snapshot(s). |
+| DailyRetention  | 1..4  | Day: 1..9999                                                                                                                                                                                          | Retention of daily backup point.     |
+| WeeklyRetention | 3..6  | Day: MO-SO or SE (Several) <br> for 1..5163 weeks.                                                                                                                                                    | Retention of weekly backup point.    |
+| MontlyRetention | 6..9  |On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28,LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..1188 months.                                                                    | Retention of monthly backup point.   |
+| YearlyRetention | 6..10 | In: Jan, Feb, Mar, Apr, Mai, Jun, Jul, Aug, Sep, Oct, Nov, Dec <br> On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28\|LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..99 years. | Retention of yearly backup point.    |
+
+#### Availability Set
+*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<HostnamePart>_<VersionNr>`
+
+*Examples*:
+
+AVS_EUWE_CO_WAP00001_01\
+AVS_EUWE_CO_ADDC0001_01\
+AVS_EUWE_PR_CXSF0001_01
+
+AVS_MYTC_EUWE_CO_WAP00001_01\
+AVS_MYTC_EUWE_CO_ADDC0001_01\
+AVS_MYTC_EUWE_PR_CXSF0001_01
+
+*Description*:
+
+| Identifiers    | Range | Values/Meaning                                                            | Comments |
+| -------------- | ----- | --------------------------------------------------------------------------| -------- |
+| Prefix         | 3     | AVS = Availability Set                                                    |          |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
+| HostnamePart   | 6 + 2 | The descriptive part of the hostname, and the number of the first host.   |          |
+| VersionNr      | 2     | 01..99                                                                    |          |
+
+<!---
 #### Template
 *Pattern*: `<Prefix>_<Region>_<Environment>_<VersionNr>`
 
@@ -580,9 +827,9 @@ ASG_MYTC_EUWE_CO_0001_AADC_01
 | Identifiers | Range | Values/Meaning                                | Comments |
 | ----------- | ----- | --------------------------------------------- | -------- |
 | Prefix      | 3     | SUB = Subscription                            |          |
-| Region      | 4     | Described in the chapter Affixes, Region      |          |  |
+| Region      | 4     | Described in the chapter Affixes, Region      |          |
 | Environment | 2     | Described in the chapter Affixes, Environment |          |
 | VersionNr   | 2     | 01..99                                        |          |
+--->
 
 [recommendations]: # ( end )
-
