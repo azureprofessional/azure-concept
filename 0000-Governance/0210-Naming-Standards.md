@@ -146,64 +146,63 @@ Affixes can refer to different aspects that describe the particular resources. S
 #### Services
 | Name                                          | Category     | Prefix | Suffix |
 | --------------------------------------------- | ------------ | ------ | ------ |
-| App Service                                   | App Services | apps    |        |
-| App Service Environment                       | App Services | apse    |        |
-| App Service Plan                              | App Services | aspl    |        |
-| Application Insights                          | App Services | AIS    |        |
-| Application Security Group                    |              | ASG    |        |
-| Automation Account                            | Serverless   | AUT    |        |
-| Availability Set                              | Compute      | AVS    |        |
-| Azure Analysis Services                       | Databases    | aas    |        |
-| Azure Application Gateway                     | Security     | AAG    |        |
+| App Service                                   | App Services | APPS    |        |
+| App Service Environment                       | App Services | APSE    |        |
+| App Service Plan                              | App Services | ASPL    |        |
+| Application Insights                          | App Services | AINS    |        |
+| Application Security Group                    |              | APSG    |        |
+| Automation Account                            | Serverless   | AUTO    |        |
+| Availability Set                              | Compute      | AVSE    |        |
+| Azure Analysis Services                       | Databases    | AASE    |        |
+| Azure Application Gateway                     | Security     | AAGA    |        |
 | Azure Automation Hybrid Worker                | Hybrid       |        |        |
-| Azure Traffic Manager Profile                 | Networking   | ATM    |        |
+| Azure Traffic Manager Profile                 | Networking   | ATMP   |        |
 | Blob                                          | Storage      |        |        |
-| Blueprints                                    | Governance   | BLP    |        |
+| Blueprints                                    | Governance   | BLPR    |        |
 | Container                                     | Serverless   |        |        |
 | Data Lake Store                               | Storage      |        |        |
-| Event Grid Domains	Event Hub                 | Serverless   | egd    |        |
-| Event Grid Subscriptions	Event Hub           | Serverless   | egs    |        |
-| Event Hubs	Event Hub                         | Serverless   | evh    |        |
-| Event Hubs Topics	Event Hub                   | Serverless   | egt    |        |
-| External Load Balancer                        | Compute      | LBE    |        |
+| Event Grid Domains	                | Event Hub   | EGDO    |        |
+| Event Grid Subscriptions	           | Event Hub   | EGSU    |        |
+| Event Hubs	                         | Event Hub   | EVHU    |        |
+| Event Hubs Topics	                | Event Hub   | EHTO    |        |
+| External Load Balancer                        | Compute      | LBEX    |        |
 | File                                          | Storage      |        |        |
 | Function                                      | Serverless   |        |        |
 | Initative                                     | Governance   |        |        |
-| Internal Load Balancer                        | Networking   | LBI    |        |
-| Key Vault                                     | Other        | key    |        |
-| Load Balancer	Networking                      | Networking   | llb    |        |
-| Local Network Gateway                         | Networking   | LNG    |        |
-| Log Analytics Workspace                       | Monitoring   | LAW    |        |
-| Log Analytics Workspace	Other                 | Monitoring   | law    |        |
+| Internal Load Balancer                        | Networking   | LBIN    |        |
+| Key Vault                                     | Other        | KEYV    |        |
+| Load Balancer	Networking                      | Networking   | LLBN    |        |
+| Local Network Gateway                         | Networking   | LNGA    |        |
+| Log Analytics Workspace                       | Monitoring   | LAWS    |        |
 | Managed Disk	Storage                         | Storage      |        |        |
-| Management Group                              | Governance   | MAG    |        |
+| Management Group                              | Governance   | MAGR    |        |
 | Network Interface                             | Networking   |        | NIC    |
-| Network Security Group                        | Networking   | NSG    |        |
+| Network Security Group                        | Networking   | NSGR    |        |
 | Network Security Group Rule                   | Networking   |        |        |
 | Policies                                      | Governance   |        |        |
 | Public IP Address                             | Networking   |        | PIP    |
-| Public IP Address	Networking                  | Networking   | pub    |        |
+| Public IP Address	Networking                  | Networking   | PUBN    |        |
 | Queue                                         | Serverless   |        |        |
-| Recovery Service Vault Storage                | Backup       | rsv    |        |
-| Recovery Services Vault                       | Backup       | RSV    |        |
-| Recovery Services Vault – Azure Backup Policy | Backup       | ABP    |        |
-| Ressource Group                               | Governance   | RSG    |        |
-| Route Table                                   | Networking   | NRT    |        |
-| SQL Database	Databases                       | Database     | sdb    |        |
-| SQL Datawarehouse	Databases                   | Database     | sdb    |        |
-| SQL Managed Instance	Databases               | Database     | smi    |        |
-| SQL Server	Databases                         | Database     | sdb    |        |
+| Recovery Service Vault Storage                | Backup       | RSVS    |        |
+| Recovery Services Vault                       | Backup       | RSVA    |        |
+| Recovery Services Vault – Azure Backup Policy | Backup       | ABPO    |        |
+| Ressource Group                               | Governance   | RSGR    |        |
+| Route Table                                   | Networking   | NRTA    |        |
+| SQL Database	                       | Database     | SQDB    |        |
+| SQL Datawarehouse	                   | Database     | SQDB    |        |
+| SQL Managed Instance	               | Database     | SQMI    |        |
+| SQL Server	                         | Database     | SQSR    |        |
 | Storage Account                               | Storage      |        |        |
 | Storage Account Name (data)                   | Storage      |        |        |
 | Storage Account Name (disk)                   | Storage      |        |        |
-| Subnet                                        | Networking   | SNE    |        |
-| Subscription                                  | Governance   | SUB    |        |
+| Subnet                                        | Networking   | SNET    |        |
+| Subscription                                  | Governance   | SUBS    |        |
 | Table                                         | Databases    |        |        |
 | Tag                                           | Governance   |        |        |
 | Virtual Machine                               | Compute      |        |        |
-| Virtual Network (VNet)                        | Networking   | VNE    |        |
-| VNet Peering                                  | Networking   | VNP    |        |
-| VPN Gateway                                   | Networking   | VPN    |        |
+| Virtual Network (VNet)                        | Networking   | VNET    |        |
+| VNet Peering                                  | Networking   | VNPE    |        |
+| VPN Gateway                                   | Networking   | VPNW    |        |
 
 ### Naming Conventions
 
