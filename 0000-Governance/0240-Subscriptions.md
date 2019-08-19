@@ -39,9 +39,9 @@ The goal is to maintain as few Special Subscriptions as possible. Special Subscr
 ### Placement Criteria
 The following criteria must be met for placing a workload into a special Subscription:
 - One or several of the required Resource Types are not available in the Development Subscription.
-- Policies in the Development Subscription would have to be altered – but can’t for e.g. security reasons. 
+- Policies in the Development Subscription would have to be altered - but can’t for e.g. security reasons. 
 - The resources are used for a PoC or an exploratory project, but not for development.
- 
+
 ### Creation Criteria
 - The resource requirements are such that the Azure Subscription Limits and Quotas might be reached, impacting other workload in the Subscription.
 - Subscriptions operated by third parties such as development partners or subsidiaries.
