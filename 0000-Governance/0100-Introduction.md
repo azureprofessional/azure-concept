@@ -1,5 +1,5 @@
 # Introduction to this concept
-
+HALLO!
 The following document is a recommended concept in order to set up an Azure Environment. As many aspects need to be kept in mind, the concept is about the whole Azure Environment and how it needs to be built, so that future Azure projects/builds doesn’t face foreseeable restrictions.
 
 Azure has grown rapidly since its introduction in 2008. This growth required Microsoft engineering teams to rethink their approach for managing and deploying services. The Azure Resource Manager model was introduced in 2014 and replaces the classic deployment model. Resource Manager enables organizations to more easily deploy, organize, and control Azure resources. Resource Manager includes parallelization when creating resources for faster deployment of complex, interdependent solutions. It also includes granular access control, and the ability to tag resources with metadata. We recommend that all resources are created through the Resource Manager model.
