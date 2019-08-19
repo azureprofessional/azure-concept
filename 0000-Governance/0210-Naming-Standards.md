@@ -164,10 +164,10 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Blueprints                                    | Governance   | BLPR   |        |
 | Container                                     | Serverless   |        |        |
 | Data Lake Store                               | Storage      |        |        |
-| Event Grid Domains	                          | Event Hub    | EGDO   |        |
-| Event Grid Subscriptions	                    | Event Hub    | EGSU   |        |
-| Event Hubs	                                  | Event Hub    | EVHU   |        |
-| Event Hubs Topics	                            | Event Hub    | EHTO   |        |
+| Event Grid Domains                            | Event Hub    | EGDO   |        |
+| Event Grid Subscriptions                      | Event Hub    | EGSU   |        |
+| Event Hubs                                    | Event Hub    | EVHU   |        |
+| Event Hubs Topics                             | Event Hub    | EHTO   |        |
 | External Load Balancer                        | Compute      | LBEX   |        |
 | File                                          | Storage      |        |        |
 | Function                                      | Serverless   |        |        |
@@ -177,11 +177,11 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Load Balancer	Networking                      | Networking   | LLBN   |        |
 | Local Network Gateway                         | Networking   | LNGA   |        |
 | Log Analytics Workspace                       | Monitoring   | LAWS   |        |
-| Managed Disk	Storage                         | Storage      |        |        |
+| Managed Disk	Storage                          | Storage      |        |        |
 | Management Group                              | Governance   | MAGR   |        |
 | Network Interface                             | Networking   |        | NIC    |
 | Network Security Group                        | Networking   | NSGR   |        |
-| Network Security Group Rule                   | Networking   | NSRU   |        |
+| Network Security Group Rule                   | Networking   |        |        |
 | Policies                                      | Governance   |        |        |
 | Public IP Address                             | Networking   |        | PIP    |
 | Public IP Address	Networking                  | Networking   | PUBN   |        |
@@ -191,10 +191,10 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Recovery Services Vault – Azure Backup Policy | Backup       | ABPO   |        |
 | Ressource Group                               | Governance   | RSGR   |        |
 | Route Table                                   | Networking   | NRTA   |        |
-| SQL Database	                                | Database     | SQDB   |        |
-| SQL Datawarehouse	                            | Database     | SQDB   |        |
-| SQL Managed Instance	                        | Database     | SQMI   |        |
-| SQL Server	                                  | Database     | SQSR   |        |
+| SQL Database                                  | Database     | SQDB   |        |
+| SQL Datawarehouse                             | Database     | SQDB   |        |
+| SQL Managed Instance                          | Database     | SQMI   |        |
+| SQL Server                                    | Database     | SQSR   |        |
 | Storage Account                               | Storage      |        |        |
 | Storage Account Name (data)                   | Storage      |        |        |
 | Storage Account Name (disk)                   | Storage      |        |        |
@@ -844,7 +844,7 @@ ABPO-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
 | Instant         | 1     | Day: 1..5                                                                                                                                                                                             | Retain instant recovery snapshot(s). |
 | DailyRetention  | 1..4  | Day: 1..9999                                                                                                                                                                                          | Retention of daily backup point.     |
 | WeeklyRetention | 3..6  | Day: MO-SO or SE (Several) <br> for 1..5163 weeks.                                                                                                                                                    | Retention of weekly backup point.    |
-| MontlyRetention | 6..9  |On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28,LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..1188 months.                                                                    | Retention of monthly backup point.   |
+| MontlyRetention | 6..9  | On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28,LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..1188 months.                                                                   | Retention of monthly backup point.   |
 | YearlyRetention | 6..10 | In: Jan, Feb, Mar, Apr, Mai, Jun, Jul, Aug, Sep, Oct, Nov, Dec <br> On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28\|LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..99 years. | Retention of yearly backup point.    |
 
 #### Availability Set
