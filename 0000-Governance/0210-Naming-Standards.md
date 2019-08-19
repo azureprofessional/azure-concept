@@ -146,63 +146,63 @@ Affixes can refer to different aspects that describe the particular resources. S
 #### Services
 | Name                                          | Category     | Prefix | Suffix |
 | --------------------------------------------- | ------------ | ------ | ------ |
-| App Service                                   | App Services | APPS    |        |
-| App Service Environment                       | App Services | APSE    |        |
-| App Service Plan                              | App Services | ASPL    |        |
-| Application Insights                          | App Services | AINS    |        |
-| Application Security Group                    |              | APSG    |        |
-| Automation Account                            | Serverless   | AUTO    |        |
-| Availability Set                              | Compute      | AVSE    |        |
-| Azure Analysis Services                       | Databases    | AASE    |        |
-| Azure Application Gateway                     | Security     | AAGA    |        |
+| App Service                                   | App Services | APPS   |        |
+| App Service Environment                       | App Services | APSE   |        |
+| App Service Plan                              | App Services | ASPL   |        |
+| Application Insights                          | App Services | AINS   |        |
+| Application Security Group                    |              | APSG   |        |
+| Automation Account                            | Serverless   | AUTO   |        |
+| Availability Set                              | Compute      | AVSE   |        |
+| Azure Analysis Services                       | Databases    | AASE   |        |
+| Azure Application Gateway                     | Security     | AAGA   |        |
 | Azure Automation Hybrid Worker                | Hybrid       |        |        |
 | Azure Traffic Manager Profile                 | Networking   | ATMP   |        |
 | Blob                                          | Storage      |        |        |
-| Blueprints                                    | Governance   | BLPR    |        |
+| Blueprints                                    | Governance   | BLPR   |        |
 | Container                                     | Serverless   |        |        |
 | Data Lake Store                               | Storage      |        |        |
-| Event Grid Domains	                | Event Hub   | EGDO    |        |
-| Event Grid Subscriptions	           | Event Hub   | EGSU    |        |
-| Event Hubs	                         | Event Hub   | EVHU    |        |
-| Event Hubs Topics	                | Event Hub   | EHTO    |        |
-| External Load Balancer                        | Compute      | LBEX    |        |
+| Event Grid Domains                            | Event Hub    | EGDO   |        |
+| Event Grid Subscriptions                      | Event Hub    | EGSU   |        |
+| Event Hubs                                    | Event Hub    | EVHU   |        |
+| Event Hubs Topics                             | Event Hub    | EHTO   |        |
+| External Load Balancer                        | Compute      | LBEX   |        |
 | File                                          | Storage      |        |        |
 | Function                                      | Serverless   |        |        |
 | Initative                                     | Governance   |        |        |
-| Internal Load Balancer                        | Networking   | LBIN    |        |
-| Key Vault                                     | Other        | KEYV    |        |
-| Load Balancer	Networking                      | Networking   | LLBN    |        |
-| Local Network Gateway                         | Networking   | LNGA    |        |
-| Log Analytics Workspace                       | Monitoring   | LAWS    |        |
-| Managed Disk	Storage                         | Storage      |        |        |
-| Management Group                              | Governance   | MAGR    |        |
+| Internal Load Balancer                        | Networking   | LBIN   |        |
+| Key Vault                                     | Other        | KEYV   |        |
+| Load Balancer	Networking                      | Networking   | LLBN   |        |
+| Local Network Gateway                         | Networking   | LNGA   |        |
+| Log Analytics Workspace                       | Monitoring   | LAWS   |        |
+| Managed Disk	Storage                          | Storage      |        |        |
+| Management Group                              | Governance   | MAGR   |        |
 | Network Interface                             | Networking   |        | NIC    |
-| Network Security Group                        | Networking   | NSGR    |        |
+| Network Security Group                        | Networking   | NSGR   |        |
 | Network Security Group Rule                   | Networking   |        |        |
 | Policies                                      | Governance   |        |        |
 | Public IP Address                             | Networking   |        | PIP    |
-| Public IP Address	Networking                  | Networking   | PUBN    |        |
+| Public IP Address	Networking                  | Networking   | PUBN   |        |
 | Queue                                         | Serverless   |        |        |
-| Recovery Service Vault Storage                | Backup       | RSVS    |        |
-| Recovery Services Vault                       | Backup       | RSVA    |        |
-| Recovery Services Vault – Azure Backup Policy | Backup       | ABPO    |        |
-| Ressource Group                               | Governance   | RSGR    |        |
-| Route Table                                   | Networking   | NRTA    |        |
-| SQL Database	                       | Database     | SQDB    |        |
-| SQL Datawarehouse	                   | Database     | SQDB    |        |
-| SQL Managed Instance	               | Database     | SQMI    |        |
-| SQL Server	                         | Database     | SQSR    |        |
+| Recovery Service Vault Storage                | Backup       | RSVS   |        |
+| Recovery Services Vault                       | Backup       | RSVA   |        |
+| Recovery Services Vault – Azure Backup Policy | Backup       | ABPO   |        |
+| Ressource Group                               | Governance   | RSGR   |        |
+| Route Table                                   | Networking   | NRTA   |        |
+| SQL Database                                  | Database     | SQDB   |        |
+| SQL Datawarehouse                             | Database     | SQDB   |        |
+| SQL Managed Instance                          | Database     | SQMI   |        |
+| SQL Server                                    | Database     | SQSR   |        |
 | Storage Account                               | Storage      |        |        |
 | Storage Account Name (data)                   | Storage      |        |        |
 | Storage Account Name (disk)                   | Storage      |        |        |
-| Subnet                                        | Networking   | SNET    |        |
-| Subscription                                  | Governance   | SUBS    |        |
+| Subnet                                        | Networking   | SNET   |        |
+| Subscription                                  | Governance   | SUBS   |        |
 | Table                                         | Databases    |        |        |
 | Tag                                           | Governance   |        |        |
 | Virtual Machine                               | Compute      |        |        |
-| Virtual Network (VNet)                        | Networking   | VNET    |        |
-| VNet Peering                                  | Networking   | VNPE    |        |
-| VPN Gateway                                   | Networking   | VPNW    |        |
+| Virtual Network (VNet)                        | Networking   | VNET   |        |
+| VNet Peering                                  | Networking   | VNPE   |        |
+| VPN Gateway                                   | Networking   | VPNW   |        |
 
 ### Naming Conventions
 
@@ -292,11 +292,11 @@ BLP_BasicConfig_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning                                | Comments |
-| ----------- | ----- | --------------------------------------------- | -------- |
-| Prefix      | 3     | BLP = Blueprints                              |          |
-| Description | 4     | A description that best describes the purpose or content.      |          |
-| VersionNr   | 2     | 01..99                                        |          |
+| Identifiers | Range | Values/Meaning                                            | Comments |
+| ----------- | ----- | --------------------------------------------------------- | -------- |
+| Prefix      | 3     | BLP = Blueprints                                          |          |
+| Description | 4     | A description that best describes the purpose or content. |          |
+| VersionNr   | 2     | 01..99                                                    |          |
 
 
 #### Ressource Group
@@ -626,15 +626,15 @@ LBI_MYTC_EUWE_CO_CXSF01_01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                                      | Comments |
-| -------------- | ----- | ----------------------------------------------------------------------------------- | -------- |
-| Prefix         | 3     | LBI = Internal Load Balancer                                                        |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                               |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                            |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                                       |          |
-| LBFunction     | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
-| Nr             | 2     | 01..99, a number that is oriented towards the target service.                       |          |
-| VersionNr      | 2     | 01..99                                                                              |          |
+| Identifiers | Range | Values/Meaning                                                                      | Comments |
+| ----------- | ----- | ----------------------------------------------------------------------------------- | -------- |
+| Prefix      | 3     | LBI = Internal Load Balancer                                                        |          |
+| TenantShort | 4     | MYTC = My Top Company                                                               |          |
+| Region      | 4     | Described in the chapter Affixes, Region                                            |          |
+| Environment | 2     | Described in the chapter Affixes, Environment                                       |          |
+| LBFunction  | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
+| Nr          | 2     | 01..99, a number that is oriented towards the target service.                       |          |
+| VersionNr   | 2     | 01..99                                                                              |          |
 
 #### Public Load Balancer
 *Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<LB-Function><Nr>_<VersionNr>`
@@ -649,15 +649,15 @@ LBP_MYTC_EUWE_CO_WAP001_01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                                      | Comments |
-| -------------- | ----- | ----------------------------------------------------------------------------------- | -------- |
-| Prefix         | 3     | LBP = Public Load Balancer                                                          |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                               |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                            |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                                       |          |
-| LBFunction     | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
-| Nr             | 2     | 01..99, a number that is oriented towards the target service.                       |          |
-| VersionNr      | 2     | 01..99                                                                              |          |
+| Identifiers | Range | Values/Meaning                                                                      | Comments |
+| ----------- | ----- | ----------------------------------------------------------------------------------- | -------- |
+| Prefix      | 3     | LBP = Public Load Balancer                                                          |          |
+| TenantShort | 4     | MYTC = My Top Company                                                               |          |
+| Region      | 4     | Described in the chapter Affixes, Region                                            |          |
+| Environment | 2     | Described in the chapter Affixes, Environment                                       |          |
+| LBFunction  | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
+| Nr          | 2     | 01..99, a number that is oriented towards the target service.                       |          |
+| VersionNr   | 2     | 01..99                                                                              |          |
 
 #### Load Balancing Rules
 *Pattern*: `<Prefix>_<HostnamePart>_<Type>_<Protocol>_<VersionNr>`
@@ -678,13 +678,13 @@ LBP_WAP00001_IN-HTTPS_01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                                                                                        | Comments |
-| -------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Prefix         | 3     | Same as the Loadbalancer <br> LBI = Internal Load Balancer <br> LBP = Public Load Balancer                                            |          |
-| HostnamePart   | 6 + 2 | The descriptive part of the hostname, and the number of the first host.                                                               |          |
-| Type           | 2     | FE = Frontend IP configuration <br> BE = Backend pool <br> HP = Health probe <br> LB = Load balancing rule <br> IN = Inbound NAT rule |          |
-| Protocol       | 2..8  | HTTP <br> HTTPS <br> DNS                                                                                                              |          |
-| VersionNr      | 2     | 01..99                                                                                                                                |          |
+| Identifiers  | Range | Values/Meaning                                                                                                                        | Comments |
+| ------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Prefix       | 3     | Same as the Loadbalancer <br> LBI = Internal Load Balancer <br> LBP = Public Load Balancer                                            |          |
+| HostnamePart | 6 + 2 | The descriptive part of the hostname, and the number of the first host.                                                               |          |
+| Type         | 2     | FE = Frontend IP configuration <br> BE = Backend pool <br> HP = Health probe <br> LB = Load balancing rule <br> IN = Inbound NAT rule |          |
+| Protocol     | 2..8  | HTTP <br> HTTPS <br> DNS                                                                                                              |          |
+| VersionNr    | 2     | 01..99                                                                                                                                |          |
 
 
 #### Automation Account
@@ -698,14 +698,14 @@ AAA-MYTC-EUWE-CO-CentalAutomation-01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                            | Comments |
-| -------------- | ----- | --------------------------------------------------------------------------| -------- |
-| Prefix         | 3     | AAA = Azure Automation Account                                            |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
-| Name           | 5..20 | A descriptive name of the automation account.                             |          |
-| VersionNr      | 2     | 01..99                                                                    |          |
+| Identifiers | Range | Values/Meaning                                | Comments |
+| ----------- | ----- | --------------------------------------------- | -------- |
+| Prefix      | 3     | AAA = Azure Automation Account                |          |
+| TenantShort | 4     | MYTC = My Top Company                         |          |
+| Region      | 4     | Described in the chapter Affixes, Region      |          |
+| Environment | 2     | Described in the chapter Affixes, Environment |          |
+| Name        | 5..20 | A descriptive name of the automation account. |          |
+| VersionNr   | 2     | 01..99                                        |          |
 
 
 
@@ -724,15 +724,15 @@ LAW-MYTC-EUWE-CO-H-LongRetention-01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                 | Comments |
-| -------------- | ----- | -----------------------------------------------| -------- |
-| Prefix         | 3     | LAW = Log Analytics Workspace                  |          |
-| TenantShort    | 4     | MYTC = My Top Company                          |          |
-| Region         | 4     | Described in the chapter Affixes, Region       |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment  |          |
-| SecurityLevel  | 1     | N = Normal Security <br> H = High Security     |          |
-| Name           | 5..20 | A descriptive name of the workspace.           |          |
-| VersionNr      | 2     | 01..99                                         |          |
+| Identifiers   | Range | Values/Meaning                                | Comments |
+| ------------- | ----- | --------------------------------------------- | -------- |
+| Prefix        | 3     | LAW = Log Analytics Workspace                 |          |
+| TenantShort   | 4     | MYTC = My Top Company                         |          |
+| Region        | 4     | Described in the chapter Affixes, Region      |          |
+| Environment   | 2     | Described in the chapter Affixes, Environment |          |
+| SecurityLevel | 1     | N = Normal Security <br> H = High Security    |          |
+| Name          | 5..20 | A descriptive name of the workspace.          |          |
+| VersionNr     | 2     | 01..99                                        |          |
 
 
 #### Recovery Service Vault
@@ -752,14 +752,14 @@ RSV-MYTC-EUWE-TE-DefaultBackup-01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                 | Comments |
-| -------------- | ----- | -----------------------------------------------| -------- |
-| Prefix         | 3     | RSV = Recovery Service Vault                   |          |
-| TenantShort    | 4     | MYTC = My Top Company                          |          |
-| Region         | 4     | Described in the chapter Affixes, Region       |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment  |          |
-| Name           | 5..20 | A descriptive name of the service vault.       |          |
-| VersionNr      | 2     | 01..99                                         |          |
+| Identifiers | Range | Values/Meaning                                | Comments |
+| ----------- | ----- | --------------------------------------------- | -------- |
+| Prefix      | 3     | RSV = Recovery Service Vault                  |          |
+| TenantShort | 4     | MYTC = My Top Company                         |          |
+| Region      | 4     | Described in the chapter Affixes, Region      |          |
+| Environment | 2     | Described in the chapter Affixes, Environment |          |
+| Name        | 5..20 | A descriptive name of the service vault.      |          |
+| VersionNr   | 2     | 01..99                                        |          |
 
 ##### Azure Backup Policy
 *Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Purpose>-<BackupSchedule>-<BackupTime>-<TimeZone>-<Instant>-<DailyRetention>-<WeeklyRetention>-[MontlyRetention]-[YearlyRetention]`
@@ -772,20 +772,20 @@ ABP-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10\
 ABP-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5\
 ABP-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
 
-| Identifiers     | Range | Values/Meaning                                                                                                                                                                                        | Comments |
-| --------------  | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -------- |
-| Prefix          | 3     | ABP = Azure Backup Policy                                                                                                                                                                             |          |
-| TenantShort     | 4     | MYTC = My Top Company                                                                                                                                                                                 |          |
-| Region          | 4     | Described in the chapter Affixes, Region                                                                                                                                                              |          |
-| Environment     | 2     | Described in the chapter Affixes, Environment                                                                                                                                                         |          |
-| Purpose         | 3     | AVM = Azure Virtual Machines <br> AFS = Azure File Share <br> SQL = SQL Server in Azure VM                                                                                                            |          |
-| BackupSchedule  | 1     | D = Daily <br> W = Weekly                                                                                                                                                                             |          |
-| BackupTime      | 2     | Time, only hour                                                                                                                                                                                       |          |
-| TimeZone        | 6     | UTCP01 = UTC + 1h <br> UTCM01 = UTC - 1h                                                                                                                                                              |          |
+| Identifiers     | Range | Values/Meaning                                                                                                                                                                                        | Comments                             |
+| --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| Prefix          | 3     | ABP = Azure Backup Policy                                                                                                                                                                             |                                      |
+| TenantShort     | 4     | MYTC = My Top Company                                                                                                                                                                                 |                                      |
+| Region          | 4     | Described in the chapter Affixes, Region                                                                                                                                                              |                                      |
+| Environment     | 2     | Described in the chapter Affixes, Environment                                                                                                                                                         |                                      |
+| Purpose         | 3     | AVM = Azure Virtual Machines <br> AFS = Azure File Share <br> SQL = SQL Server in Azure VM                                                                                                            |                                      |
+| BackupSchedule  | 1     | D = Daily <br> W = Weekly                                                                                                                                                                             |                                      |
+| BackupTime      | 2     | Time, only hour                                                                                                                                                                                       |                                      |
+| TimeZone        | 6     | UTCP01 = UTC + 1h <br> UTCM01 = UTC - 1h                                                                                                                                                              |                                      |
 | Instant         | 1     | Day: 1..5                                                                                                                                                                                             | Retain instant recovery snapshot(s). |
 | DailyRetention  | 1..4  | Day: 1..9999                                                                                                                                                                                          | Retention of daily backup point.     |
 | WeeklyRetention | 3..6  | Day: MO-SO or SE (Several) <br> for 1..5163 weeks.                                                                                                                                                    | Retention of weekly backup point.    |
-| MontlyRetention | 6..9  |On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28,LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..1188 months.                                                                    | Retention of monthly backup point.   |
+| MontlyRetention | 6..9  | On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28,LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..1188 months.                                                                   | Retention of monthly backup point.   |
 | YearlyRetention | 6..10 | In: Jan, Feb, Mar, Apr, Mai, Jun, Jul, Aug, Sep, Oct, Nov, Dec <br> On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28\|LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..99 years. | Retention of yearly backup point.    |
 
 #### Availability Set
@@ -803,14 +803,14 @@ AVS_MYTC_EUWE_PR_CXSF0001_01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                            | Comments |
-| -------------- | ----- | --------------------------------------------------------------------------| -------- |
-| Prefix         | 3     | AVS = Availability Set                                                    |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
-| HostnamePart   | 6 + 2 | The descriptive part of the hostname, and the number of the first host.   |          |
-| VersionNr      | 2     | 01..99                                                                    |          |
+| Identifiers  | Range | Values/Meaning                                                          | Comments |
+| ------------ | ----- | ----------------------------------------------------------------------- | -------- |
+| Prefix       | 3     | AVS = Availability Set                                                  |          |
+| TenantShort  | 4     | MYTC = My Top Company                                                   |          |
+| Region       | 4     | Described in the chapter Affixes, Region                                |          |
+| Environment  | 2     | Described in the chapter Affixes, Environment                           |          |
+| HostnamePart | 6 + 2 | The descriptive part of the hostname, and the number of the first host. |          |
+| VersionNr    | 2     | 01..99                                                                  |          |
 
 <!---
 #### Template
