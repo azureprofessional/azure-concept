@@ -3,6 +3,10 @@
 Hello!  
 This is a small documentation of issues and fixes I have found regarding the conversion from our Markdown-files into a single PDF. It contains all the issues I have encountered, as well as the ways to work around or fix them. I hope this will be helpful for everyone who intends to write articles for this project.
 
+## How to use the script
+You will need to have pandoc and LaTeX installed. You will also need to be able to run a Bash-Script.
+You can simply start the script from its directory, it should do the rest. It will put the generated file in the same folder as the script (/scripts/pdf).
+
 ## Level 4+ header are not working properly
 I have noticed that when we're using Level 4 or higher headers, linebreaks don't seem to work properly after the header. Text following the header gets put on the same line as the header.
 
