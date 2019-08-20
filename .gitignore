@@ -1,3 +1,4 @@
 .DS_Store
 /scripts/pdf/*.pdf
 /scripts/word/*.docx
+!/scripts/word/custom-reference.docx
