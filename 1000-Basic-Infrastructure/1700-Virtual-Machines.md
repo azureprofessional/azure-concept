@@ -43,7 +43,7 @@ Additionally, if you are looking for more than just base OS images, you can sear
 
 Finally, if you can't find a suitable OS image, you can create your disk image with what you need, upload it to Azure storage, and use it to create an Azure VM. It is to note however, that Azure only supports 64-bit operating systems.
 
-#### Azure Hybrid Benefit
+**Azure Hybrid Benefit**
 
 For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. 
 

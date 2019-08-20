@@ -64,31 +64,31 @@ Source: https://docs.microsoft.com/en-us/azure/container-registry/container-regi
 
 ### Best Practices
 
-#### Network-close deployment
+**Network-close deployment**
 
 Create your container registry in the same Azure region in which you deploy containers. Placing your registry in a region that is network-close to your container hosts can help lower both latency and cost.
 
 Network-close deployment is one of the primary reasons for using a private container registry. Docker images have an efficient [layering construct](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) that allows for incremental deployments. However, new nodes need to pull all layers required for a given image. This initial `docker pull` can quickly add up to multiple gigabytes. Having a private registry close to your deployment minimizes the network latency. Additionally, all public clouds, Azure included, implement network egress fees. Pulling images from one datacenter to another adds network egress fees, in addition to the latency.
 
-#### Geo-replicate multi-region deployments
+**Geo-replicate multi-region deployments**
 
 Use Azure Container Registry's [geo-replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local datacenters or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Geo-replication is available only with [Premium](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus) registries.
 
 To learn how to use geo-replication, see the three-part tutorial, [Geo-replication in Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-prepare-registry).
 
-#### Repository namespaces
+**Repository namespaces**
 
 By leveraging repository namespaces, you can allow sharing a single registry across multiple groups within your organization. Registries can be shared across deployments and teams. Azure Container Registry supports nested namespaces, enabling group isolation.
 
 For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Production and Marketing groups each use their own namespaces.
 
-#### Dedicated resource group
+**Dedicated resource group**
 
 Because container registries are resources that are used across multiple container hosts, a registry should reside in its own resource group.
 
 Although you might experiment with a specific host type, such as Azure Container Instances, you'll likely want to delete the container instance when you're done. However, you might also want to keep the collection of images you pushed to Azure Container Registry. By placing your registry in its own resource group, you minimize the risk of accidentally deleting the collection of images in the registry when you delete the container instance resource group.
 
-#### Authentication
+**Authentication**
 
 When authenticating with an Azure container registry, there are two primary scenarios: individual authentication, and service (or "headless") authentication. The following table provides a brief overview of these scenarios, and the recommended method of authentication for each.
 
@@ -99,7 +99,7 @@ When authenticating with an Azure container registry, there are two primary scen
 
 For in-depth information about Azure Container Registry authentication, see [Authenticate with an Azure container registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-authentication).
 
-#### Manage registry size
+**Manage registry size**
 
 The storage constraints of each [container registry SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus) are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication). Throughout the life of your registry, you should manage its size by periodically deleting unused content.
 

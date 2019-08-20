@@ -18,7 +18,7 @@ Today traditional IT is usually using multiple different tools for platform and 
 
 Core monitoring provides fundamental, required monitoring across Azure resources. These services require minimal configuration and collect core telemetry that the premium monitoring services use.
 
-#### Azure Monitor
+**Azure Monitor**
 
 Azure Monitor enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. For example, the activity log tells you when new resources are created or modified.
 
@@ -26,15 +26,15 @@ Metrics are available that provide performance statistics for different resource
 
 You can also send these metrics and logs Azure Log Analytics for trending and detailed analysis, or create additional alert rules to proactively notify you of critical issues as a result of that analysis.
 
-#### Azure Advisor
+**Azure Advisor**
 
 Azure Advisor constantly monitors your resource configuration and usage telemetry. It then gives you personalized recommendations based on best practices. Following these recommendations helps you improve the performance, security, and availability of the resources that support your applications.
 
-#### Service Health
+**Service Health**
 
 The health of your application relies on the Azure services that it depends on. Azure Service Health identifies any issues with Azure services that might affect your application. Service Health also helps you plan for scheduled maintenance.
 
-#### Activity Log
+**Activity Log**
 
 Activity Log provides data about the operation of an Azure resource. This information includes:
 

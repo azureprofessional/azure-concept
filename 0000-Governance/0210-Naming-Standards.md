@@ -38,15 +38,15 @@ Each resource or service type in Azure enforces a set of naming restrictions and
 
 In general, avoid having any special characters (- or \_) as the first or last character in any name. These characters will cause most validation rules to fail.
 
-#### General naming restrictions
+**General naming restrictions**
 
 | Entity           | Scope             | Length                  | Case sensitive | Valid Characters                                                          | Suggested Pattern                         | Example                     |
-| ---------------- | ----------------- | ----------------------- | -------------- | ------------------------------------------------------------------------- | ----------------------------------------- | --------------------------- |
+| ------------------ | ------------------- | ------------------- | -------------- | ------------------------------------------------------------------------- | ----------------------------------------- | --------------------------- |
 | Resource Group   | Subscription      | 1-90                    | false          | Alphanumeric, underscore, parentheses, hyphen, and period (except at end) | \<service short name\>-\<environment\>-rg | profx-prod-rg               |
 | Availability Set | Resource Group    | 1-80                    | false          | Alphanumeric, underscore, and hyphen                                      | \<service-short-name\>-\<context\>-as     | profx-sql-as                |
 | Tag              | Associated Entity | 512 (name), 256 (value) | false          | Alphanumeric                                                              | "key" : "value"                           | "department" : "Central IT" |
 
-#### Compute naming restrictions
+**Compute naming restrictions**
 
 | Entity          | Scope          | Length                           | Case sensitive | Valid Characters        | Suggested Pattern              | Example         |
 | --------------- | -------------- | -------------------------------- | -------------- | ----------------------- | ------------------------------ | --------------- |
@@ -72,7 +72,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 [recommendations]: # ( start )
 ## Good Practices: Naming standards
 ### Affixes
-#### Region
+**Region**
 
 | Region               | Location             | Code     |
 | -------------------- | -------------------- | -------- |
@@ -131,7 +131,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Brazil South         | Sao Paulo State      | BRSO     |
 | Azure Stack          | Datacenter           | AZBE     |
 
-#### Environment
+**Environment**
 
 | Code | Description   |
 | ---- | ------------- |
@@ -145,7 +145,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | SP   | Special       |
 | UN   | Undefined     |
 
-#### Services
+**Services**
 
 | Name                                          | Category     | Prefix | Suffix |
 | --------------------------------------------- | ------------ | ------ | ------ |
@@ -177,7 +177,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Load Balancer	Networking                      | Networking   | LLBN   |        |
 | Local Network Gateway                         | Networking   | LNGA   |        |
 | Log Analytics Workspace                       | Monitoring   | LAWS   |        |
-| Managed Disk	Storage                          | Storage      |        |        |
+| Managed Disk	Storage                         | Storage      |        |        |
 | Management Group                              | Governance   | MAGR   |        |
 | Network Interface                             | Networking   |        | NIC    |
 | Network Security Group                        | Networking   | NSGR   |        |
@@ -207,7 +207,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | VNet Peering                                  | Networking   | VNPE   |        |
 | VPN Gateway                                   | Networking   | VPNW   |        |
 
-#### Functions
+**Functions**
 
 | Code | Name                                  |
 | ---- | ------------------------------------- |
@@ -241,7 +241,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | 3W   | Web Server                            |
 | AZ   | Azure                                 |
 
-#### Functiont Description
+**Functiont Description**
 
 | Code | Name                                                                                            |
 | ---- | ----------------------------------------------------------------------------------------------- |
@@ -263,18 +263,17 @@ Affixes can refer to different aspects that describe the particular resources. S
 
 If this naming convention used only for a single-tenant, you can omit the **TenantShort** term. But if you are an MSP/CSP or uses services from it, it recommended that you use this in your notation.
 
-#### Management Group
+**Management Group**
 
-*Corp Pattern*: `<Prefix>_<CORP|TenantShort>_<Level>` \
-*Corp ID Pattern*: `<Prefix>_<ManagementGroupID>_<Level>`
-
-*Name Pattern*: `<Prefix>_[TenantShort]_<Scope>_<Level>` \
+*Corp Pattern*: `<Prefix>_<CORP|TenantShort>_<Level>`   
+*Corp ID Pattern*: `<Prefix>_<ManagementGroupID>_<Level>`  
+*Name Pattern*: `<Prefix>_[TenantShort]_<Scope>_<Level>`   
 *ID Pattern*: `<Prefix>_<ManagementGroupID>_<Level>`
 
 *Examples*:
 
 | ID           | Name             |
-| ------------ | ---------------- |  |
+| ------------ | ---------------- |
 | MAGR_0001_00 | MAGR_CORP_00     |
 | MAGR_0002_01 | MAGR_Infra_01    |
 | MAGR_0003_01 | MAGR_Standard_01 |
@@ -290,189 +289,195 @@ If this naming convention used only for a single-tenant, you can omit the **Tena
 
 *Description*:
 
-| Identifiers       | Range | Values/Meaning                                                                | Comments |
-| ----------------- | ----- | ----------------------------------------------------------------------------- | -------- |
-| Prefix            | 4     | MAGR = Management Group                                                       |          |
-| ManagementGroupID | 4     | Ongoing numbering                                                             |          |
-| TenantShort       | 4     | MYTC = My Top Company                                                         |          |
-| Scope             | 5..30 | Infra <br> Standard <br> Special <br> Others                                  |          |
-| Level             | 2     | 00 = Top Level <br> 01 = Level under Top Level <br> 02 = Level under Level 01 |          |
+| Identifiers       | Range | Values/Meaning                                                                |
+| -------------------- | ----- | -------------------------------------------------------------------------- |
+| Prefix            | 4     | MAGR = Management Group                                                       |
+| ManagementGroupID | 4     | Ongoing numbering                                                             |
+| TenantShort       | 4     | MYTC = My Top Company                                                         |
+| Scope             | 5..30 | Infra <br> Standard <br> Special <br> Others                                  |
+| Level             | 2     | 00 = Top Level <br> 01 = Level under Top Level <br> 02 = Level under Level 01 |
 
 
-#### Subscription
-*Pattern*:
+**Subscription**
+
+*Pattern*:  
 `<Prefix>_[TenantShort]_<Environment>_<SubscriptionID>_<Product|Service|Team>_<VersionNr>`
 
 *Examples*:
 
-SUBS_AU_0001_CentralAutomation_01\
-SUBS_CO_0001_CentralServices_01\
-SUBS_SB_0001_CentralSandbox_01\
-SUBS_PR_1001_BusinesServices_01
+SUBS_AU_0001_CentralAutomation_01  
+SUBS_CO_0001_CentralServices_01  
+SUBS_SB_0001_CentralSandbox_01  
+SUBS_PR_1001_BusinesServices_01  
 
-SUBS_MYTC_AU_0001_CentralAutomation_01\
-SUBS_MYTC_CO_0001_CentralServices_01\
-SUBS_MYTC_SB_0001_CentralSandbox_01\
-SUBS_MYTC_PR_1001_BusinesServices_01\
-SUBS_MYTC_TE_1002_BusinesServices_01\
-SUBS_MYTC_DE_1003_BusinesServices_01\
-SUBS_MYTC_PR_1004_VDIServices_01\
+SUBS_MYTC_AU_0001_CentralAutomation_01  
+SUBS_MYTC_CO_0001_CentralServices_01  
+SUBS_MYTC_SB_0001_CentralSandbox_01  
+SUBS_MYTC_PR_1001_BusinesServices_01  
+SUBS_MYTC_TE_1002_BusinesServices_01  
+SUBS_MYTC_DE_1003_BusinesServices_01  
+SUBS_MYTC_PR_1004_VDIServices_01  
 SUBS_MYTC_SP_2001_ExternalCorpA_01
 
 *Description*:
 
-| Identifiers            | Range | Values/Meaning                                                                                                                              | Comments |
-| ---------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Prefix                 | 4     | SUBS = Subscription                                                                                                                         |          |
-| TenantShort            | 4     | MYTC = My Top Company                                                                                                                       |          |
-| Environment            | 2     | Described in the chapter Affixes, Environment                                                                                               |          |
-| SubscriptionID         | 4     | Ongoing numbering per environment, the first position of the number stands for: <br> 0 = Infrastructure <br> 1 = Standard <br> 2 = Special. |          |
-| Product\|Service\|Team | 5..20 | CentralAutomation <br> CentralServices <br> BusinesServices <br> VDIServices <br> ExternalCorpA                                             |          |
-| VersionNr              | 2     | 01..99                                                                                                                                      |          |
+| Identifiers            | Range | Values/Meaning   |
+| ------------------ | ----- | --------------------------------------------------------------------- |
+| Prefix                 | 4     | SUBS = Subscription                                                                                                                         |
+| TenantShort            | 4     | MYTC = My Top Company                                                                                                                       |
+| Environment            | 2     | Described in the chapter Affixes, Environment                                                                                               |
+| SubscriptionID         | 4     | Ongoing numbering per environment, the first position of the number stands for: <br> 0 = Infrastructure <br> 1 = Standard <br> 2 = Special. |
+| Product\|Service\|Team | 5..20 | CentralAutomation <br> CentralServices <br> BusinesServices <br> VDIServices <br> ExternalCorpA                                             |
+| VersionNr              | 2     | 01..99                                                                                                                                      |
 
 
+**Blueprints**
 
-#### Tag
-<br><br><br><br><br><br><br><br>
-
-
-#### Blueprints
-*Pattern*: `<Prefix>_<Description>_<VersionNr>`
+*Pattern*:  
+`<Prefix>_<Description>_<VersionNr>`
 
 *Examples*:
-BLPR_Automation_01
-BLPR_Backup_01
-BLPR_BasicConfig_01
+BLPR_Automation_01  
+BLPR_Backup_01  
+BLPR_BasicConfig_01  
 
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning                                            | Comments |
-| ----------- | ----- | --------------------------------------------------------- | -------- |
-| Prefix      | 4     | BLPR = Blueprints                                         |          |
-| Description | 4     | A description that best describes the purpose or content. |          |
-| VersionNr   | 2     | 01..99                                                    |          |
+| Identifiers | Range | Values/Meaning                                            |
+| ----------- | ----- | --------------------------------------------------------- |
+| Prefix      | 4     | BLPR = Blueprints                                         |
+| Description | 4     | A description that best describes the purpose or content. |
+| VersionNr   | 2     | 01..99                                                    |
 
 
-#### Ressource Group
-*Pattern*: `<Prefix>_[TenantShort]_<Environment>_<Region>_<Service|System>_<VersionNr>`
+**Resource Group**
+
+*Pattern*:  
+`<Prefix>_[TenantShort]_<Environment>_<Region>_<Service|System>_<VersionNr>`
 
 *Examples*:
 
-RSGR_AU_EUWE_Automation_01\
-RSGR_CO_AAAA_Core_01\
-RSGR_CO_AAAA_Network_01\
-RSGR_PR_AAAA_Network_01\
-RSGR_PR_AAAA_Security_01\
+RSGR_AU_EUWE_Automation_01  
+RSGR_CO_AAAA_Core_01  
+RSGR_CO_AAAA_Network_01  
+RSGR_PR_AAAA_Network_01  
+RSGR_PR_AAAA_Security_01  
 RSGR_PR_AAAA_Storage_01
 
-RSGR_MYTC_AU_EUWE_Automation_01\
-RSGR_MYTC_CO_AAAA_Core_01\
-RSGR_MYTC_CO_AAAA_Network_01\
-RSGR_MYTC_CO_AAAA_Security_01\
-RSGR_MYTC_CO_AAAA_Storage_01\
-RSGR_MYTC_CO_AAAA_Backup_01
-RSGR_MYTC_CO_EUWE_DomainServices_01
-RSGR_MYTC_PR_AAAA_Network_01\
-RSGR_MYTC_PR_AAAA_Security_01\
-RSGR_MYTC_PR_AAAA_Storage_01\
-RSGR_MYTC_PR_EUWE_ApplicationA_01\
-RSGR_MYTC_TE_AAAA_Network_01\
-RSGR_MYTC_TE_AAAA_Security_01\
-RSGR_MYTC_TE_AAAA_Storage_01\
+RSGR_MYTC_AU_EUWE_Automation_01  
+RSGR_MYTC_CO_AAAA_Core_01  
+RSGR_MYTC_CO_AAAA_Network_01  
+RSGR_MYTC_CO_AAAA_Security_01  
+RSGR_MYTC_CO_AAAA_Storage_01  
+RSGR_MYTC_CO_AAAA_Backup_01  
+RSGR_MYTC_CO_EUWE_DomainServices_01  
+RSGR_MYTC_PR_AAAA_Network_01  
+RSGR_MYTC_PR_AAAA_Security_01  
+RSGR_MYTC_PR_AAAA_Storage_01  
+RSGR_MYTC_PR_EUWE_ApplicationA_01  
+RSGR_MYTC_TE_AAAA_Network_01  
+RSGR_MYTC_TE_AAAA_Security_01  
+RSGR_MYTC_TE_AAAA_Storage_01  
 RSGR_MYTC_TE_EUWE_ApplicationA_01
 
 *Description*:
 
-| Identifiers     | Range | Values/Meaning                                             | Comments |
-| --------------- | ----- | ---------------------------------------------------------- | -------- |
-| Prefix          | 4     | RSGR = Ressource Group                                     |          |
-| TenantShort     | 4     | MYTC = My Top Company                                      |          |
-| Environment     | 2     | Described in the chapter Affixes, Environment              |          |
-| Region          | 4     | Described in the chapter Affixes, Region                   |          |
-| Service\|System | 5..25 | Describes a purpose for which the resource should be used. |          |
-| VersionNr       | 2     | 01..99                                                     |          |
+| Identifiers     | Range | Values/Meaning                                             |
+| --------------- | ----- | ---------------------------------------------------------- |
+| Prefix          | 4     | RSGR = Ressource Group                                     |
+| TenantShort     | 4     | MYTC = My Top Company                                      |
+| Environment     | 2     | Described in the chapter Affixes, Environment              |
+| Region          | 4     | Described in the chapter Affixes, Region                   |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used. |
+| VersionNr       | 2     | 01..99                                                     |
 
 *Declaration*:
 
 Resources that are managed from the same team, and where all resources planned to be member of the same resource group, are the best examples for the AAAA Region code.
 
-#### Virtual Network (VNet)
-*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<VersionNr>`
+**Virtual Network (VNet)**
+
+*Pattern*:  
+`<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<VersionNr>`
 
 *Examples*:
 
-VNET_EUWE_CO_0001_01\
-VNET_EUWE_PR_1001_01\
-VNET_EUWE_TE_1002_01\
+VNET_EUWE_CO_0001_01  
+VNET_EUWE_PR_1001_01  
+VNET_EUWE_TE_1002_01  
 VNET_EUWE_DE_1003_01
 
-VNET_MYTC_EUWE_CO_0001_01\
-VNET_MYTC_EUWE_PR_1001_01\
-VNET_MYTC_EUWE_TE_1002_01\
+VNET_MYTC_EUWE_CO_0001_01  
+VNET_MYTC_EUWE_PR_1001_01  
+VNET_MYTC_EUWE_TE_1002_01  
 VNET_MYTC_EUWE_DE_1003_01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                            | Comments |
-| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
-| Prefix         | 4     | VNET = Virtual Network                                                    |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
-| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
-| VersionNr      | 2     | 01..99                                                                    |          |
+| Identifiers    | Range | Values/Meaning                                                            |
+| -------------- | ----- | ------------------------------------------------------------------------- |
+| Prefix         | 4     | VNET = Virtual Network                                                    |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |
+| VersionNr      | 2     | 01..99                                                                    |
 
 
-#### VNet Peering
-*Pattern*: `<Prefix>_[SourceTenantShort]_<SourceRegion>_<SourceEnvironment>_<SourceSubscriptionID>_<SourceVersionNr>-[TargetTenantShort]_<TargetRegion>_<TargetEnvironment>_<TargetSubscriptionID>_<TargetVersionNr>`
+**VNet Peering**
+
+*Pattern*:  
+`<Prefix>_[SourceTenantShort]_<SourceRegion>_<SourceEnvironment>_<SourceSubscriptionID>_<SourceVersionNr>-[TargetTenantShort]_<TargetRegion>_<TargetEnvironment>_<TargetSubscriptionID>_<TargetVersionNr>`
 
 *Examples*:
 
-VNPE_EUWE_CO_0001_01-EUWE_PR_1001_01\
-VNPE_EUWE_PR_1001_01-EUWE_CO_0001_01\
-VNPE_EUWE_CO_0001_01-EUWE_TE_1002_01\
-VNPE_EUWE_TE_1002_01-EUWE_CO_0001_01\
-VNPE_EUWE_CO_0001_01-EUWE_DE_1003_01\
+VNPE_EUWE_CO_0001_01-EUWE_PR_1001_01  
+VNPE_EUWE_PR_1001_01-EUWE_CO_0001_01  
+VNPE_EUWE_CO_0001_01-EUWE_TE_1002_01  
+VNPE_EUWE_TE_1002_01-EUWE_CO_0001_01  
+VNPE_EUWE_CO_0001_01-EUWE_DE_1003_01  
 VNPE_EUWE_DE_1003_01-EUWE_CO_0001_01
 
-VNPE_MYTC_EUWE_CO_0001_01-MYTC_EUWE_PR_1001_01\
-VNPE_MYTC_EUWE_PR_1001_01-MYTC_EUWE_CO_0001_01\
-VNPE_MYTC_EUWE_CO_0001_01-MYTC_EUWE_TE_1002_01\
-VNPE_MYTC_EUWE_TE_1002_01-MYTC_EUWE_CO_0001_01\
-VNPE_MYTC_EUWE_CO_0001_01-MYTC_EUWE_DE_1003_01\
+VNPE_MYTC_EUWE_CO_0001_01-MYTC_EUWE_PR_1001_01  
+VNPE_MYTC_EUWE_PR_1001_01-MYTC_EUWE_CO_0001_01  
+VNPE_MYTC_EUWE_CO_0001_01-MYTC_EUWE_TE_1002_01  
+VNPE_MYTC_EUWE_TE_1002_01-MYTC_EUWE_CO_0001_01  
+VNPE_MYTC_EUWE_CO_0001_01-MYTC_EUWE_DE_1003_01  
 VNPE_MYTC_EUWE_DE_1003_01-MYTC_EUWE_CO_0001_01
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                     | Comments |
-| -------------- | ----- | ------------------------------------------------------------------ | -------- |
-| Prefix         | 4     | VNPE = VNet Peering                                                |          |
-| TenantShort    | 4     | MYTC = My Top Company                                              |          |
-| Region         | 4     | Described in the chapter Affixes, Region                           |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                      |          |
-| SubscriptionID | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
-| VersionNr      | 2     | 01..99                                                             |          |
+| Identifiers    | Range | Values/Meaning                                                     |
+| -------------- | ----- | ------------------------------------------------------------------ |
+| Prefix         | 4     | VNPE = VNet Peering                                                |
+| TenantShort    | 4     | MYTC = My Top Company                                              |
+| Region         | 4     | Described in the chapter Affixes, Region                           |
+| Environment    | 2     | Described in the chapter Affixes, Environment                      |
+| SubscriptionID | 4     | Same SubscriptionID which is also used for the corresponding VNet. |
+| VersionNr      | 2     | 01..99                                                             |
 
 
-#### Subnet
-*Pattern*: `<Prefix>_<Region>_<Environment>_<SubscriptionID>_[CustomerShort]_<Service|System>_<AreaShort>`
+**Subnet**
+
+*Pattern*:  
+`<Prefix>_<Region>_<Environment>_<SubscriptionID>_[CustomerShort]_<Service|System>_<AreaShort>`
 
 *Examples*:
 
-SNET_EUWE_CO_0001_Frontend_FE\
-SNET_EUWE_CO_0001_Backend_BE\
-SNET_EUWE_CO_0001_Management_MG\
-SNET_EUWE_CO_0001_DomainServices_FE\
-SNET_EUWE_PR_1001_Frontend_FE\
-SNET_EUWE_PR_1001_Backend_BE\
-SNET_EUWE_PR_1001_Management_MG\
-SNET_MYTC_EUWE_PR_1001_DMZ_FE\
-SNET_MYTC_EUWE_PR_1001_DMZ_BE\
+SNET_EUWE_CO_0001_Frontend_FE  
+SNET_EUWE_CO_0001_Backend_BE  
+SNET_EUWE_CO_0001_Management_MG  
+SNET_EUWE_CO_0001_DomainServices_FE  
+SNET_EUWE_PR_1001_Frontend_FE  
+SNET_EUWE_PR_1001_Backend_BE  
+SNET_EUWE_PR_1001_Management_MG  
+SNET_MYTC_EUWE_PR_1001_DMZ_FE  
+SNET_MYTC_EUWE_PR_1001_DMZ_BE  
 SNET_MYTC_EUWE_PR_1001_AppServer_BE
 
-SNET_MYTC_EUWE_PR_1001_CSTA_DMZ_FE\
-SNET_MYTC_EUWE_PR_1001_CSTA_DMZ_BE\
+SNET_MYTC_EUWE_PR_1001_CSTA_DMZ_FE  
+SNET_MYTC_EUWE_PR_1001_CSTA_DMZ_BE  
 SNET_MYTC_EUWE_PR_1001_CSTA_AppServer_BE
 
 *Description*:
@@ -488,57 +493,61 @@ SNET_MYTC_EUWE_PR_1001_CSTA_AppServer_BE
 | Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |                              |
 | AreaShort       | 2     | FE = Frontend <br> BE = Backend <br> MG = Management               |                              |
 
-#### Route Table
-*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<VersionNr>`
+**Route Table**
+
+*Pattern*:  
+`<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<VersionNr>`
 
 *Examples*:
 
-NRTA_EUWE_CO_0001_01\
-NRTA_EUWE_PR_1001_01\
-NRTA_EUWE_TE_1002_01\
+NRTA_EUWE_CO_0001_01  
+NRTA_EUWE_PR_1001_01  
+NRTA_EUWE_TE_1002_01  
 NRTA_EUWE_DE_1003_01
 
-NRTA_MYTC_EUWE_CO_0001_01\
-NRTA_MYTC_EUWE_PR_1001_01\
-NRTA_MYTC_EUWE_TE_1002_01\
+NRTA_MYTC_EUWE_CO_0001_01  
+NRTA_MYTC_EUWE_PR_1001_01  
+NRTA_MYTC_EUWE_TE_1002_01  
 NRTA_MYTC_EUWE_DE_1003_01
 
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                     | Comments |
-| -------------- | ----- | ------------------------------------------------------------------ | -------- |
-| Prefix         | 4     | NRTA = Route Table                                                 |          |
-| TenantShort    | 4     | MYTC = My Top Company                                              |          |
-| Region         | 4     | Described in the chapter Affixes, Region                           |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                      |          |
-| SubscriptionID | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
-| VersionNr      | 2     | 01..99                                                             |          |
+| Identifiers    | Range | Values/Meaning                                                     |
+| -------------- | ----- | ------------------------------------------------------------------ |
+| Prefix         | 4     | NRTA = Route Table                                                 |
+| TenantShort    | 4     | MYTC = My Top Company                                              |
+| Region         | 4     | Described in the chapter Affixes, Region                           |
+| Environment    | 2     | Described in the chapter Affixes, Environment                      |
+| SubscriptionID | 4     | Same SubscriptionID which is also used for the corresponding VNet. |
+| VersionNr      | 2     | 01..99                                                             |
 
 
-#### Network Security Group
-*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_[CustomerShort]_<Service|System>_<AreaShort>`
+**Network Security Group**
+
+*Pattern*:  
+`<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_[CustomerShort]_<Service|System>_<AreaShort>`
 
 *Examples*:
 
-NSGR_EUWE_CO_0001_Frontend_FE\
-NSGR_EUWE_CO_0001_Backend_BE\
-NSGR_EUWE_CO_0001_Management_MG\
-NSGR_EUWE_CO_0001_DomainServices_FE\
-NSGR_EUWE_PR_1001_Frontend_FE\
-NSGR_EUWE_PR_1001_Backend_BE\
+NSGR_EUWE_CO_0001_Frontend_FE  
+NSGR_EUWE_CO_0001_Backend_BE  
+NSGR_EUWE_CO_0001_Management_MG  
+NSGR_EUWE_CO_0001_DomainServices_FE  
+NSGR_EUWE_PR_1001_Frontend_FE  
+NSGR_EUWE_PR_1001_Backend_BE  
 NSGR_EUWE_PR_1001_Management_MG
 
-NSGR_MYTC_EUWE_CO_0001_Frontend_FE\
-NSGR_MYTC_EUWE_CO_0001_Backend_BE\
-NSGR_MYTC_EUWE_CO_0001_Management_MG\
-NSGR_MYTC_EUWE_CO_0001_DomainServices_FE\
-NSGR_MYTC_EUWE_PR_1001_Frontend_FE\
-NSGR_MYTC_EUWE_PR_1001_Backend_BE\
-NSGR_MYTC_EUWE_PR_1001_Management_MG\
-NSGR_MYTC_EUWE_PR_1001_CSTA_DMZ_FE\
-NSGR_MYTC_EUWE_PR_1001_CSTA_DMZ_BE\
-NSGR_MYTC_EUWE_PR_1001_CSTA_AppServer_BE\
+NSGR_MYTC_EUWE_CO_0001_Frontend_FE  
+NSGR_MYTC_EUWE_CO_0001_Backend_BE  
+NSGR_MYTC_EUWE_CO_0001_Management_MG  
+NSGR_MYTC_EUWE_CO_0001_DomainServices_FE  
+NSGR_MYTC_EUWE_PR_1001_Frontend_FE  
+NSGR_MYTC_EUWE_PR_1001_Backend_BE  
+NSGR_MYTC_EUWE_PR_1001_Management_MG  
+NSGR_MYTC_EUWE_PR_1001_CSTA_DMZ_FE  
+NSGR_MYTC_EUWE_PR_1001_CSTA_DMZ_BE  
+NSGR_MYTC_EUWE_PR_1001_CSTA_AppServer_BE  
 NSGR_MYTC_EUWE_PR_1001_CSTB_AppServer_BE
 
 *Description*:
@@ -558,24 +567,25 @@ NSGR_MYTC_EUWE_PR_1001_CSTB_AppServer_BE
 
 Network Security Groups inherit the name of the Subnet, they are not using a counter as there can’t be multiple NSG with the same name.
 
-#### Network Security Group Rule
+**Network Security Group Rule**
+
 *Pattern*: `<Prefix>_<Direction>_<Protocol>_<Action>_<FromToWhere|Service|System>_<ShortPortDescription>`
 
 *Examples*:
 
-Inbound:\
-NSRU_in_TCP_allow_JUMPtoVNET-RDP\
+Inbound:  
+NSRU_in_TCP_allow_JUMPtoVNET-RDP  
 NSRU_in_ANY_allow_CXCCtoVDAIP-WEB
 
-Outbound:\
-NSRU_out_TCP_allow_JUMPtoVNET-RDP\
+Outbound:  
+NSRU_out_TCP_allow_JUMPtoVNET-RDP  
 NSRU_out_ANY_allow_WAPtoWAP-ANY
 
 
 *Description*:
 
 | Identifiers                  | Range | Values/Meaning                                                  | Comments                                                                                                              |
-| ---------------------------- | ----- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| ----- | - | ----- | ------ |
 | Prefix                       | 4     | NSRU = Network Security Group Rule                              |                                                                                                                       |
 | Direction                    | 2..3  | in <br> out                                                     |                                                                                                                       |
 | Protocol                     | 3     | ANY <br> TCP <br> UDP                                           |                                                                                                                       |
@@ -584,255 +594,260 @@ NSRU_out_ANY_allow_WAPtoWAP-ANY
 | ShortPortDescription         | 2..8  | RDP <br> HTTP <br> HTTPS <br> ICA <br> DNS <br> WEB <br> DOMAIN |                                                                                                                       |
 
 
-#### Application Security Group
-*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<Service|System>_<VersionNr>`
+**Application Security Group**
+
+*Pattern*:  
+`<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<Service|System>_<VersionNr>`
 
 *Examples*:
-APSG_EUWE_CO_0001_WAP_01\
-APSG_EUWE_CO_0001_ADDC_01\
-APSG_EUWE_CO_0001_ADFS_01\
-APSG_EUWE_CO_0001_ADCA_01\
+APSG_EUWE_CO_0001_WAP_01  
+APSG_EUWE_CO_0001_ADDC_01  
+APSG_EUWE_CO_0001_ADFS_01  
+APSG_EUWE_CO_0001_ADCA_01  
 APSG_EUWE_CO_0001_AADC_01
 
-APSG_MYTC_EUWE_CO_0001_WAP_01\
-APSG_MYTC_EUWE_CO_0001_ADDC_01\
-APSG_MYTC_EUWE_CO_0001_ADFS_01\
-APSG_MYTC_EUWE_CO_0001_ADCA_01\
+APSG_MYTC_EUWE_CO_0001_WAP_01  
+APSG_MYTC_EUWE_CO_0001_ADDC_01  
+APSG_MYTC_EUWE_CO_0001_ADFS_01  
+APSG_MYTC_EUWE_CO_0001_ADCA_01  
 APSG_MYTC_EUWE_CO_0001_AADC_01
 
 *Description*:
 
-| Identifiers     | Range | Values/Meaning                                                     | Comments |
-| --------------- | ----- | ------------------------------------------------------------------ | -------- |
-| Prefix          | 4     | APSG = Application Security Group                                  |          |
-| TenantShort     | 4     | MYTC = My Top Company                                              |          |
-| Region          | 4     | Described in the chapter Affixes, Region                           |          |
-| Environment     | 2     | Described in the chapter Affixes, Environment                      |          |
-| SubscriptionID  | 4     | Same SubscriptionID which is also used for the corresponding VNet. |          |
-| Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |          |
-| VersionNr       | 2     | 01..99                                                             |          |
+| Identifiers     | Range | Values/Meaning                                                     |
+| --------------- | ----- | ------------------------------------------------------------------ |
+| Prefix          | 4     | APSG = Application Security Group                                  |
+| TenantShort     | 4     | MYTC = My Top Company                                              |
+| Region          | 4     | Described in the chapter Affixes, Region                           |
+| Environment     | 2     | Described in the chapter Affixes, Environment                      |
+| SubscriptionID  | 4     | Same SubscriptionID which is also used for the corresponding VNet. |
+| Service\|System | 5..25 | Describes a purpose for which the resource should be used.         |
+| VersionNr       | 2     | 01..99                                                             |
 
-#### VPN Gateway
-*Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>`
+**VPN Gateway**
 
-*Examples*:
+*Pattern*:  
+`<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>`
 
-VPNW_EUWE_CO_0001
-
+*Examples*:  
+VPNW_EUWE_CO_0001  
 VPNW_MYTC_EUWE_CO_0001
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                            | Comments |
-| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
-| Prefix         | 4     | VPNW = VPN Gateway                                                        |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
-| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
+| Identifiers    | Range | Values/Meaning                                                            |
+| -------------- | ----- | ------------------------------------------------------------------------- |
+| Prefix         | 4     | VPNW = VPN Gateway                                                        |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |
 
-#### Local Network Gateway
+**Local Network Gateway**
+
 *Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>`
 
-*Examples*:
-
-LNGA_EUWE_CO_0001
-
+*Examples*:  
+LNGA_EUWE_CO_0001  
 LNGA_MYTC_EUWE_CO_0001
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                            | Comments |
-| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
-| Prefix         | 4     | LNGA = Local Network Gateway                                              |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
-| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
+| Identifiers    | Range | Values/Meaning                                                            |
+| -------------- | ----- | ------------------------------------------------------------------------- |
+| Prefix         | 4     | LNGA = Local Network Gateway                                              |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |
 
-##### Connection
+**Connection**
+
 *Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<SubscriptionID>_<SiteName>`
 
-*Examples*:
-
-LNGA_EUWE_CO_0001_HQ
-
+*Examples*:  
+LNGA_EUWE_CO_0001_HQ  
 LNGA_MYTC_EUWE_CO_0001_HQ
 
 *Description*:
 
-| Identifiers    | Range | Values/Meaning                                                            | Comments |
-| -------------- | ----- | ------------------------------------------------------------------------- | -------- |
-| Prefix         | 4     | LNGA = Local Network Gateway                                              |          |
-| TenantShort    | 4     | MYTC = My Top Company                                                     |          |
-| Region         | 4     | Described in the chapter Affixes, Region                                  |          |
-| Environment    | 2     | Described in the chapter Affixes, Environment                             |          |
-| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |          |
-| SiteName       | 2..20 | A descriptive name of the remote site.                                    |          |
+| Identifiers    | Range | Values/Meaning                                                            |
+| -------------- | ----- | ------------------------------------------------------------------------- |
+| Prefix         | 4     | LNGA = Local Network Gateway                                              |
+| TenantShort    | 4     | MYTC = My Top Company                                                     |
+| Region         | 4     | Described in the chapter Affixes, Region                                  |
+| Environment    | 2     | Described in the chapter Affixes, Environment                             |
+| SubscriptionID | 4     | Same SubscriptionID in which subscription the resource will be published. |
+| SiteName       | 2..20 | A descriptive name of the remote site.                                    |
 
 
-#### Internal Load Balancer
+**Internal Load Balancer**
+
 *Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<LBFunction><Nr>_<VersionNr>`
 
 *Examples*:
 
-LBIN_EUWE_CO_GENP01_01\
+LBIN_EUWE_CO_GENP01_01  
 LBIN_EUWE_CO_CXSF01_01
 
-LBIN_MYTC_EUWE_CO_GENP01_01\
+LBIN_MYTC_EUWE_CO_GENP01_01  
 LBIN_MYTC_EUWE_CO_CXSF01_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning                                                                      | Comments |
-| ----------- | ----- | ----------------------------------------------------------------------------------- | -------- |
-| Prefix      | 4     | LBIN = Internal Load Balancer                                                       |          |
-| TenantShort | 4     | MYTC = My Top Company                                                               |          |
-| Region      | 4     | Described in the chapter Affixes, Region                                            |          |
-| Environment | 2     | Described in the chapter Affixes, Environment                                       |          |
-| LBFunction  | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
-| Nr          | 2     | 01..99, a number that is oriented towards the target service.                       |          |
-| VersionNr   | 2     | 01..99                                                                              |          |
+| Identifiers | Range | Values/Meaning                                                                      |
+| ----------- | ----- | ----------------------------------------------------------------------------------- |
+| Prefix      | 4     | LBIN = Internal Load Balancer                                                       |
+| TenantShort | 4     | MYTC = My Top Company                                                               |
+| Region      | 4     | Described in the chapter Affixes, Region                                            |
+| Environment | 2     | Described in the chapter Affixes, Environment                                       |
+| LBFunction  | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |
+| Nr          | 2     | 01..99, a number that is oriented towards the target service.                       |
+| VersionNr   | 2     | 01..99                                                                              |
 
-#### External Load Balancer
+**External Load Balancer**
+
 *Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<LB-Function><Nr>_<VersionNr>`
 
 *Examples*:
 
-LBEX_EUWE_CO_GENP01_01\
+LBEX_EUWE_CO_GENP01_01  
 LBEX_EUWE_CO_WAP001_01
 
-LBEX_MYTC_EUWE_CO_GENP01_01\
+LBEX_MYTC_EUWE_CO_GENP01_01  
 LBEX_MYTC_EUWE_CO_WAP001_01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning                                                                      | Comments |
-| ----------- | ----- | ----------------------------------------------------------------------------------- | -------- |
-| Prefix      | 4     | LBEX = External Load Balancer                                                       |          |
-| TenantShort | 4     | MYTC = My Top Company                                                               |          |
-| Region      | 4     | Described in the chapter Affixes, Region                                            |          |
-| Environment | 2     | Described in the chapter Affixes, Environment                                       |          |
-| LBFunction  | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |          |
-| Nr          | 2     | 01..99, a number that is oriented towards the target service.                       |          |
-| VersionNr   | 2     | 01..99                                                                              |          |
+| Identifiers | Range | Values/Meaning                                                                      |
+| ----------- | ----- | ----------------------------------------------------------------------------------- |
+| Prefix      | 4     | LBEX = External Load Balancer                                                       |
+| TenantShort | 4     | MYTC = My Top Company                                                               |
+| Region      | 4     | Described in the chapter Affixes, Region                                            |
+| Environment | 2     | Described in the chapter Affixes, Environment                                       |
+| LBFunction  | 4     | GENP =  General Purpose <br> or a name that corresponds to the destination service. |
+| Nr          | 2     | 01..99, a number that is oriented towards the target service.                       |
+| VersionNr   | 2     | 01..99                                                                              |
 
-#### Load Balancing Rules
+**Load Balancing Rules**
+
 *Pattern*: `<Prefix>_<Function><FunctiontDescription><Nr>_<Type>_<Protocol>_<VersionNr>`
 
 *Examples*:
 
-LBEX_WAP00001_FE_01\
-LBEX_WAP00001_BE_01\
-LBEX_WAP00001_HP-HTTPS_01\
-LBEX_WAP00001_LB-HTTPS_01\
+LBEX_WAP00001_FE_01  
+LBEX_WAP00001_BE_01  
+LBEX_WAP00001_HP-HTTPS_01  
+LBEX_WAP00001_LB-HTTPS_01  
 LBEX_WAP00001_IN-HTTPS_01
 
-LBEX_WAP00001_FE_01\
-LBEX_WAP00001_BE_01\
-LBEX_WAP00001_HP-HTTPS_01\
-LBEX_WAP00001_LB-HTTPS_01\
+LBEX_WAP00001_FE_01  
+LBEX_WAP00001_BE_01  
+LBEX_WAP00001_HP-HTTPS_01  
+LBEX_WAP00001_LB-HTTPS_01  
 LBEX_WAP00001_IN-HTTPS_01
 
 *Description*:
 
-| Identifiers          | Range | Values/Meaning                                                                                                                        | Comments |
-| -------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| Prefix               | 4     | Same as the Loadbalancer <br> LBIN = Internal Load Balancer <br> LBEX = External Load Balancer                                        |          |
-| Function             | 2..4  | Described in the chapter Affixes, Function                                                                                            |          |
-| FunctiontDescription | 2..4  | Described in the chapter Affixes, Functiont Description                                                                               |          |
-| Nr                   | 2     | 01..99, and part of the hostname                                                                                                      |          |
-| Type                 | 2     | FE = Frontend IP configuration <br> BE = Backend pool <br> HP = Health probe <br> LB = Load balancing rule <br> IN = Inbound NAT rule |          |
-| Protocol             | 2..8  | HTTP <br> HTTPS <br> DNS                                                                                                              |          |
-| VersionNr            | 2     | 01..99                                                                                                                                |          |
+| Identifiers          | Range | Values/Meaning                                                                                                                        |
+| --- | -- | ------------ |
+| Prefix               | 4     | Same as the Loadbalancer <br> LBIN = Internal Load Balancer <br> LBEX = External Load Balancer                                        |
+| Function             | 2..4  | Described in the chapter Affixes, Function                                                                                            |
+| FunctiontDescription | 2..4  | Described in the chapter Affixes, Functiont Description                                                                               |
+| Nr                   | 2     | 01..99, and part of the hostname                                                                                                      |
+| Type                 | 2     | FE = Frontend IP configuration <br> BE = Backend pool <br> HP = Health probe <br> LB = Load balancing rule <br> IN = Inbound NAT rule |
+| Protocol             | 2..8  | HTTP <br> HTTPS <br> DNS                                                                                                              |
+| VersionNr            | 2     | 01..99                                                                                                                                |
 
 
-#### Automation Account
+**Automation Account**
+
 *Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Name>-<VersionNr>`
 
-*Examples*:
-
-AUTO-EUWE-CO-CentalAutomation-01
-
+*Examples*:  
+AUTO-EUWE-CO-CentalAutomation-01  
 AUTO-MYTC-EUWE-CO-CentalAutomation-01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning                                | Comments |
-| ----------- | ----- | --------------------------------------------- | -------- |
-| Prefix      | 4     | AUTO = Azure Automation Account               |          |
-| TenantShort | 4     | MYTC = My Top Company                         |          |
-| Region      | 4     | Described in the chapter Affixes, Region      |          |
-| Environment | 2     | Described in the chapter Affixes, Environment |          |
-| Name        | 5..20 | A descriptive name of the automation account. |          |
-| VersionNr   | 2     | 01..99                                        |          |
+| Identifiers | Range | Values/Meaning                                |
+| ----------- | ----- | --------------------------------------------- |
+| Prefix      | 4     | AUTO = Azure Automation Account               |
+| TenantShort | 4     | MYTC = My Top Company                         |
+| Region      | 4     | Described in the chapter Affixes, Region      |
+| Environment | 2     | Described in the chapter Affixes, Environment |
+| Name        | 5..20 | A descriptive name of the automation account. |
+| VersionNr   | 2     | 01..99                                        |
 
 
-#### Log Analytics Workspace
+**Log Analytics Workspace**
+
 *Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<SecurityLevel>-<Name>-<VersionNr>`
 
 *Examples*:
 
-LAWS-EUWE-AU-N-Automation-01\
-LAWS-EUWE-CO-N-ShortRetention-01\
+LAWS-EUWE-AU-N-Automation-01  
+LAWS-EUWE-CO-N-ShortRetention-01  
 LAWS-EUWE-CO-H-LongRetention-01
 
-LAWS-MYTC-EUWE-AU-N-Automation-01\
-LAWS-MYTC-EUWE-CO-N-ShortRetention-01\
+LAWS-MYTC-EUWE-AU-N-Automation-01  
+LAWS-MYTC-EUWE-CO-N-ShortRetention-01  
 LAWS-MYTC-EUWE-CO-H-LongRetention-01
 
 *Description*:
 
-| Identifiers   | Range | Values/Meaning                                | Comments |
-| ------------- | ----- | --------------------------------------------- | -------- |
-| Prefix        | 4     | LAWS = Log Analytics Workspace                |          |
-| TenantShort   | 4     | MYTC = My Top Company                         |          |
-| Region        | 4     | Described in the chapter Affixes, Region      |          |
-| Environment   | 2     | Described in the chapter Affixes, Environment |          |
-| SecurityLevel | 1     | N = Normal Security <br> H = High Security    |          |
-| Name          | 5..20 | A descriptive name of the workspace.          |          |
-| VersionNr     | 2     | 01..99                                        |          |
+| Identifiers   | Range | Values/Meaning                                |
+| ------------- | ----- | --------------------------------------------- |
+| Prefix        | 4     | LAWS = Log Analytics Workspace                |
+| TenantShort   | 4     | MYTC = My Top Company                         |
+| Region        | 4     | Described in the chapter Affixes, Region      |
+| Environment   | 2     | Described in the chapter Affixes, Environment |
+| SecurityLevel | 1     | N = Normal Security <br> H = High Security    |
+| Name          | 5..20 | A descriptive name of the workspace.          |
+| VersionNr     | 2     | 01..99                                        |
 
 
-#### Recovery Service Vault
+**Recovery Service Vault**
+
 *Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Name>-<VersionNr>`
 
 *Examples*:
 
-RSVA-EUWE-AU-DefaultBackup-01\
-RSVA-EUWE-CO-DefaultBackup-01\
-RSVA-EUWE-PR-DefaultBackup-01\
+RSVA-EUWE-AU-DefaultBackup-01  
+RSVA-EUWE-CO-DefaultBackup-01  
+RSVA-EUWE-PR-DefaultBackup-01  
 RSVA-EUWE-TE-DefaultBackup-01
 
-RSVA-MYTC-EUWE-AU-DefaultBackup-01\
-RSVA-MYTC-EUWE-CO-DefaultBackup-01\
-RSVA-MYTC-EUWE-PR-DefaultBackup-01\
+RSVA-MYTC-EUWE-AU-DefaultBackup-01  
+RSVA-MYTC-EUWE-CO-DefaultBackup-01  
+RSVA-MYTC-EUWE-PR-DefaultBackup-01  
 RSVA-MYTC-EUWE-TE-DefaultBackup-01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning                                | Comments |
-| ----------- | ----- | --------------------------------------------- | -------- |
-| Prefix      | 4     | RSVA = Recovery Service Vault                 |          |
-| TenantShort | 4     | MYTC = My Top Company                         |          |
-| Region      | 4     | Described in the chapter Affixes, Region      |          |
-| Environment | 2     | Described in the chapter Affixes, Environment |          |
-| Name        | 5..20 | A descriptive name of the service vault.      |          |
-| VersionNr   | 2     | 01..99                                        |          |
+| Identifiers | Range | Values/Meaning                                |
+| ----------- | ----- | --------------------------------------------- |
+| Prefix      | 4     | RSVA = Recovery Service Vault                 |
+| TenantShort | 4     | MYTC = My Top Company                         |
+| Region      | 4     | Described in the chapter Affixes, Region      |
+| Environment | 2     | Described in the chapter Affixes, Environment |
+| Name        | 5..20 | A descriptive name of the service vault.      |
+| VersionNr   | 2     | 01..99                                        |
 
-##### Azure Backup Policy
+**Azure Backup Policy**
+
 *Pattern*: `<Prefix>-[TenantShort]-<Region>-<Environment>-<Purpose>-<BackupSchedule>-<BackupTime>-<TimeZone>-<Instant>-<DailyRetention>-<WeeklyRetention>-[MontlyRetention]-[YearlyRetention]`
 
-ABPO-EUWE-AU-AVM-D-22-UTCP01-1-7-SO5\
-ABPO-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5\
-ABPO-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10\
-ABPO-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5\
-ABPO-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10\
-ABPO-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5\
+ABPO-EUWE-AU-AVM-D-22-UTCP01-1-7-SO5  
+ABPO-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5  
+ABPO-EUWE-CO-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10  
+ABPO-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5  
+ABPO-EUWE-PR-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10  
+ABPO-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5  
 ABPO-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
 
-| Identifiers     | Range | Values/Meaning                                                                                                                                                                                        | Comments                             |
-| --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| Identifiers     | Range | Values/Meaning  | Comments                             |
+| ----- | - | ----------- | ------ |
 | Prefix          | 4     | ABPO = Azure Backup Policy                                                                                                                                                                            |                                      |
 | TenantShort     | 4     | MYTC = My Top Company                                                                                                                                                                                 |                                      |
 | Region          | 4     | Described in the chapter Affixes, Region                                                                                                                                                              |                                      |
@@ -847,44 +862,46 @@ ABPO-EUWE-TE-AVM-D-22-UTCP01-1-7-SO5-1stSO12-Jan1stSO10
 | MontlyRetention | 6..9  | On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28,LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..1188 months.                                                                   | Retention of monthly backup point.   |
 | YearlyRetention | 6..10 | In: Jan, Feb, Mar, Apr, Mai, Jun, Jul, Aug, Sep, Oct, Nov, Dec <br> On Week Base: 1st,2nd,3rd,4th,LAS = Last <br> On Day Base: 1..28\|LA = Last <br> Day: MO-SO or SE (Several) <br> for 1..99 years. | Retention of yearly backup point.    |
 
-#### Availability Set
+**Availability Set**
+
 *Pattern*: `<Prefix>_[TenantShort]_<Region>_<Environment>_<Function><FunctiontDescription><Nr>_<VersionNr>`
 
 *Examples*:
 
-AVSE_EUWE_CO_WAP00001_01\
-AVSE_EUWE_CO_ADDC0001_01\
+AVSE_EUWE_CO_WAP00001_01  
+AVSE_EUWE_CO_ADDC0001_01  
 AVSE_EUWE_PR_CXSF0001_01
 
-AVSE_MYTC_EUWE_CO_WAP00001_01\
-AVSE_MYTC_EUWE_CO_ADDC0001_01\
+AVSE_MYTC_EUWE_CO_WAP00001_01  
+AVSE_MYTC_EUWE_CO_ADDC0001_01  
 AVSE_MYTC_EUWE_PR_CXSF0001_01
 
 *Description*:
 
-| Identifiers          | Range | Values/Meaning                                          | Comments |
-| -------------------- | ----- | ------------------------------------------------------- | -------- |
-| Prefix               | 4     | AVSE = Availability Set                                 |          |
-| TenantShort          | 4     | MYTC = My Top Company                                   |          |
-| Region               | 4     | Described in the chapter Affixes, Region                |          |
-| Environment          | 2     | Described in the chapter Affixes, Environment           |          |
-| Function             | 2..4  | Described in the chapter Affixes, Function              |          |
-| FunctiontDescription | 2..4  | Described in the chapter Affixes, Functiont Description |          |
-| Nr                   | 2     | 01..99, and part of the hostname                        |          |
-| VersionNr            | 2     | 01..99                                                  |          |
+| Identifiers          | Range | Values/Meaning                                          |
+| -------------------- | ----- | ------------------------------------------------------- |
+| Prefix               | 4     | AVSE = Availability Set                                 |
+| TenantShort          | 4     | MYTC = My Top Company                                   |
+| Region               | 4     | Described in the chapter Affixes, Region                |
+| Environment          | 2     | Described in the chapter Affixes, Environment           |
+| Function             | 2..4  | Described in the chapter Affixes, Function              |
+| FunctiontDescription | 2..4  | Described in the chapter Affixes, Functiont Description |
+| Nr                   | 2     | 01..99, and part of the hostname                        |
+| VersionNr            | 2     | 01..99                                                  |
 
-#### Virtual Machines
+**Virtual Machines**
+
 *Pattern*: `<Zone><Location><CompanyShort|TenantShort>-<Function><FunctiontDescription><Nr>`
 
-*Examples*:
-O7MYTC-3WPROD01\
-G7MYTC-ADDC0001\
+*Examples*:  
+O7MYTC-3WPROD01  
+G7MYTC-ADDC0001  
 G7MYTC-ADDC0002 
 
 *Description*:
 
-| Identifiers               | Range | Values/Meaning                                                                                                                                                                   | Comments                                            |
-| ------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| Identifiers               | Range | Values/Meaning    | Comments         |
+| -------- | - | --------- | ------- |
 | Zone                      | 1     | R = Red <br> O = Orange <br> G = Green <br> B = Black                                                                                                                            | Internet <br> DMZ <br> Internal <br> Infrastructure |
 | Location                  | 1     | 0 = Location Independent <br> 1 = Datacenter Location 1  <br> 2 = Datacenter Location 2 <br> 7 = Azure (somewhere on this world ;-) )  <br> 8 = Azure Stack <br> 9 = On Premises |                                                     |
 | CompanyShort\|TenantShort | 4     | MYTC = My Top Company <br> MYOC = My Own Company                                                                                                                                 |                                                     |
@@ -893,62 +910,67 @@ G7MYTC-ADDC0002
 | Nr                        | 2     | 01..99                                                                                                                                                                           |                                                     |
 
 
-#### Managed Disk
+**Managed Disk**
+
 *Pattern*: `<VirtualMachineName>-<DiskName>[Nr]`
 
 *Examples*:
-O7MYTC-3WPROD01-OSDisk\
-O7MYTC-3WPROD01-DataDisk01\
-G7MYTC-ADDC0001-OSDisk\
-G7MYTC-ADDC0001-DataDisk01\
-G7MYTC-ADDC0002-OSDisk\
+O7MYTC-3WPROD01-OSDisk  
+O7MYTC-3WPROD01-DataDisk01  
+G7MYTC-ADDC0001-OSDisk  
+G7MYTC-ADDC0001-DataDisk01  
+G7MYTC-ADDC0002-OSDisk  
 G7MYTC-ADDC0002-DataDisk01 
 
 *Description*:
 
-| Identifiers        | Range | Values/Meaning                                                        | Comments |
-| ------------------ | ----- | --------------------------------------------------------------------- | -------- |
-| VirtualMachineName | 15    | Name of the Virtual Machine                                           |          |
-| DiskName           | 15    | OSDisk = System Disk, only one <br> DataDisk = Data Disk, one to many |          |
-| Nr                 | 2     | 01..99                                                                |          |
+| Identifiers        | Range | Values/Meaning                                                        |
+| ------------------ | ----- | --------------------------------------------------------------------- |
+| VirtualMachineName | 15    | Name of the Virtual Machine                                           |
+| DiskName           | 15    | OSDisk = System Disk, only one <br> DataDisk = Data Disk, one to many |
+| Nr                 | 2     | 01..99                                                                |
 
 *Declaration*:
 
 You can only define a name if you use templates to create a VM.
 
-#### Network Interface Card
+**Network Interface Card**
+
 *Pattern*: `<VirtualMachineName>-NIC<Nr>`
 
 *Examples*:
-O7MYTC-3WPROD01-NIC01\
-O7MYTC-3WPROD01-NIC02\
-G7MYTC-ADDC0001-NIC01\
+O7MYTC-3WPROD01-NIC01  
+O7MYTC-3WPROD01-NIC02  
+G7MYTC-ADDC0001-NIC01  
 G7MYTC-ADDC0002-NIC01 
 
 *Description*:
 
-| Identifiers        | Range | Values/Meaning              | Comments |
-| ------------------ | ----- | --------------------------- | -------- |
-| VirtualMachineName | 15    | Name of the Virtual Machine |          |
-| Nr                 | 2     | 01..99                      |          |
+| Identifiers        | Range | Values/Meaning              |
+| ------------------ | ----- | --------------------------- |
+| VirtualMachineName | 15    | Name of the Virtual Machine |
+| Nr                 | 2     | 01..99                      |
 
 
-#### Public IP
-*Pattern*: `<VirtualMachineName|ServiceName>-PIP<Nr>`
+**Public IP**
 
-*Examples*:
+*Pattern*:  
+`<VirtualMachineName|ServiceName>-PIP<Nr>`
+
+*Examples*:  
 O7MYTC-3WPROD01-PIP01
 
 *Description*:
 
-| Identifiers                     | Range | Values/Meaning                                                | Comments |
-| ------------------------------- | ----- | ------------------------------------------------------------- | -------- |
-| VirtualMachineName\|ServiceName | 5..30 | Name of the VM or Service for which the Public IP are needed. |          |
-| Nr                              | 2     | 01..99                                                        |          |
+| Identifiers                     | Range | Values/Meaning                                                |
+| --------------------------------- | ----- | ----------------------------------------------------------- |
+| VirtualMachineName\|ServiceName | 5..30 | Name of the VM or Service for which the Public IP are needed. |
+| Nr                              | 2     | 01..99                                                        |
 
 
 <!---
-#### Template
+**Template**
+
 *Pattern*: `<Prefix>_<Region>_<Environment>_<VersionNr>`
 
 *Examples*:
@@ -956,12 +978,12 @@ O7MYTC-3WPROD01-PIP01
 
 *Description*:
 
-| Identifiers | Range | Values/Meaning                                | Comments |
-| ----------- | ----- | --------------------------------------------- | -------- |
-| Prefix      | 3     | SUB = Subscription                            |          |
-| Region      | 4     | Described in the chapter Affixes, Region      |          |
-| Environment | 2     | Described in the chapter Affixes, Environment |          |
-| VersionNr   | 2     | 01..99                                        |          |
+| Identifiers | Range | Values/Meaning                                |
+| ----------- | ----- | --------------------------------------------- |
+| Prefix      | 3     | SUB = Subscription                            |
+| Region      | 4     | Described in the chapter Affixes, Region      |
+| Environment | 2     | Described in the chapter Affixes, Environment |
+| VersionNr   | 2     | 01..99                                        |
 --->
 
 [recommendations]: # ( end )

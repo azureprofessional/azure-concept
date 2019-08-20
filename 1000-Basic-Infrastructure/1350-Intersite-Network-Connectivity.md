@@ -100,7 +100,7 @@ When talking about ExpressRoute, in most cases an ExpressRoute circuit is refere
 
 It is possible to order multiple ExpressRoute circuits. Each circuit can be in the same or different regions, and can be connected to on premises through different connectivity providers. A circuit has a fixed bandwidth and is mapped to exactly one connectivity provider and one peering location (e.g. West Europe).
 
-#### Common scenarios
+**Common scenarios**
 
 There obviously exist a variety of reasons to implement ExpressRoute. The following scenarios are probably the most common ones:
 
@@ -110,7 +110,7 @@ There obviously exist a variety of reasons to implement ExpressRoute. The follow
 
 Unlike Site-to-Site VPN which only works for IaaS, Azure ExpressRoute can be used with various other public services (e.g. Websites, IoT, Backup, database services).
 
-#### Encryption of traffic
+**Encryption of traffic**
 
 Although ExpressRoute is a private connection, traffic flowing over the network is **not encrypted**. Encryption in transit can be achieved by encrypting traffic flowing over the connection.
 
@@ -126,14 +126,14 @@ Source: Stefan Johner: https://blog.jhnr.ch/2018/05/29/azure-expressroute-overvi
 
 ![](..//media/expressroute-connectivity-models-diagram.png) 
 
-#### Co-located at a cloud exchange
+**Co-located at a cloud exchange**
 
 If you are co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.
 
-#### Point-to-point Ethernet connections
+**Point-to-point Ethernet connections**
 You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.
 
-####  Any-to-any (IPVPN) networks
+**Any-to-any (IPVPN) networks**
 You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed Layer 3 connectivity. ExpressRoute capabilities and features are all identical across all of the above connectivity models.
 
 Source: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-connectivity-models
