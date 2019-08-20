@@ -170,8 +170,8 @@ Sources: <https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introdu
 
 ## Recommendations for operation Azure IaaS Services
 
-|                                                |                                                                                                                                                                                                                                                                                                      |
-| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| |  |
+| -- | ---- |
 | **Use nonpeak hours for backups**              | Schedule backups during nonpeak hours for VMs so that backup service gets IOPS for transferring data from customer storage account to backup vault.                                                                                                                                                  |
 | **Spread VMs into different backup schedules** | Please make sure that in a policy VMs are spread from different storage accounts. We suggest that if the total number of disks stored in a single storage account from VMs is more than 20, spread the VMs into different backup schedules to get required IOPS during transfer phase of the backup. |
 | **Back up critical data to separate location** | Ensuring all applications and mission-critical data is backed up at a separate secondary location other than the primary datacenter                                                                                                                                                                  |

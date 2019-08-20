@@ -52,13 +52,13 @@ When you create a storage account, you can select one of the following replicati
 
   - Read-access geo-redundant storage (RA-GRS)
 
-| Scenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
-| -------------------------------------------------------------------------------------------------------- | ------------------------------- | -------------------------------- | ------------------------------------ | ------------------------------------ |
+| Scenario | LRS    | ZRS    | GRS   | RA-GRS        |
+| ---- | -- | -- | -- | --|
 | Node unavailability within a data center                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                  |
 | An entire data center (zonal or non-zonal) becomes unavailable                                           | No                              | Yes                              | Yes                                  | Yes                                  |
 | A region-wide outage                                                                                     | No                              | No                               | Yes                                  | Yes                                  |
 | Read access to your data (in a remote, geo-replicated region) in the event of region-wide unavailability | No                              | No                               | No                                   | Yes                                  |
-| Designed to provide \_ durability of objects over a given year                                           | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
+| Designed to provide \_ durability of objects over a given year                                           | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.9999999...% (16 9's) | at least 99.9999999...% (16 9's) |
 | Supported storage account types                                                                          | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 
 Storage replication is not intended as backup (deletions will be propagated immediately), but for availability. In this context, GRS ans RA-GRS are defined:
