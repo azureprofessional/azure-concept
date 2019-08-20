@@ -1,4 +1,6 @@
-![Logo](./media/logo.png)
+<p align="center">
+  <img src="./media/logo.png">
+</p>
 
 # An Open Source Azure Concept
 
