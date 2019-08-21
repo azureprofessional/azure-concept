@@ -26,4 +26,10 @@ We went live on August 19. 2019 - **Here it is!**
 ## Contributors welcome!
 Even if you only find a typo, we are very happy about all contributions! Simply edit the content and submit a pull request. If you want to become a regular editor, just email me at [matthias.gessenay@corporatesoftware.ch](mailto:matthias.gessenay@corporatesoftware.ch), I will add you to the team!
 
+## The Team
 
+### Initiator and project maintainer
+**Matthias Gessenay**
+![Matthias Gessenay](https://cloudspeedch.files.wordpress.com/2019/08/gessenay-matthias-mvp-verysmall.jpeg)
+Microsoft Azure MVP
+[Email](mailto:matthias.gessenay@corporatesoftware.ch) | [Blog](https://cloudspeed.ch) | [LinkedIn](https://linkedin.com/in/matthias-gessenay) | [Twitter](https://twitter.com/mgessenay)
