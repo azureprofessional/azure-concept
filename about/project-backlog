@@ -1,2 +1,14 @@
 # Backlog
 
+## Topics assigned to Matthias Gessenay
+- PoR + Partner Connect - what is what and how does it work?
+- RBAC, which rules are useful? Should you always work with r/rw/o? Level of Assignement
+- Storage Best Practice - Define IOPs with Machine Size
+- Prefer Availability Zone  versus Availability Set - what are the costs?
+- Tags - Aggregate with JSON
+- Admin-Accounts - Two Accounts, Advanced PIM (in the Introduction)
+- Multiple AD on one AAD works with Azure AD Connect
+- Passwort Hash sync - Benefits even with PTA/ADFS: Weak password analysis, Fallback for PTA 
+- Guest user concept
+- Service account best practices
+- Service Bus
