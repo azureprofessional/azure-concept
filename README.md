@@ -39,7 +39,7 @@ Microsoft Azure MVP
 **Stefan Beckmann**
 ![Stefan Beckmann](./media/Stefan-Beckmann.png)
 Citrix Technology Advocates
-[Email](mailto:stefan@beckmann.ch) | [Blog](https://www.beckmann.ch) | [LinkedIn](https://www.linkedin.com/in/stefan-beckmann-31a88313b/) | [Twitter](https://www.linkedin.com/in/stefan-beckmann-31a88313b/)
+[Email](mailto:stefan@beckmann.ch) | [Blog](https://www.beckmann.ch) | [LinkedIn](https://www.linkedin.com/in/stefan-beckmann-31a88313b/) | [Twitter](https://twitter.com/alphasteff)
 
 ### Contributor
 **Robin Berberat**
