@@ -30,18 +30,18 @@ Even if you only find a typo, we are very happy about all contributions! Simply 
 
 
 ### Initiator and project maintainer
-**Matthias Gessenay**
-![Matthias Gessenay](https://cloudspeedch.files.wordpress.com/2019/08/gessenay-matthias-mvp-verysmall.jpeg)
-Microsoft Azure MVP
+**Matthias Gessenay**  
+![Matthias Gessenay](https://cloudspeedch.files.wordpress.com/2019/08/gessenay-matthias-mvp-verysmall.jpeg)  
+Microsoft Azure MVP  
 [Email](mailto:matthias.gessenay@corporatesoftware.ch) | [Blog](https://cloudspeed.ch) | [LinkedIn](https://linkedin.com/in/matthias-gessenay) | [Twitter](https://twitter.com/mgessenay)
 
 ### Contributor
-**Stefan Beckmann**
-![Stefan Beckmann](./media/Stefan-Beckmann.png)
-Citrix Technology Advocates
+**Stefan Beckmann**  
+![Stefan Beckmann](./media/Stefan-Beckmann.png)  
+Citrix Technology Advocates  
 [Email](mailto:stefan@beckmann.ch) | [Blog](https://www.beckmann.ch) | [LinkedIn](https://www.linkedin.com/in/stefan-beckmann-31a88313b/) | [Twitter](https://twitter.com/alphasteff/)
 
 ### Contributor
-**Robin Berberat**
-Microsoft Certified Trainer
+**Robin Berberat**  
+Microsoft Certified Trainer  
 [Email](mailto:robin.berberat@corporatesoftware.ch) | [LinkedIn](https://www.linkedin.com/in/robin-berberat-18692617b/) 
