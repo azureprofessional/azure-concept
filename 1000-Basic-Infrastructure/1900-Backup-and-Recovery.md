@@ -63,12 +63,11 @@ Azure Backup for files and folders requires the installation of an Azure Backup 
 
 ### What is Azure Site Recovery
 
-Azure Site Recovery (ASR) is a service, that orchestrates and automates replication and failover of your Azure VMs between different Regions, of your on-premises VMs and physical servers to Azure and of your on-premises machines to a secondary datacenter. It's processes assist you in providing meaningful contributions to your business-continuity and disaster recovery strategy.
-Additionally, Azure Site Recovery allows you to move your IaaS-Solutions to other Regions or into Availability Zones.	
+Azure Site Recovery (ASR) is a service, that orchestrates and automates replication and failover of your Azure VMs between different Regions, of your on-premises VMs and physical servers to Azure and of your on-premises machines to a secondary datacenter. It's processes assist you in providing meaningful contributions to your business-continuity and disaster recovery strategy. Additionally, Azure Site Recovery allows you to move your IaaS-Solutions to other Regions or into Availability Zones.
 
 ### How does it work?
 
-To explain how ASR works, We'll be employing a Demo Environment, that looks like the following picture:
+To explain how ASR works, let's go through an example:
 
 ![](../media/enable-replication-step-1.png)
 
@@ -84,7 +83,7 @@ Now, when we enable replication for our Azure VMs, the following will happen:
 
 ![](../media/enable-replication-step-2.png)
 
-After these steps have been completed, our demo environment should look like this. As you can see, so far only our Data is being transferred over to the Target Environment. Only when the Failover process is initiated, the VMs will be created. Speaking of...
+After these steps have been completed, our  environment should look like this. As you can see, so far only our Data is being transferred over to the Target Environment. Only when the Failover process is initiated, the VMs will be created.
 
 ### Failover Process
 
@@ -92,7 +91,14 @@ After you've first created the Replication Policy, it is highly recommended that
 
 ![](../media/failover.png)
 
-Our Source Environment is not available, be it for either an planned or an unplanned interruption in service. For this reason, a Failover has been initiated. Azure has created two identical VMs, mirroring those usually available in our Source Environment. If everything has been set up correctly, our customers will have experienced only a minor downtime during the moments that the failover was initiated, and now they're continuing their activities on the Target Environment.
+If our Source Environment is not available, be it for either an planned or an unplanned interruption in service. For this reason, a Failover has been initiated. Azure has created two identical VMs, mirroring those usually available in our Source Environment. If everything has been set up correctly, our customers will have experienced only a minor downtime during the moments that the failover was initiated, and now they're continuing their activities on the Target Environment.
 
 Once our Source Environment has been re-established, we can failback to it and then clean up the Target Environment.
 
+[recommendations]: # ( start )
+
+### Dependencies
+
+Be aware, that your VMs will most probably have dependencies. Availability Sets will be rebuild automatically (same vor VNETs), but things like key vault, storage accounts etc. will not be rebuild nor will you be able to move them. But if you have a traffic manager deployed (this is a global service), you can use this traffic manager to redirect the traffic to the new region.
+
+[recommendations]: # ( end )

@@ -52,7 +52,7 @@ When the account is created, a subscription can be assigned:
 
 ![](..//media/image11.png)
 
-This approach is resumed in the CSP Model – whereas the customer doesn’t have an Enterprise portal, but multiple subscriptions that are bound to his Active Directory.
+This approach is resumed in the CSP Model - whereas the customer doesn’t have an Enterprise portal, but multiple subscriptions that are bound to his Active Directory.
 
 Source: <https://docs.microsoft.com/en-us/azure/security/governance-in-azure>
 Source: <https://www.credera.com/blog/credera-site/azure-governance-part-2-using-subscriptions-resource-groups-building-blocks/>
