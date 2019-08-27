@@ -12,6 +12,8 @@ A geography is a discrete market, typically containing two or more regions, that
 
 Availability Zones are physically separate locations within an Azure region. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. Availability Zones allow customers to run mission-critical applications with high availability and low-latency replication.
 
+Source: https://azure.microsoft.com/en-us/global-infrastructure/regions/
+
 You can test the latency, upload speed etc. on the website [Azurespeed](http://www.azurespeed.com/). There is also an interactive world map with the datacenters: [Azure Worldmap Interactive](https://map.buildazure.com/)
 
 ## Region pairing
