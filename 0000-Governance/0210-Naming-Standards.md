@@ -63,15 +63,17 @@ While all the information about type, metadata and context is available via API,
 
 For instance, here are two possible names for a service hosting a calculation engine:
 
-  - SvcCalculationEngine (prefix)
+- SvcCalculationEngine (prefix)
 
-  - CalculationEngineSvc (suffix)
+- CalculationEngineSvc (suffix)
 
 Affixes can refer to different aspects that describe the particular resources. See in the examples under chapter application.
 
 [recommendations]: # ( start )
 ## Good Practices: Naming standards
+
 ### Affixes
+
 **Region**
 
 | Region               | Location             | Code     |
@@ -174,10 +176,10 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Initative                                     | Governance   |        |        |
 | Internal Load Balancer                        | Networking   | LBIN   |        |
 | Key Vault                                     | Other        | KEYV   |        |
-| Load Balancer	Networking                      | Networking   | LLBN   |        |
+| Load Balancer Networking                      | Networking   | LLBN   |        |
 | Local Network Gateway                         | Networking   | LNGA   |        |
 | Log Analytics Workspace                       | Monitoring   | LAWS   |        |
-| Managed Disk	Storage                         | Storage      |        |        |
+| Managed Disk Storage                         | Storage      |        |        |
 | Management Group                              | Governance   | MAGR   |        |
 | Network Interface                             | Networking   |        | NIC    |
 | Network Security Group                        | Networking   | NSGR   |        |

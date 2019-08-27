@@ -39,4 +39,3 @@ Often you'll have a datacenter near or in your country, but for several reasons,
 ## Migrate to another Region
 
 Migration to another Azure Region is only possible for virtual machines. You are best suited with managed disks. However, availability sets, networks and load balancers can be recreated by Azure Site Recovery. This makes region moves a pretty complex task with either a lot of manual work or prescripting.
-
