@@ -58,7 +58,7 @@ Setup a new File Server in parallel and prestage Files or sync with Azure File S
 One Option to achieve high availability is to create a Scale out File Server (SoFS) in Azure. For more informations check this Blog:
 <https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126>
 
-![Azure File Sync Topology](<../media/Azure_FileSync.png>)
+![Azure File Sync Topology](<../media/Azure-FileSync.png>)
 
 
 *Pros:*
@@ -128,7 +128,7 @@ Select a new or existing file share that's associated with the same subscription
 - Verify Azure Files connectivity by mounting Azure file shares using your storage account key.
  To verify that your VM and file share are properly configured, try mounting the file share using your storage account key. For more information, see Mount an Azure file share and access the share in Windows.
 
- ![Active AADDS on Azure Files](<../media/AzureFiles_AADDS.png>)
+ ![Active AADDS on Azure Files](<../media/AzureFiles-AADDS.png>)
 
  Source: <https://docs.microsoft.com/de-de/azure/storage/files/storage-files-active-directory-enable>
 
