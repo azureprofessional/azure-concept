@@ -194,7 +194,7 @@ for current limitations.
 
 ## Bellow some key features in a short overview ##
 
-| .| Classic File Server | SharePoint Online | OneDrive for Business | NetApp | Azure Files |
+| | Classic File Server | SharePoint Online | OneDrive for Business | NetApp | Azure Files |
 |---|---|---|---|---|---|---|
 | Operated by| Internal IT | Microsoft | Microsoft | Microsoft/NetApp | Microsoft |
 | Local AD integration | Yes | No (Azure AD)| No (Azure AD) | Yes | No (Azure AD Domain Services) |
