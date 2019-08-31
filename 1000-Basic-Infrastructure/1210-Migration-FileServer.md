@@ -192,7 +192,7 @@ for current limitations.
 - End-User training required
 - Best with Windows 10 and latest Office 365 Version
 
-|   | Classic File Server  | SharePoint Online   | OneDrive for Business | NetApp | Azure Files |
+|   |   Classic File Server   |   SharePoint Online |   OneDrive for Business   |   NetApp  |   Azure Files |
 |---|---|---|---|---|---|---|
 |  Operated by|  Internal IT | Microsoft  | Microsoft  | Microsoft/NetApp | Microsoft |  
 | Local AD integration | Yes | No (Azure AD)| No (Azure AD) | Yes | No (Azure AD Domain Services) |
