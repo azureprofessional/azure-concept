@@ -195,7 +195,7 @@ for current limitations.
 ## Bellow some key features in a short overview ##
 
 | | Classic File Server | SharePoint Online | OneDrive for Business | NetApp | Azure Files |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Operated by| Internal IT | Microsoft | Microsoft | Microsoft/NetApp | Microsoft |
 | Local AD integration | Yes | No (Azure AD)| No (Azure AD) | Yes | No (Azure AD Domain Services) |
 | New Storage| New Storage space required (perhaps new disks) | Pay-as-you-Go| Pay-as-you-Go (MS issues credits beyond 25TB) |Pay-as-you-Go| Pay-as-you-Go|
