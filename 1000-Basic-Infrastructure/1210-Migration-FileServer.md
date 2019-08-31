@@ -192,13 +192,13 @@ for current limitations.
 - End-User training required
 - Best with Windows 10 and latest Office 365 Version
 
-|   |   Classic File Server   |   SharePoint Online |   OneDrive for Business   |   NetApp  |   Azure Files |
+| | Classic File Server | SharePoint Online | OneDrive for Business | NetApp | Azure Files |
 |---|---|---|---|---|---|---|
-|  Operated by|  Internal IT | Microsoft  | Microsoft  | Microsoft/NetApp | Microsoft |  
+| Operated by| Internal IT | Microsoft | Microsoft | Microsoft/NetApp | Microsoft |
 | Local AD integration | Yes | No (Azure AD)| No (Azure AD) | Yes | No (Azure AD Domain Services) |
-|  New Storage|  New Storage space required (perhaps new disks) | Pay-as-you-Go| Pay-as-you-Go (MS issues credits beyond 25TB) |Pay-as-you-Go| Pay-as-you-Go|
-|  Work together on Files in realtime |  No | Yes  | Yes  | No | No |
-|  Access Files from everywhere |  No (VPN)| Yes  | Yes  | No | No |
-|  Offline Access |  Yes (work folders)| Yes  | Yes  | No | No |
-|  External Sharing |  No| Yes  | Yes  | No | No |
-| Optimzed for WAN Access |  No| Yes  | Yes  | No | No |
+| New Storage| New Storage space required (perhaps new disks) | Pay-as-you-Go| Pay-as-you-Go (MS issues credits beyond 25TB) |Pay-as-you-Go| Pay-as-you-Go|
+| Work together on Files in realtime | No | Yes | Yes | No | No |
+| Access Files from everywhere | No (VPN)| Yes | Yes | No | No |
+| Offline Access | Yes (work folders)| Yes | Yes | No | No |
+| External Sharing | No| Yes | Yes | No | No |
+| Optimzed for WAN Access | No| Yes | Yes | No | No |
