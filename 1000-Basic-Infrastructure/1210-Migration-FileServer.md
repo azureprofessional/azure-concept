@@ -85,7 +85,7 @@ Azure NetApp Files is billed on provisioned storage capacity. Provisioned capaci
 Capacity pools are billed based on $/provisioned-GiB/month in hourly increments. 
 The minimum size for a single capacity pool is 4 TiB, and capacity pools can be subsequently expanded in 1-TiB increments.
 
- ![NetApp Files in Azure Portal](<../media/NetApp_Files.png>)
+ ![NetApp Files in Azure Portal](<../media/NetApp-Files.png>)
 
 *Pros:*
 - Quite good performance
