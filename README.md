@@ -45,3 +45,9 @@ Citrix Technology Advocates
 **Robin Berberat**  
 Microsoft Certified Trainer  
 [Email](mailto:robin.berberat@corporatesoftware.ch) | [LinkedIn](https://www.linkedin.com/in/robin-berberat-18692617b/) 
+
+### Contributor
+**Dominik Wilsberg**  
+![Stefan Beckmann](./media/Dominik-Wilsberg.png)  
+Microsoft Certified Trainer
+[Email](mailto:dwilsberg@wilsberg.info) | [LinkedIn](https://www.linkedin.com/in/dominik-w-a0925313b/) 
