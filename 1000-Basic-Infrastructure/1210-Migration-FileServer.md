@@ -192,6 +192,8 @@ for current limitations.
 - End-User training required
 - Best with Windows 10 and latest Office 365 Version
 
+## Bellow some key features in a short overview ##
+
 | .| Classic File Server | SharePoint Online | OneDrive for Business | NetApp | Azure Files |
 |---|---|---|---|---|---|---|
 | Operated by| Internal IT | Microsoft | Microsoft | Microsoft/NetApp | Microsoft |
