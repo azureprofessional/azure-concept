@@ -1,7 +1,9 @@
-**Files on Azure**
+# Files on Azure
+
 For many customers, who are migrating their workload to the cloud, one central question is: what about my files?
 Most of the times there are a lot of dependencies to be arware of like user accessing files or EDI between systems.
 Before migrating your workload to the cloud you have to check these dependencies. Even if all dependencies are fine, there are a few thinks to consider:
+
 - what about availability requirenments
 - current file server setup (Cluster, NetApp Ontap etc.)
 - Linux Server
@@ -16,6 +18,7 @@ Before migrating your workload to the cloud you have to check these dependencies
 - Archiving
 
 What options do we have to provide files on azure (we will not focus on all 3rd party solutions):
+
 - Lift & Shift your FileServer via ASR (Azure Site Recovery)
 - Built a new FileServer on Azure and migrate Files (Azure File Sync, robocopy...)
 - Azure Files
@@ -23,12 +26,14 @@ What options do we have to provide files on azure (we will not focus on all 3rd 
 - Switch to a new concept like SharePoint and OneDrive
 
 For all the solutions above (except SharePoint and OneDrive), you should be aware of:
+
 - SMB is not quite the best protocoll for accessing files over WAN with high latency
 - Outbound data transfers will be charged
 
 Let´s have a deeper look on these options:
 
-**Lift & Shift**
+## Lift & Shift
+
 This would quite be the easiest way as you can setup ASR, sync your server and failover in a scheduled maintenance window.
 [recommendations]: # ( start )
 Even if azure managed disks provide Azure Storage Service Encryption (SSE), we recommend Azure Disk Encryption (ADE) to protect your data against internal threats (like copy disk).
@@ -37,6 +42,7 @@ Even if azure managed disks provide Azure Storage Service Encryption (SSE), we r
 ![Decision Tree for File Server](<../media/Protect_FileServer.png>)
 
 *Pros:*
+
 - Client connections doesen´t change
 - Scripts and GPO´s do not need to change
 - Small maintenance window required
@@ -45,6 +51,7 @@ Even if azure managed disks provide Azure Storage Service Encryption (SSE), we r
 - All Links, favority, recent documents etc. still work after failover
 
 *Cons:*
+
 - Not possible if 3rd Party Solutions like Netapp are in place
 - Not possible for Scale-Out File Server (SOFS)
 - operation modell doesen´t change as this is just IaaS (OS Patches)
@@ -53,15 +60,16 @@ Even if azure managed disks provide Azure Storage Service Encryption (SSE), we r
 - New Share can be used by OnPremises Servers and Clients
 - ADE produces overhead for restore (single file restore not supported for today)
 
-**New FileServer**
+## New FileServer
+
 Setup a new File Server in parallel and prestage Files or sync with Azure File Sync. The final Delta-Synchronization has to be done in a scheduled maintenance window.
 One Option to achieve high availability is to create a Scale out File Server (SoFS) in Azure. For more informations check this Blog:
 <https://techcommunity.microsoft.com/t5/Failover-Clustering/Deploying-IaaS-VM-Guest-Clusters-in-Microsoft-Azure/ba-p/372126>
 
 ![Azure File Sync Topology](<../media/Azure-FileSync.png>)
 
-
 *Pros:*
+
 - Chance to switch to a new OS
 - Tests possible
 - AD Integration
@@ -71,13 +79,15 @@ One Option to achieve high availability is to create a Scale out File Server (So
 - AD Integration
 
 *Cons:*
+
 - Client connections will change (except DFSN is in place)
 - Operation modell doesen´t change as this is just IaaS (OS Patches)
 - Costs on Azure (large Premium Disks)
 - ADE produces overhead for restore (single file restore not supported for today)
 - All Links, favority, recent documents etc. will no longer work (except DFSN is in place)
 
-**NetApp Files**
+## NetApp Files
+
 Azure NetApp Files is a fully managed cloud service with full Azure portal integration. As NetApp supports AD integration,
 all your domain joined Servers and Clients can access the shares via SMB (3.1).
 Beside SMB, NetApp also supports NFSv3. As there are three performance tiers (Standard, Premium and Ultra tier), you can optimise NetApp Files for your workload and spending requirements.
@@ -88,6 +98,7 @@ The minimum size for a single capacity pool is 4 TiB, and capacity pools can be 
  ![NetApp Files in Azure Portal](<../media/NetApp-Files.png>)
 
 *Pros:*
+
 - Quite good performance
 - Fully managed service
 - Prooven technology
@@ -96,6 +107,7 @@ The minimum size for a single capacity pool is 4 TiB, and capacity pools can be 
 - Local AD integration
 
 *Cons:*
+
 - Can be expensive (depends on tier configuration)
 - For new customers, this is a new technology that operations teams has to be trained for
 - New backup/restore concept
@@ -103,12 +115,12 @@ The minimum size for a single capacity pool is 4 TiB, and capacity pools can be 
 - Be carefull with: NSG´s, UDRs, Policies, Load Balancers (check constraints)
 - Cross region or global peering access to volumes not supported
 
-**Azure Files**
+## Azure Files
+
 Azure Files offers fully managed file shares in the cloud that can be accessed via SMB (Azure Files support SMB 3.0).
 You can use Azure Files without being responsible for managing the overhead of a physical server, device, or appliance.
 Azure Files also supports identity-based authentication through Azure Active Directory Domain Services (AADDS).
-To use this new services, your VMs have to be joined to AADDS. The good news are, that users, who will login to this VMs, can also mount 
-Shares from VMs that are just connected to local AD. As Azure Files offers Soft Delete and also Azure backup support, no agents or VMs need to be deployed to enable Backup.
+To use this new services, your VMs have to be joined to AADDS. The good news are, that users, who will login to this VMs, can also mount Shares from VMs that are just connected to local AD. As Azure Files offers Soft Delete and also Azure backup support, no agents or VMs need to be deployed to enable Backup.
 
 The Setup is quite easy:
 Before you enable Azure AD over SMB for Azure Files, make sure you have completed the following prerequisites:
@@ -133,6 +145,7 @@ Select a new or existing file share that's associated with the same subscription
  Source: <https://docs.microsoft.com/de-de/azure/storage/files/storage-files-active-directory-enable>
 
 *Pros:*
+
 - If you migrate your files (for example via robocopy), your ACL´s are preserved (you just have to configure Access via Azure RBAC on the Share for the Storage Account.
 - Built-In high availibility (check SLA for Storage Accounts)
 - Managed by Microsoft
@@ -140,13 +153,15 @@ Select a new or existing file share that's associated with the same subscription
 - Cheaper than IaaS (mostly)
 
 *Cons:*
+
 - No NFS Support
 - AADDS not supported for Linux
 - Azure AD DS authentication for SMB access is not supported for Active Directory domain-joined machines
 - Backup concept has to change
 - All Links, favority, recent documents etc. will no longer work
 
-**SharePoint online and OneDrive**
+## SharePoint online and OneDrive
+
 One of the big revolutions of modern business has been the emergence of remote working. This could be quite challanging with traditional file servers.
 This kind of migration requires a llot of planning as it is not really a good approach to just move the files to a SharePoint library.
 Even if SharePoint Online and OneDrive is the way where clients will save their documents (OneDrive is the new default file location in Office), there are
@@ -155,6 +170,7 @@ Check <https://support.office.com/en-us/article/invalid-file-names-and-file-type
 for current limitations.
 
 *Pros:*
+
 - Works great for WAN connections as this solutions is designed for WAN access
 - Great collaboratoin capabilities (work together on documents, internal and external sharing)
 - New Security features like AIP, IRM, Azure AD Premium etc.
@@ -165,6 +181,7 @@ for current limitations.
 - No Domain Controllers in Azure required
 
 *Cons:*
+
 - Users has to change the way they work 
 - All Links, favority, recent documents etc. will no longer work
 - EDI between Servers via Service Accounts has to be redesigned
@@ -179,7 +196,7 @@ for current limitations.
 |---|---|---|---|---|---|---|
 |  Operated by|  Internal IT | Microsoft  | Microsoft  | Microsoft/NetApp | Microsoft |  
 | Local AD integration | Yes | No (Azure AD)| No (Azure AD) | Yes | No (Azure AD Domain Services) |
-|  New Storage|  New Storage space required (perhaps new disks) | Pay-as-you-Go| Pay-as-you-Go (MS issues credits beyond 25TB) |Pay-as-you-Go| Pay-as-you-Go| 
+|  New Storage|  New Storage space required (perhaps new disks) | Pay-as-you-Go| Pay-as-you-Go (MS issues credits beyond 25TB) |Pay-as-you-Go| Pay-as-you-Go|
 |  Work together on Files in realtime |  No | Yes  | Yes  | No | No |
 |  Access Files from everywhere |  No (VPN)| Yes  | Yes  | No | No |
 |  Offline Access |  Yes (work folders)| Yes  | Yes  | No | No |
