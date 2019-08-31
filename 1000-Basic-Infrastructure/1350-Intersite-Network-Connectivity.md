@@ -145,6 +145,23 @@ If you're looking for an ExpressRoute service-provider, we recommend visiting th
 ### Bandwidth Options
 You can an up-to-date list of the currently available bandwith options under the folowing site: https://docs.microsoft.com/en-gb/azure/expressroute/expressroute-introduction#bandwidth-options
 
+### Pricing for ExpressRoute
+There are several factors that has to be considered for ExpressRoute:
+####Microsoft
+
+- ExpressRoute circuit
+- Virtual network gateway (depends on SKU or Failover)
+- Outbound data transfer (Exceptions: ExpressRoute local, - Unlimited plan)
+- AddOns like Premium or GlobalReach
+
+#### Provider
+ 
+- Cloud Exchange Ports
+- Cross Connects to Cloud Exchange
+- Virtual Circuit to Cloud Service Provider
+- Remote Virtual Circuit
+- Rack for collocation
+
 [Recommendations]: # "start"
 
 ## Recommendations
