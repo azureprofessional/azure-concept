@@ -4,7 +4,7 @@
 
 Azure has more global regions than any other cloud provider—offering the scale needed to bring applications closer to users around the world, preserving data residency, and offering comprehensive compliance and resiliency options for customers. Currently there are 54 Regions worldwide, and Azure is available in 140 countries.
 
-![Azure Worldmap](https://azurecomcdn.azureedge.net/cvt-09a09529e36412be37af0c97b765efdff34ec6913c618707068e6b8dbbc8da19/images/shared/regions-map-large.svg)
+![Azure Worldmap](..//media/azure-regions_map.png)
 
 A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. With more global regions than any other cloud provider, Azure gives customers the flexibility to deploy applications where they need to.
 
