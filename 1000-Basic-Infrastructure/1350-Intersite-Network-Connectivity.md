@@ -143,16 +143,17 @@ Source: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-connect
 If you're looking for an ExpressRoute service-provider, we recommend visiting the following site, for an up-to-date list of each provider broken down by location: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-locations-providers
 
 ### Bandwidth Options
-You can an up-to-date list of the currently available bandwith options under the folowing site: https://docs.microsoft.com/en-gb/azure/expressroute/expressroute-introduction#bandwidth-options
+You can find an up-to-date list of the currently available bandwith options under the folowing site: https://docs.microsoft.com/en-gb/azure/expressroute/expressroute-introduction#bandwidth-options
 
 ### Pricing for ExpressRoute
-There are several factors that has to be considered for ExpressRoute:
-####Microsoft
+There are several factors that have to be considered for ExpressRoute:
+
+#### Microsoft
 
 - ExpressRoute circuit
 - Virtual network gateway (depends on SKU or Failover)
 - Outbound data transfer (Exceptions: ExpressRoute local, - Unlimited plan)
-- AddOns like Premium or GlobalReach
+- Add-Ons like Premium or GlobalReach
 
 #### Provider
  
@@ -162,7 +163,7 @@ There are several factors that has to be considered for ExpressRoute:
 - Remote Virtual Circuit
 - Rack for collocation
 
-[Recommendations]: # "start"
+[Recommendations]: # ( start )
 
 ## Recommendations
 
@@ -178,7 +179,7 @@ To connect your on-premise location with your Hub-VNet in Azure, we recommend se
 | Analyse your   current network                        | - Analyse your client computers and optimize for network hardware, software drivers, protocol   settings, and Internet browsers.  <br />- Analyse your on-premises   network for traffic latency and optimal routing to the Internet edge device.  <br />- Analyse the capacity and   performance of your Internet edge device and optimize for higher levels of   traffic.  <br />- Analyse the latency   between your Internet edge device (such as your external firewall) and the   regional locations of the Microsoft cloud service to which you are   connecting.  <br />- Analyse the capacity and   utilization of your current Internet connection and add capacity if needed.   Alternately, add an ExpressRoute connection. |
 | Plan and design   networking for Azure                | - Prepare your intranet for   Microsoft cloud services.  <br />- Optimize your Internet   bandwidth.  <br />- Determine the type of   VNet (cloud-only or cross-premises).  <br />- Determine the address   space of the VNet.<br />- Determine the subnets   within the VNet and the address spaces assigned to each.<br />- Determine the DNS server   configuration and the addresses of the DNS servers to assign to VMs in the   VNet.<br />- Determine the load   balancing configuration (Internet-facing or internal).<br />- Determine the use of   virtual appliances and user-defined routes.<br />- Determine how computers   from the Internet will connect to virtual machines.<br />- For multiple VNets,   determine the VNet-to-VNet connection topology.<br />- Determine the on-premises   connection to the VNet (S2S VPN or ExpressRoute).<br />- Determine the on-premises   VPN device or router.<br />- Add routes to make the   address space of the VNet reachable.<br />- For ExpressRoute, plan for the new connection with   your provider.<br />- Determine the Local Network address space for the   Azure gateway.  <br />- Configure on-premises DNS servers for DNS   replication with DNS servers hosted in Azure.  *Determine the use of forced tunneling and   user-defined routes. |
 
-[Recommendations]: # "end"
+[Recommendations]: # ( end )
 
 ## Azure Network Peering
 
