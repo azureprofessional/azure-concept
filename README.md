@@ -48,6 +48,6 @@ Microsoft Certified Trainer
 
 ### Contributor
 **Dominik Wilsberg**  
-![Stefan Beckmann](./media/Dominik-Wilsberg.png)  
+![Dominik Wilsberg](./media/Dominik-Wilsberg.png)  
 Microsoft Certified Trainer
 [Email](mailto:dwilsberg@wilsberg.info) | [LinkedIn](https://www.linkedin.com/in/dominik-w-a0925313b/) 
