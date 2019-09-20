@@ -356,32 +356,32 @@ BLPR_BasicConfig_01
 **Resource Group**
 
 *Pattern*:  
-`<Prefix>_[TenantShort]_<Environment>_<Region>_<Service|System>_<VersionNr>`
+`<Prefix>_[TenantShort]_<Region>_<Environment>_<Service|System>_<VersionNr>`
 
 *Examples*:
 
-RSGR_AU_EUWE_Automation_01  
-RSGR_CO_AAAA_Core_01  
-RSGR_CO_AAAA_Network_01  
-RSGR_PR_AAAA_Network_01  
-RSGR_PR_AAAA_Security_01  
-RSGR_PR_AAAA_Storage_01
+RSGR_EUWE_AU_Automation_01  
+RSGR_AAAA_CO_Core_01  
+RSGR_AAAA_CO_Network_01  
+RSGR_AAAA_PR_Network_01  
+RSGR_AAAA_PR_Security_01  
+RSGR_AAAA_PR_Storage_01
 
-RSGR_MYTC_AU_EUWE_Automation_01  
-RSGR_MYTC_CO_AAAA_Core_01  
-RSGR_MYTC_CO_AAAA_Network_01  
-RSGR_MYTC_CO_AAAA_Security_01  
-RSGR_MYTC_CO_AAAA_Storage_01  
-RSGR_MYTC_CO_AAAA_Backup_01  
-RSGR_MYTC_CO_EUWE_DomainServices_01  
-RSGR_MYTC_PR_AAAA_Network_01  
-RSGR_MYTC_PR_AAAA_Security_01  
-RSGR_MYTC_PR_AAAA_Storage_01  
-RSGR_MYTC_PR_EUWE_ApplicationA_01  
-RSGR_MYTC_TE_AAAA_Network_01  
-RSGR_MYTC_TE_AAAA_Security_01  
-RSGR_MYTC_TE_AAAA_Storage_01  
-RSGR_MYTC_TE_EUWE_ApplicationA_01
+RSGR_MYTC_EUWE_AU_Automation_01  
+RSGR_MYTC_AAAA_CO_Core_01  
+RSGR_MYTC_AAAA_CO_Network_01  
+RSGR_MYTC_AAAA_CO_Security_01  
+RSGR_MYTC_AAAA_CO_Storage_01  
+RSGR_MYTC_AAAA_CO_Backup_01  
+RSGR_MYTC_EUWE_CO_DomainServices_01  
+RSGR_MYTC_AAAA_PR_Network_01  
+RSGR_MYTC_AAAA_PR_Security_01  
+RSGR_MYTC_AAAA_PR_Storage_01  
+RSGR_MYTC_EUWE_PR_ApplicationA_01  
+RSGR_MYTC_AAAA_TE_Network_01  
+RSGR_MYTC_AAAA_TE_Security_01  
+RSGR_MYTC_AAAA_TE_Storage_01  
+RSGR_MYTC_EUWE_TE_ApplicationA_01
 
 *Description*:
 
@@ -389,8 +389,8 @@ RSGR_MYTC_TE_EUWE_ApplicationA_01
 | --------------- | ----- | ---------------------------------------------------------- |
 | Prefix          | 4     | RSGR = Ressource Group                                     |
 | TenantShort     | 4     | MYTC = My Top Company                                      |
-| Environment     | 2     | Described in the chapter Affixes, Environment              |
 | Region          | 4     | Described in the chapter Affixes, Region                   |
+| Environment     | 2     | Described in the chapter Affixes, Environment              |
 | Service\|System | 5..25 | Describes a purpose for which the resource should be used. |
 | VersionNr       | 2     | 01..99                                                     |
 
