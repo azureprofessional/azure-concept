@@ -128,8 +128,8 @@ Affixes can refer to different aspects that describe the particular resources. S
 | US Gov Texas         | Texas                | USGT     |
 | US Gov Virginia      | Virginia             | USGV     |
 | West Central US      | Wyoming              | UWCE     |
-| West US              | California           | USW2     |
-| West US 2            | Washington           | USWE     |
+| West US              | California           | USWE     |
+| West US 2            | Washington           | USW2     |
 | Brazil South         | Sao Paulo State      | BRSO     |
 | Azure Stack          | Datacenter           | AZBE     |
 
