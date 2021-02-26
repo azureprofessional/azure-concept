@@ -162,8 +162,10 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Azure Application Gateway                     | Security     | AAGA   |        |
 | Azure Automation Hybrid Worker                | Hybrid       |        |        |
 | Azure Traffic Manager Profile                 | Networking   | ATMP   |        |
+| Bastion                                       | Networking   | BAST   |        |
 | Blob                                          | Storage      |        |        |
 | Blueprints                                    | Governance   | BLPR   |        |
+| Budget                                        | Cost Management | BUDG |       |
 | Container                                     | Serverless   |        |        |
 | Data Lake Store                               | Storage      |        |        |
 | Event Grid Domains                            | Event Hub    | EGDO   |        |
@@ -179,7 +181,7 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Load Balancer Networking                      | Networking   | LLBN   |        |
 | Local Network Gateway                         | Networking   | LNGA   |        |
 | Log Analytics Workspace                       | Monitoring   | LAWS   |        |
-| Managed Disk Storage                         | Storage      |        |        |
+| Managed Disk Storage                          | Storage      |        |        |
 | Management Group                              | Governance   | MAGR   |        |
 | Network Interface                             | Networking   |        | NIC    |
 | Network Security Group                        | Networking   | NSGR   |        |
@@ -190,9 +192,13 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Queue                                         | Serverless   |        |        |
 | Recovery Service Vault Storage                | Backup       | RSVS   |        |
 | Recovery Services Vault                       | Backup       | RSVA   |        |
-| Recovery Services Vault – Azure Backup Policy | Backup       | ABPO   |        |
+| Recovery Services Vault - Azure Backup Policy | Backup       | ABPO   |        |
 | Ressource Group                               | Governance   | RSGR   |        |
 | Route Table                                   | Networking   | NRTA   |        |
+| Shared Image Gallery                          | Compute      | SIGA   |        |
+| Shared Image Gallery Definition               | Compute      | SIGD   |        |
+| Shared Image Gallery Output                   | Compute      | SIGO   |        |
+| Shared Image Gallery Template                 | Compute      | SIGT   |        |
 | SQL Database                                  | Database     | SQDB   |        |
 | SQL Datawarehouse                             | Database     | SQDB   |        |
 | SQL Managed Instance                          | Database     | SQMI   |        |
@@ -208,6 +214,9 @@ Affixes can refer to different aspects that describe the particular resources. S
 | Virtual Network (VNet)                        | Networking   | VNET   |        |
 | VNet Peering                                  | Networking   | VNPE   |        |
 | VPN Gateway                                   | Networking   | VPNW   |        |
+| Windows Virtual Desktop Host Pool             | WVD          | VDHP   |        |
+| Windows Virtual Desktop Application Groups    | WVD          | VDAG   |        |
+| Windows Virtual Desktop Workspace             | WVD          | VDWS   |        |
 
 **Functions**
 
