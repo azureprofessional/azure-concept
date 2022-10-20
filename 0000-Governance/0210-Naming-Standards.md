@@ -149,6 +149,8 @@ Affixes can refer to different aspects that describe the particular resources. S
 
 **Services**
 
+As an alternative, we tend to use the Azure periodic table for resource names: <https://justinoconnor.codes/2022/08/19/azure-periodic-table-of-resource-naming-convention-shorthands/>
+
 | Name                                          | Category     | Prefix | Suffix |
 | --------------------------------------------- | ------------ | ------ | ------ |
 | App Service                                   | App Services | APPS   |        |
