@@ -38,4 +38,6 @@ The following table shows features and corresponding SKUs.
 | Upload or download files |  No  | [Yes](../articles/bastion/vm-upload-download-native.md)|
 | Disable copy/paste (web-based clients) |  No  | Yes |
 
-Source: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/bastion/bastion-overview.md?plain=1
+Source: https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/bastion/bastion-overview.md
+
+Azure Bastion in the Standard SKU is capable of connection to any reachable VM, e.g. your on premises VM. This will require a site-to-site VPN (or ExpressRoute) connection and proper routing.
